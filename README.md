@@ -6,14 +6,14 @@ EPITOME aims at developing methodology for the evaluation of the impact on menta
 
 ## Members
 
-** UCL
+**UCL**
 - [Gianluca Baio](https://gianluca.statistica.it)
 - [James Kirkbride](https://www.ucl.ac.uk/psychiatry/people/james-kirkbride)
 - [Zejing Shao]()
 
-** Imperial College London
+**Imperial College London**
 - [Marta Blangiardo](https://www.imperial.ac.uk/people/m.blangiardo)
 - [Connor Gascoigne]()
 
-** LSE
+**LSE**
 - [Sara Geneletti](https://www.lse.ac.uk/Statistics/People/Dr-Sara-Geneletti)
