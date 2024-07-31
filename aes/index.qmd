@@ -1,0 +1,807 @@
+---
+#' Dynamic attributes (specific info to the slides being prepared)
+title: "A Bayesian hierarchical framework to evaluate policy effects through quasi-experimental designs"
+shorttitle: "Bayesian ITS et al"
+subtitle: ""
+date: "27 June 2024"
+conference:
+   name: XLIII Jornadas de Economia de la Salud
+   location: San Cristóbal de la Laguna, Tenerife, Spain
+   session: New challenges in the estimation of the impact of policies
+shortconference: "AES 2024"
+postit: 
+   random-talks: true
+   social-media: true
+slidesurl: 
+   show: true
+   url: "[https://giabaio.github.io/aes-2024](https://giabaio.github.io/aes-2024)"
+   size: "0.75em"
+thank-you: 
+   show: true
+   file: minions
+bibliography: "/home/gianluca/Dropbox/Rstuff/Website/publications/mypubs.bib"
+
+
+#' (Semi-)Fixed attributes (don't need to, but can change these)
+author: 
+  - name: "**Gianluca Baio**"
+institute:  
+   - uni: "Department of Statistical Science &nbsp; | &nbsp; University College London"
+email: 
+   text: "[g.baio@ucl.ac.uk](mailto:g.baio@ucl.ac.uk)"
+   icon: '`r fontawesome::fa("envelope",fill="#00acee",height="0.8em",prefer_type="solid")`'
+url: 
+  - text: "[https://gianluca.statistica.it](https://gianluca.statistica.it)"
+    icon: '`r fontawesome::fa("firefox",fill="#EA7600",height="0.8em")`'
+  - text: "[https://egon.stats.ucl.ac.uk/research/statistics-health-economics](https://egon.stats.ucl.ac.uk/research/statistics-health-economics)"
+    icon: '`r fontawesome::fa("firefox",fill="#EA7600",height="0.8em")`'
+github: 
+  - text: "[https://github.com/giabaio](https://github.com/giabaio)"
+    icon: '`r fontawesome::fa("github",fill="black",height="0.8em")`'
+  - text: "[https://github.com/StatisticsHealthEconomics](https://github.com/StatisticsHealthEconomics)"
+    icon: '`r fontawesome::fa("github",fill="black",height="0.8em")`'
+social: 
+  - text: '[\@gianlubaio@mas.to](https://mas.to/@gianlubaio)'
+    icon: '`r fontawesome::fa("mastodon",fill="#563acc",height="0.8em")`'
+  - text: '[\@gianlubaio](https://twitter.com/gianlubaio)'
+    icon: '`r fontawesome::fa("x-twitter",fill="black",height="0.8em")`'
+orchid: 
+   show: false
+   url: "[https://orcid.org/0000-0003-4314-2570](https://orcid.org/0000-0003-4314-2570)"
+   icon: '`r fontawesome::fa("orcid",fill="black",height="0.8em")`'
+date-format: "D MMMM YYYY"
+
+
+#' Computed attributes (from other parts of the yml file)
+date-as-string: '`r ifelse((rmarkdown::metadata$date)!="",(rmarkdown::metadata$date |> as.Date(format("%e %B %Y")) |> format("%e %B %Y")),(Sys.Date() |> format("%e %B %Y")))`'
+shortdate: '`r ifelse((rmarkdown::metadata$date)!="",(rmarkdown::metadata$date |> as.Date(format("%e %B %Y")) |> format("%e %b %Y")),(Sys.Date() |> format("%e %b %Y")))`'
+shorttitle-string: '`r ifelse((rmarkdown::metadata$shorttitle)!="",paste(rmarkdown::metadata$shorttitle,"&nbsp; | &nbsp;"),"")`'
+shortconference-string: '`r ifelse((rmarkdown::metadata$shortconference)!="",paste(rmarkdown::metadata$shortconference,"&nbsp; | &nbsp;"),"")`'
+slides-url: |
+   `r ifelse(
+      (rmarkdown::metadata$slidesurl$show)==TRUE,
+      paste("&nbsp; | &nbsp; [{{< fa circle-info >}} Slides available at ",
+      rmarkdown::metadata$slidesurl$url,"]{style=\"font-size:",rmarkdown::metadata$slidesurl$size,";\"}"),""
+   )`
+
+
+#' Format
+from: markdown+emoji
+format:
+  revealjs: 
+    template-partials: 
+      - assets/title-slide.html
+    include-in-header: 
+      - assets/latex_macros.html
+    transition: none
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    theme: assets/gb.scss
+# default width/height: 1050/700; can also try 1200/800 but it's a bit narrow...
+    width: 1500 
+    height: 900
+#    margin: 0.05
+    footer: |
+       &copy; Gianluca Baio (UCL) &nbsp; | &nbsp; [{{< fa brands x-twitter >}}](https://twitter.com/giabaio){title='Follow me on X'} &nbsp;
+       [{{< fa brands mastodon >}}](https://mas.to/@gianlubaio){title='Follow me on Mastodon'} &nbsp;
+       [{{< fa brands github >}}](https://github.com/giabaio){title='Check out my repos'} &nbsp;
+       [{{< fa envelope >}}](mailto:g.baio@ucl.ac.uk){title='Email me'} &nbsp;
+       [{{< fa brands firefox >}}](https://gianluca.statistica.it){title='Visit my website'} &nbsp; | &nbsp;
+       {{< meta shorttitle-string >}} {{< meta shortconference-string >}} {{< meta shortdate >}} {{< meta slides-url >}}
+
+
+#' Filters
+filters:
+ - code-visibility
+lightbox: auto
+
+#' Title slide attributes
+title-slide-attributes:
+#    data-background-image: "images/ucl-campus.png"
+    data-background-size: stretch
+    data-background-opacity: "0.08"
+#    data-background-color: "#002248"
+---
+
+```{r}
+#| label: setup
+#| echo: false
+# Loads 'tidyverse' & 'slides'
+library(tidyverse, quietly=TRUE)
+library(slides)
+
+source("assets/setup.R")
+```
+
+## Epitome
+
+[https://gianluca.statistica.it/research/its/](https://gianluca.statistica.it/research/its/)
+
+```{=html}
+<iframe width="100%" height="700"  src="https://gianluca.statistica.it/research/its/" title="Epitome"></iframe>
+```
+
+## Epitome {viibility="uncounted"}
+
+Examples
+
+- [Hostile environment](https://en.wikipedia.org/wiki/Home_Office_hostile_environment_policy) (most of this talk) 
+- [Universal credit](https://en.wikipedia.org/wiki/Universal_Credit) (more on this later...)
+- Suicides
+- Speed limits (20mph zones across large sections of many UK cities)
+- ...
+
+
+::: aside
+The research project is funded by the Wellcome Trust 
+![](images/wt.png){.absolute bottom=0 left=430}
+:::
+
+
+# Contextual/policy background
+
+## The Windrush generation
+
+:::: {.columns}
+::: {.column width="60%"}
+![](images/windrush.png)
+:::
+
+::: {.column width="40%"}
+::: {.fragment}
+- After the Second World War, the UK faced severe labour shortages. To make up for this they encouraged people from British Colonies to move to the UK, with the promise of jobs, a better standard of living, and British Citizenship 
+- Between 1948 and 1970, nearly half a million people moved from the Caribbean to Britain. These individuals became known as the **Windrush Generation**, after the ship which carried some of the first migrants
+:::
+::: {.fragment}
+- The Immigration Act of 1971 meant that only commonwealth citizens who arrived before 1971 were allowed the right to stay in the UK
+- However, in 2010 the British Home Office destroyed all migration records from the 1950s and 1960s
+- This meant that many people who came to Britain as part of the Windrush Generation, and many of their children, no longer had evidence of their British Citizenship
+:::
+:::
+::::
+
+## Hostile environment
+
+::::{.columns}
+::: {.column width="50%"}
+![](images/theresa-may.png){height="750px"}
+:::
+
+::: {.column width="50%"}
+
+- The UK government (under pressure from nationalist/populist parties pushing for brexit), started a series of immigration reforms, collectively known as the *hostile environment policy*, in 2012
+- These policies deliberately aimed to make life difficult for migrants and operated on a "deport first, ask questions later" basis
+
+
+`r vspace("60px")`
+
+> "*... The aim is to create, here in Britain, a hostile environment... We can deport first and hear appeals later...*"
+
+Theresa May,    
+UK Home Secretary (May 2010 --- July 2016)    
+UK Prime Minister (July 2016 --- July 2019)
+
+:::
+::::
+
+## Hostile environment {visibility="uncounted"}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+![](images/van.png){width="125%" fig-align="center"}
+:::
+
+::: {.column width="40%"}
+- This led to British Citizens whose documentation had been destroyed by the home office being unlawfully deported to countries they no longer had any connection with
+- It also played into a wider narrative, fuelled by political parties such as UKIP and, in part, the ruling Conservatives --- strongly anti-EU and anti-immigration
+:::
+
+::::
+
+## Immigration Act (2014)
+
+- Requires migration status checks to be carried out before:
+   - Opening a bank account
+   - Renting accommodation
+   - Being offered employment
+   - Receiving health treatment
+   - Reporting a crime
+   - Going to school
+   - Obtaining a drivers’ license
+
+. . .
+
+- These check exacerbated systematic racism
+   - Often only applied to people who "did not seem British" 
+
+. . .
+
+- They also meant that people who no longer had evidence of their British Citizenship, through no fault of their own, were often too scared to access essential services, through fear of being deported
+
+
+## The Windrush scandal
+
+In 2017 the "[Windrush scandal](https://en.wikipedia.org/wiki/Windrush_scandal)" hit the mainstream media headlines and cost her job to the new Home Secretary, Amber Rudd, but not to the one who actually enacted the policy...
+
+![](images/media-coverage.png){fig-align="center" width="85%"}
+
+# Modelling & analysis
+
+## Data
+
+We use data from The [UK Household Longitudinal Survey](https://www.understandingsociety.ac.uk/) ("*Understanding Society*")
+
+::: {.fragment style="margin-top: 30px"}
+### Participants
+- Age 16+, responded at least once to mental health questionnaire
+:::
+
+::: {.fragment style="margin-top: 30px"}
+### Timing
+- 12x 24 month “waves”, January 2009 to March 2020
+  - Avoid "Covid" confounding...
+:::
+
+::: {.fragment style="margin-top: 30px"}
+### Outcome & exposure
+- Outcome: Mental ill health, GHQ-12 --- higher scores indicating more severe impairment
+- Exposures: 
+  - Immigration Act 2014
+  - Windrush media coverage 2017
+- Exposed ethnicities: Black African, Black Caribbean, Indian, Pakistani, Bangladeshi vs White
+- Main confounders:  age, sex, urban/rural, IMD, children, UK born, education, working condition
+:::
+
+
+## Study design 
+
+![](images/timeline.png){width="75%" fig-align="center"}
+
+## Interrupted time series {visibility="hidden"}
+
+#### Typical setup
+
+```{r}
+#| echo: false
+#| label: its
+#| dev: "tikz"
+#| cache: true
+#| width: 10
+#| height: 5
+
+set.seed(1234)
+
+timePre.exposed <- -100:0
+interceptPre.exposed <- 200
+slopePre.exposed <- 0.25 
+timePost.exposed <- 1:100
+interceptPost.exposed <- 300
+slopePost.exposed <- 1 
+
+timePre.control <- -100:0
+interceptPre.control <- 1
+slopePre.control <- 0.03 
+timePost.control <- 1:100
+interceptPost.control <- 50
+slopePost.control <- 0.5 
+
+data.exposed <-
+  data.frame(intercept = c(rep(interceptPre.exposed, times = length(timePre.exposed)), 
+                           rep(interceptPost.exposed, times = length(timePost.exposed))),
+             slope = c(rep(slopePre.exposed, times = length(timePre.exposed)), 
+                       rep(slopePost.exposed, times = length(timePost.exposed))),
+             time = c(timePre.exposed, timePost.exposed)) %>% 
+  dplyr::rowwise() %>% 
+  dplyr::mutate(y = intercept + (slope * time) + rnorm(1, 0, 5)) %>% 
+  dplyr::ungroup() %>% 
+  dplyr::mutate(T = dplyr::row_number(),
+                I = dplyr::if_else(time <= 0, 0, 1),
+                P = dplyr::if_else(time <= 0, 0, time))
+
+data.control <-
+  data.frame(intercept = c(rep(interceptPre.control, times = length(timePre.control)), 
+                           rep(interceptPost.control, times = length(timePost.control))),
+             slope = c(rep(slopePre.control, times = length(timePre.control)), 
+                       rep(slopePost.control, times = length(timePost.control))),
+             time = c(timePre.control, timePost.control)) %>% 
+  dplyr::rowwise() %>% 
+  dplyr::mutate(y = intercept + (slope * time) + rnorm(1, 0, 5)) %>% 
+  dplyr::ungroup() %>% 
+  dplyr::mutate(T = dplyr::row_number(),
+                I = dplyr::if_else(time <= 0, 0, 1),
+                P = dplyr::if_else(time <= 0, 0, time))
+
+## model fit ----
+
+fit.exposed <- lm('y ~ T + I + P', data = data.exposed)
+fit.control <- lm('y ~ T + I + P', data = data.control)
+
+overall.time.fit.exposed <- lm('y ~ T', data = data.exposed)
+overall.time.fit.control <- lm('y ~ T', data = data.control)
+
+counterfactual.fit.exposed <- lm('y ~ T', data = data.exposed %>% dplyr::filter(I == 0))
+counterfactual.fit.control <- lm('y ~ T', data = data.control %>% dplyr::filter(I == 0))
+
+counterfactual.pred.exposed <- 
+  predict(object = counterfactual.fit.exposed,
+          newdata = data.exposed %>% dplyr::select(T)) %>% 
+  as.numeric()
+counterfactual.pred.control <- 
+  predict(object = counterfactual.fit.control,
+          newdata = data.exposed %>% dplyr::select(T)) %>% 
+  as.numeric()
+
+pred.data <- 
+  data.frame(time = rep(data.control$time, times = 2),
+             T = rep(data.control$T, times = 2),
+             I = rep(data.control$I, times = 2),
+             P = rep(data.control$P, times = 2)) %>% 
+  dplyr::mutate(group = 
+                  rep(c('Exposed', 'Control'), each = nrow(data.exposed)) %>% 
+                  factor(., levels = c('Exposed', 'Control')),
+                y = c(data.exposed$y, data.control$y),
+                yPred = c(fit.exposed$fitted.values, fit.control$fitted.values),
+                yCounterfactual = c(counterfactual.pred.exposed, counterfactual.pred.control),
+                yOverallTime = c(overall.time.fit.exposed$fitted.values, overall.time.fit.control$fitted.values))
+
+ggplot2::ggplot(data = pred.data, aes(x = time, group = group, shape = group, colour = group)) +
+  ggplot2::geom_vline(xintercept = 0, linetype = 'dashed', colour = 'black', linewidth = 1) +
+  ggplot2::geom_point(aes(y = y), alpha = 0.5) +  theme_bw() +
+ ggplot2::annotate('text', 
+                    x = -5, y = 450, 
+                    label = 'Pre-Intervention', 
+                    colour = 'black', size = 7.5, hjust = 1) +
+  ggplot2::annotate('text', 
+                    x = 5, y = 450, 
+                    label = 'Post-Intervention', 
+                    colour = 'black', size = 7.5, hjust = 0) +
+  ggplot2::scale_colour_manual(values = c('red3', 'blue3')) +
+  ggplot2::scale_fill_manual(values = c('red3', 'blue3')) +
+  ggplot2::expand_limits(x = c(-125, 100), y = c(-10, 450)) +
+  ggplot2::scale_y_continuous(breaks = seq(from = 0, to = 450, by = 50)) +
+  ggplot2::scale_x_continuous(breaks = seq(from = -150, to = 100, by = 50)) +
+  ggplot2::labs(y = 'Observed Outcome', x = 'Time (before/after)') +
+  theme(legend.title = element_blank(),
+           legend.position.inside = c(0.1, 0.9),
+           text = element_text(size = 20))
+```
+
+
+## Interrupted time series
+
+#### General model structure
+
+- $y_{it}$ is the outcome for unit $i=1\ldots,I$ and time $t=1,\ldots T\geq 2$
+- $\bm{X}_{it}=(X_{it1},\ldots,X_{itK})$ is a vector of $K$ covariates (confounders) 
+- $z_{t}=1$ if the intervention is being applied at time $t$ and 0 otherwise
+- $w_{i}=1$ if unit $i$ is exposed and 0 if it is a control
+
+
+## Interrupted time series {visibility="uncounted"}
+
+#### General model structure
+
+- $y_{it}$ is the outcome for unit $i=1\ldots,I$ and time $t=1,\ldots T\geq 2$
+- $\bm{X}_{it}=(X_{it1},\ldots,X_{itK})$ is a vector of $K$ covariates (confounders) 
+- $z_{t}=1$ if the intervention is being applied at time $t$ and 0 otherwise
+- $w_{i}=1$ if unit $i$ is exposed and 0 if it is a control
+
+$$
+g\left(\E[Y_{it}]\right) = g(\mu_{it}) \color{white}{= \alpha_0 + \alpha_1 w_i + \sum_{k=1}^K \beta_k X_{itk} + \phi_{0}t + \phi_{1}t w_i + \delta_0 z_{t} + \delta_1 w_i z_t + \gamma_i + \lambda_t} \,[+\ldots]
+$$
+
+- $g(\cdot)$ is a suitable link function 
+
+
+## Interrupted time series {visibility="uncounted"}
+
+#### General model structure
+
+- $y_{it}$ is the outcome for unit $i=1\ldots,I$ and time $t=1,\ldots T\geq 2$
+- $\bm{X}_{it}=(X_{it1},\ldots,X_{itK})$ is a vector of $K$ covariates (confounders) 
+- $z_{t}=1$ if the intervention is being applied at time $t$ and 0 otherwise
+- $w_{i}=1$ if unit $i$ is exposed and 0 if it is a control
+
+$$
+g\left(\E[Y_{it}]\right) = g(\mu_{it}) = \alpha_0 + \alpha_1 w_i \color{white}{+ \sum_{k=1}^K \beta_k X_{itk} + \phi_{0}t + \phi_{1}t w_i + \delta_0 z_{t} + \delta_1 w_i z_t + \gamma_i + \lambda_t} [+\ldots]
+$$
+
+- $g(\cdot)$ is a suitable link function 
+- $\alpha_0$ and $(\alpha_0+\alpha_1)$ are the the baseline intercept in the controls and exposed, respectively
+
+
+
+## Interrupted time series {visibility="uncounted"}
+
+#### General model structure
+
+- $y_{it}$ is the outcome for unit $i=1\ldots,I$ and time $t=1,\ldots T\geq 2$
+- $\bm{X}_{it}=(X_{it1},\ldots,X_{itK})$ is a vector of $K$ covariates (confounders) 
+- $z_{t}=1$ if the intervention is being applied at time $t$ and 0 otherwise
+- $w_{i}=1$ if unit $i$ is exposed and 0 if it is a control
+
+$$
+g\left(\E[Y_{it}]\right) = g(\mu_{it}) = \alpha_0 + \alpha_1 w_i + \sum_{k=1}^K \beta_k X_{itk} \color{white}{+ \phi_{0}t + \phi_{1}t w_i + \delta_0 z_{t} + \delta_1 w_i z_t + \gamma_i + \lambda_t} [+\ldots]
+$$
+
+- $g(\cdot)$ is a suitable link function 
+- $\alpha_0$ and $(\alpha_0+\alpha_1)$ are the the baseline intercept in the controls and exposed, respectively
+- $\bm{\beta}=(\beta_1,\ldots,\beta_K)$ quantifies the effect of the confounders $\bm{X}_{it}$ 
+
+
+## Interrupted time series {visibility="uncounted"}
+
+#### General model structure
+
+- $y_{it}$ is the outcome for unit $i=1\ldots,I$ and time $t=1,\ldots T\geq 2$
+- $\bm{X}_{it}=(X_{it1},\ldots,X_{itK})$ is a vector of $K$ covariates (confounders) 
+- $z_{t}=1$ if the intervention is being applied at time $t$ and 0 otherwise
+- $w_{i}=1$ if unit $i$ is exposed and 0 if it is a control
+
+$$
+g\left(\E[Y_{it}]\right) = g(\mu_{it}) = \alpha_0 + \alpha_1 w_i + \sum_{k=1}^K \beta_k X_{itk} + \phi_{0}t + \phi_{1}t w_i \color{white}{+ \delta_0 z_{t} + \delta_1 w_i z_t + \gamma_i + \lambda_t} [+\ldots]
+$$
+
+- $g(\cdot)$ is a suitable link function 
+- $\alpha_0$ and $(\alpha_0+\alpha_1)$ are the the baseline intercept in the controls and exposed, respectively
+- $\bm{\beta}=(\beta_1,\ldots,\beta_K)$ quantifies the effect of the confounders $\bm{X}_{it}$ 
+- $\phi_{0}$ and $(\phi_{0}+\phi_{1})$ are the linear time trend in the controls and exposed, respectively
+
+
+## Interrupted time series {visibility="uncounted"}
+
+#### General model structure
+
+- $y_{it}$ is the outcome for unit $i=1\ldots,I$ and time $t=1,\ldots T\geq 2$
+- $\bm{X}_{it}=(X_{it1},\ldots,X_{itK})$ is a vector of $K$ covariates (confounders) 
+- $z_{t}=1$ if the intervention is being applied at time $t$ and 0 otherwise
+- $w_{i}=1$ if unit $i$ is exposed and 0 if it is a control
+
+$$
+g\left(\E[Y_{it}]\right) = g(\mu_{it}) = \alpha_0 + \alpha_1 w_i + \sum_{k=1}^K \beta_k X_{itk} + \phi_{0}t + \phi_{1}t w_i + \delta_0 z_{t} + \delta_1 w_i z_t \color{white}{+ \gamma_i + \lambda_t} [+\ldots]
+$$
+
+- $g(\cdot)$ is a suitable link function 
+- $\alpha_0$ and $(\alpha_0+\alpha_1)$ are the the baseline intercept in the controls and exposed, respectively
+- $\bm{\beta}=(\beta_1,\ldots,\beta_K)$ quantifies the effect of the confounders $\bm{X}_{it}$ 
+- $\phi_{0}$ and $(\phi_{0}+\phi_{1})$ are the linear time trend in the controls and exposed, respectively
+- $\delta_0$ and $(\delta_0+\delta_1)$ model the change in the outcome pre-post intervention in the controls and the exposed, respectively
+
+
+## Interrupted time series {visibility="uncounted"}
+
+#### General model structure
+
+- $y_{it}$ is the outcome for unit $i=1\ldots,I$ and time $t=1,\ldots T\geq 2$
+- $\bm{X}_{it}=(X_{it1},\ldots,X_{itK})$ is a vector of $K$ covariates (confounders) 
+- $z_{t}=1$ if the intervention is being applied at time $t$ and 0 otherwise
+- $w_{i}=1$ if unit $i$ is exposed and 0 if it is a control
+
+$$
+g\left(\E[Y_{it}]\right) = g(\mu_{it}) = \alpha_0 + \alpha_1 w_i + \sum_{k=1}^K \beta_k X_{itk} + \phi_{0}t + \phi_{1}t w_i + \delta_0 z_{t} + \delta_1 w_i z_t + \gamma_i + \lambda_t \,[+\ldots]
+$$
+
+- $g(\cdot)$ is a suitable link function 
+- $\alpha_0$ and $(\alpha_0+\alpha_1)$ are the the baseline intercept in the controls and exposed, respectively
+- $\bm{\beta}=(\beta_1,\ldots,\beta_K)$ quantifies the effect of the confounders $\bm{X}_{it}$ 
+- $\phi_{0}$ and $(\phi_{0}+\phi_{1})$ are the linear time trend in the controls and exposed, respectively
+- $\delta_0$ and $(\delta_0+\delta_1)$ model the change in the outcome pre-post intervention in the controls and the exposed, respectively
+- $\bm{\gamma}=(\gamma_1,\ldots,\gamma_I)$ are a set of unit-specific random effects to model dependencies across the units
+- $\bm\lambda=(\lambda_1,\ldots,\lambda_T)$ quantifies the time trends for the overall period, modelled using autoregressive structures, which will allow to increase the model flexibility
+- $[+\ldots]$ (optional) additional structured effect (e.g. to model spatial correlation)
+
+
+
+
+## Interrupted time series {visibility="uncounted"}
+
+#### Typical analysis
+
+```{r}
+#| echo: false
+#| cache: true
+#| label: its2
+#| dev: "tikz"
+#| width: 10
+#| height: 5
+ggplot2::ggplot(data = pred.data, aes(x = time, group = group, shape = group, colour = group)) +
+  ggplot2::geom_vline(xintercept = 0, linetype = 'dashed', colour = 'black', linewidth = 1) +
+  ggplot2::geom_point(aes(y = y), alpha = 0.5) +  theme_bw() +
+  ggplot2::geom_line(aes(y = yCounterfactual), linewidth = 1, linetype = 'dashed') +
+  ggplot2::geom_line(aes(y = yPred), linewidth = 1) +
+  ggplot2::geom_line(aes(y = yOverallTime), linewidth = 1, linetype = 'dotted') +
+  #ggplot2::geom_ribbon(aes(ymin = yCounterfactual, ymax = yPred, fill = group), colour = NA, alpha = 0.1) +
+  ggplot2::annotate('text', 
+                    x = - 100, y = 200, 
+                    label = "$\\alpha_0+\\alpha_1$", 
+                    colour = 'red3', size = 7.5, hjust = 1) +
+  ggplot2::annotate('text', 
+                    x = - 100, y = 20, 
+                    label = "$\\alpha_0$", 
+                    colour = 'blue3', size = 7.5, hjust = 1) +
+  ggplot2::annotate('text', 
+                    x = -25, y = 250, 
+                    label = "$\\phi_0+\\phi_1$", 
+                    colour = 'red3', size = 7.5, angle = 35) +
+  ggplot2::annotate('text', 
+                    x = -25, y = 35, 
+                    label = "$\\phi_0$", 
+                    colour = 'blue3', size = 7.5, angle = 10) +
+  ggplot2::annotate('text', 
+                    x = 5, y = 250, 
+                    label = "$\\delta_0+\\delta_1$", 
+                    colour = 'red3', size = 7.5, hjust = 0) +
+  ggplot2::annotate('text', 
+                    x = 5, y = 25, 
+                    label = "$\\delta_0$", 
+                    colour = 'blue3', size = 7.5, hjust = 0) +
+  # ggplot2::annotate('text', 
+  #                   x = 50, y = 365, 
+  #                   label = "$\\beta_3+\\beta_7$", 
+  #                   colour = 'red3', size = 7.5, angle = 20) +
+  # ggplot2::annotate('text', 
+  #                   x = 50, y = 90, 
+  #                   label = "$\\beta_3$", 
+  #                   colour = 'blue3', size = 7.5, angle = 20) +
+  ggplot2::annotate('text', 
+                    x = -5, y = 450, 
+                    label = 'Pre-Intervention', 
+                    colour = 'black', size = 7.5, hjust = 1) +
+  ggplot2::annotate('text', 
+                    x = 5, y = 450, 
+                    label = 'Post-Intervention', 
+                    colour = 'black', size = 7.5, hjust = 0) +
+  ggplot2::scale_colour_manual(values = c('red3', 'blue3')) +
+  ggplot2::scale_fill_manual(values = c('red3', 'blue3')) +
+  ggplot2::expand_limits(x = c(-125, 100), y = c(-10, 450)) +
+  ggplot2::scale_y_continuous(breaks = seq(from = 0, to = 450, by = 50)) +
+  ggplot2::scale_x_continuous(breaks = seq(from = -150, to = 100, by = 50)) +
+  ggplot2::labs(y = 'Observed Outcome', x = 'Time (before/after)') +
+  theme(legend.title = element_blank(),
+           legend.position.inside = c(0.1, 0.9),
+           text = element_text(size = 20))
+```
+
+## To be or not to be (a Bayesian)?...
+
+:::: {.columns}
+::: {.column width="40%"}
+![](images/hamlet.jpg){width="120%"}
+:::
+
+::: {.column width="60%"}
+- Can include relatively vague information in the priors, which can still help regularise the inference 
+   - Avoid inconsistent estimates because of small numbers/separation
+   - Use Penalised Complexity (PC) priors
+
+`r vspace("30px")`
+
+- Direct characterisation of full uncertainty in all model parameters
+   - Can then rescale (e.g. from regression coefficients to original scores etc) and still obtain samples from the full posterior distributions
+   - Particularly helpful for generalised linear models
+   
+:::
+::::
+
+::: {.fragment}
+
+[**NB**: The answer is *always* "Yes"... :wink:]{.absolute bottom=20 left=0}
+:::
+
+```{r}
+#| echo: false
+#| eval: false
+# ITS formula
+itsFormula <- as.formula(
+  scghq1 ~ eth1 + time + experiod + timeSince + timeSince2 + time.carib + time.afric + time.india + time.pakis + time.bangl + experiod.carib + experiod.afric + experiod.india + experiod.pakis + experiod.bangl + timeSince.carib + timeSince.afric + timeSince.india + timeSince.pakis + timeSince.bangl + timeSince2.carib + timeSince2.afric + timeSince2.india + timeSince2.pakis + timeSince2.bangl + age + sex + urban + decileIMD + nchild + ukborn_imp + mastat_imp + hiqual_imp + jbstat_imp + tenure_imp + incomequin_imp + health_imp + strata)
+
+# hyperparameters
+pc.u <- 1; pc.alpha <- 0.01; pc.u.phi <- 0.5; pc.alpha.phi <- 2/3
+
+# pc hyper priors
+hyper_pc_time <- list(prec = list(prior = 'pc.prec', param = c(pc.u, pc.alpha)))
+hyper_pc_space_struc <- list(prec = list(prior = 'pc.prec', param = c(pc.u, pc.alpha)), phi = list(prior = 'pc', param = c(pc.u.phi, pc.alpha.phi)))
+
+# temporal random effect
+datax2$year <- as.factor(datax2$year)
+datax2$year <- as.numeric(datax2$year)
+itsFormula <- update(itsFormula, ~ . + f(year, model = 'rw2', hyper= hyper_pc_time, values = 1:length(1:12)))
+
+# spatial random effect
+aMat <- readRDS('//live.rd.ucl.ac.uk/ritd-ag-project-rd01fe-jbkir68/Annie/aMat.rds')
+datax2$LAD21NM <- as.factor(datax2$LAD21NM)
+aMatNumber <- data.frame(LAD21NM = rownames(aMat), LADNM21_id = 1:309)
+datax2$aMatNumber <- aMatNumber$LADNM21_id[match(datax2$LAD21NM,aMatNumber$LAD21NM)]
+itsFormula <- update(itsFormula, ~ . + f(aMatNumber, graph = aMat, model = 'bym2', hyper= hyper_pc_space_struc, scale.model = TRUE, adjust.for.con.comp = TRUE))
+
+# inla arguments
+control.compute = list(config = TRUE)
+control.predictor = list(compute = TRUE, link = 1)
+control.inla = list(strategy = 'adaptive', int.strategy = 'auto')
+
+# fit inla
+modelx <-
+  INLA::inla(itsFormula, family = 'gaussian',
+             data = datax2,
+             control.compute = control.compute,
+             control.predictor = control.predictor,
+             control.inla = control.inla,
+             inla.mode = 'experimental',
+             verbose = TRUE)
+```
+
+# Results
+
+## Hostile environment
+### Results
+
+```{r}
+#| echo: false
+#| label: various-effects
+#| width: 8
+#| height: 5
+#| out-width: "65%"
+t1=tibble(
+  group=c(
+    "Black African",
+    "Black Caribbean",
+    "Indian",
+    "Pakistani",
+    "Bangladeshi"
+  ),
+  t=c(
+    .53,.67,.35,.27,-.43
+  ),
+  low=c(
+    -.12,.06,-.2,-.33,-1.24
+  ),
+  upp=c(
+    1.17,1.28,.89,.88,.38
+  )
+)
+t2=tibble(
+group=c(
+    "Black African",
+    "Black Caribbean",
+    "Indian",
+    "Pakistani",
+    "Bangladeshi"
+  ),
+  t=c(
+    -.32,-.12,-.19,-.53,-.2
+  ),
+  low=c(
+    -.62,-.4,-.44,-.81,-.57
+  ),
+  upp=c(
+    -.01,.17,.06,-.25,.17
+  )
+)
+t3=tibble(
+  group=c(
+    "Black African",
+    "Black Caribbean",
+    "Indian",
+    "Pakistani",
+    "Bangladeshi"
+  ),
+  t=c(
+    .54,1.28,.08,.52,-.66
+  ),
+  low=c(
+    -.44,.34,-.69,-.32,-1.85
+  ),
+  upp=c(
+    1.52,2.21,.85,1.37,.53
+  )
+)
+t4=tibble(
+  group=c(
+    "Black African",
+    "Black Caribbean",
+    "Indian",
+    "Pakistani",
+    "Bangladeshi"
+  ),
+  t=c(
+    .45,-.07,.28,.25,.19
+  ),
+  low=c(
+    0,-.51,-.08,-.13,-.36
+  ),
+  upp=c(
+    .91,.37,.63,.62,.73
+  )
+)
+
+t1 |> mutate(label="Post Immigration Act 2014") |> 
+  bind_rows(t2 |> mutate(label="Time since start of exposure period 2")) |> 
+  bind_rows(t3 |> mutate(label="Post media coverage 2017")) |> 
+  bind_rows(t4 |> mutate(label="Time since start of exposure period 3")) |> 
+  ggplot(aes(t,group,color=label)) + 
+  geom_linerange(
+    aes(xmin=low,xmax=upp),position=position_dodge(.3) 
+  ) + 
+  geom_point(position=position_dodge(.3)) + theme_bw() +
+  geom_vline(xintercept = 0, linetype = "dashed") + 
+  labs(x="Difference in the change in mean GHQ12 score",y="") +
+  theme(legend.position="bottom",legend.title=element_blank())
+```
+
+::: {.notes}
+we found evidence of greater psychological distress in people from Black Caribbean backgrounds than White participants after implementation of the Immigration Act 2014 (MD 0·67, 95% CrI 0·06 to 1·28). This effect persisted for several years, shown by the absence of difference over time since implementation of the Immigration Act 2014. We also found evidence that the Black Caribbean group had a further increase in psychological distress relative to White participants after the Windrush scandal media coverage commenced in 2017 (MD 1·28, 95% CrI 0·34 to 2·21).
+
+Apart from Black Caribbean (where the immediate effect of the policy is strong), there's an increase in mental distress between the two periods and post media seems to have a bigger effect across all ethnic groups
+
+included ethnic group, the exposure period, all aforementioned confounders, a linear fixed effect for time (by year), a linear fixed effect for time since the start of each exposure period (by year), random effects to model residual temporal confounding (by year), and residual spatial confounding (by local authority area). These random effects accounted for variation not captured by our measured fixed effects. We specified weakly informative priors for all model parameters; these allow one to stabilise the inference while not imposing overbearing restrictions on the parameters’ values. We fitted the interrupted time series model using integrated nested Laplace approximations (INLA) through the R-INLA package
+
+We then repeated this analysis, stratified first by whether participants were born in the UK, and second by net household income, to investigate effect moderation of these variables on the association between exposure to the hostile environment policy and subsequent media coverage and mental ill health. Finally, we repeated the primary analysis with three sensitivity analyses: first, without the use of weights to assess the effect of our weighting strategy; second, on participants with complete case data; and third, to assess the effect of non-response, by restricting our analysis to participants who responded at least once in each exposure period
+:::
+
+## Hostile environment {visibility="uncounted"}
+### Results
+
+![](images/results.jpg){fig-align="center" width="88%"}
+
+::: {.notes}
+The negative effect for Black Caribbean did not diminish over time since the media coverage (MD –0·07, 95% CrI –0·51 to 0·37). We found no change in psychological distress for any other minoritised ethnic group compared with people from the White ethnic group in either period 
+:::
+
+## Hostile environment {visibility="uncounted"}
+### Results --- subgroup analysis
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
+#| label: subgroup-analysis
+#| width: 8
+#| height: 7
+#| out-width: "100%"
+tab3=readxl::read_xlsx("tables-hostile-environment.xlsx")
+
+tab3 |> dplyr::filter(Subgroup=="UK-born groups") |> 
+  ggplot(aes(mean,Group,color=label)) + 
+  geom_linerange(
+    aes(xmin=low,xmax=upp),position=position_dodge(.3) 
+  ) + 
+  geom_point(position=position_dodge(.3)) + theme_bw() +
+  geom_vline(xintercept = 0, linetype = "dashed") + 
+  labs(x="Difference in the change in mean GHQ12 score",y="") +
+  theme(legend.position="bottom",legend.title=element_blank()) + 
+  labs(title="UK born individuals")
+
+tab3 |> dplyr::filter(Subgroup=="Non-UK-born groups") |> 
+  ggplot(aes(mean,Group,color=label)) + 
+  geom_linerange(
+    aes(xmin=low,xmax=upp),position=position_dodge(.3) 
+  ) + 
+  geom_point(position=position_dodge(.3)) + theme_bw() +
+  geom_vline(xintercept = 0, linetype = "dashed") + 
+  labs(x="Difference in the change in mean GHQ12 score",y="") +
+  theme(legend.position="bottom",legend.title=element_blank()) + 
+  labs(title="Non UK born individuals")
+```
+
+::: {.notes}
+Following the introduction of the Immigration Act 2014, we observed an increase in psychological distress in first-generation migrants from Black Caribbean backgrounds relative to the White group (MD 1·25, 95% CrI 0·11–2·38). We observed no change for UK-born Black Caribbean participants in this period, but their psychological distress increased relative to the White group after media coverage began (2·00, 0·84–3·15). We observed no changes in psychological distress by migrant status for any other minoritised ethnic group, except for an increase in psychological distress following the introduction of the Immigration Act 2014 in UK-born Black African participants (1·39, 0·04–2·73).
+:::
+
+## Universal credit
+### Results --- spatial variation
+
+![](images/universal-credit.jpg){width="85%" fig-align="center"}
+
+
+<!-- 
+   If the meta parameter 'thank-you' is set to "false", this won't show. Can 
+   choose among various options, all stored in the 'assets' folder. For now:
+   - michelle
+   - phoebe
+   - reese
+-->
+::: {.content-hidden unless-meta="thank-you.show"}
+{{< include assets/thankyou.qmd >}}
+:::

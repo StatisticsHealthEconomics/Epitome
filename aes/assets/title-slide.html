@@ -1,0 +1,60 @@
+<section id="$idprefix$title-slide"$for(title-slide-attributes/pairs)$ $it.key$="$it.value$"$endfor$>
+  <h1 class="title">$title$</h1>
+
+$if(subtitle)$
+  <h3 style="opacity:0.8; margin-top: 20px; margin-bottom: -10px" class="subtitle">$subtitle$</h3>
+$endif$
+
+<br>
+
+$for(author)$
+<p style="margin:0px 0px .8em 0px; font-family: Ubuntu; font-size: 1.2em;" class="author">$author$</p>
+$endfor$
+
+$for(institute)$
+<p style="margin:0px; opacity:0.8;font-family: Inter Tight;">$institute.uni$</p>
+$endfor$
+$for(email)$
+<p style="margin:5px; font-family: 'Ubuntu Mono'; font-size: .9em; opacity:0.8;">$email.icon$ $email.text$</p>
+$endfor$
+
+<br>
+
+$if(orchid.show)$
+<p style="margin:0px; font-size: .9em; font-family: 'Ubuntu Mono'; opacity:0.8;">$orchid.icon$ $orchid.url$</p>
+$endif$
+
+$for(url)$
+<p style="margin:0px 15px 0px 15px; font-family: 'Ubuntu Mono'; font-size: .9em; opacity:0.8">$url.icon$ $url.text$</p>
+$endfor$
+
+<p style="margin:0px 15px 0px 15px; font-family: 'Ubuntu Mono'; font-size: .9em; opacity:0.8;">$for(github)$$github.icon$ $github.text$ &nbsp; $endfor$</p>
+
+<p style="margin:0px 15px 0px 15px; font-family: 'Ubuntu Mono'; font-size: .9em; opacity:0.8;">$for(social)$$social.icon$ $social.text$ &nbsp; &nbsp;$endfor$</p>
+
+<br>
+$if(conference.session)$
+<p style="margin:0px; opacity:0.8; font-family: Inter Tight; font-size: 0.95em;">$conference.session$</p>
+$endif$
+$if(conference.name)$
+  $if(conference.location)$
+     <p style="margin:0px; opacity:0.8; font-family: Inter Tight; font-size: 0.95em;">$conference.name$, $conference.location$</p>
+  $else$
+     <p style="margin:0px; opacity:0.8; font-family: Inter Tight; font-size: 0.95em;">$conference.name$</p>
+  $endif$
+$endif$
+
+<p style="margin-top:10px; font-family: Inter Tight; font-size: 0.9em;">$date-as-string$</p>
+
+
+$if(postit.random-talks)$
+<p><span class="postit1">Check out our departmental podcast “Random Talks” on Soundcloud! <a href="https://soundcloud.com/uclsound/sets/sample-space" style="color: #ff7700;" title="Listen to our podcast"><i class="fa-brands fa-soundcloud" aria-label="soundcloud"></i></a></span></p>
+$endif$
+
+$if(postit.social-media)$
+<p><span class="postit2">Follow our departmental social media accounts <a href="url=%22https://twitter.com/stats_ucl" style="color: #000000;" title="Follow us on X"><i class="fa-brands fa-x-twitter" aria-label="x-twitter"></i></a> <a href="https://www.linkedin.com/in/statistical-science-ucl-906b9a201" style="color: #0A66C2;" title="Follow us on LinkedIn"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a> <a href="https://www.instagram.com/ucl.stats/" style="color: #8a3ab9;" title="Follow us on Instagram"><i class="fa-brands fa-instagram" aria-label="instagram"></i></a> + magazine <a href="https://sample-space.org/" style="color: #434252;" title="Read our online magazine">“Sample Space”</a></span></p>
+$endif$
+
+<p><span class="logo-stats"></span></p>
+
+</section>
