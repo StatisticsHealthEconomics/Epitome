@@ -1,0 +1,11 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*/_extensions
+*/assets
+*/*_cache
+*/*_files
+*/*.qmd
+*/publish_slides
+
