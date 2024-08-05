@@ -6,6 +6,5 @@
 */assets
 */*_cache
 */*_files
-*/*.qmd
 */publish_slides
 
