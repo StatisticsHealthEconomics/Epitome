@@ -1,0 +1,17 @@
+#!/bin/bash
+# Copy the relevant files/folders to an input directory so that the slides in the current folder can be published online
+# GB2024
+#
+
+# First checks whether the target folder exists and create it if not
+default="/home/gianluca/Dropbox/Rstuff/Website/public/slides/"$(basename "$PWD")
+targetdir=${1-$default}
+[ -d "$targetdir" ] || mkdir -p $targetdir
+# Figures out the name of the html file
+basename=$(ls -d *_files | sed 's/_files//')
+# Then copy the relevant files/folders (*only*!) to it
+cp -R "${basename}.html" "${basename}_files" images css "$targetdir"
+# Finally rename the .html file to be called 'index.html'
+# NB: uses the tag '-u' to update (so move '*.html' only
+# if 'index.html' doesn't already exist)
+mv -un "$targetdir/${basename}.html" "$targetdir/index.html"
