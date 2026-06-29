@@ -144,7 +144,9 @@ li:has(> .semi-transparent)::marker {
   - Extend existing forecasting models into a Bayesian framework, propagating uncertainty from WP1 to WP3
   - Use multi-state modelling and potentially Value of Information analysis to assess service demand and decision adequacy
 
-## Background, Context & Objectives
+## Background
+
+### Context
 
 - **The Legacy System** (LW): A complex, post-WWII evolved safety net that often required multiple, non-integrated applications for different areas of support
 - **The Reform Goal**: The 2010s policy shift aimed to replace this administrative complexity with Universal Credit (UC) -- a single, integrated payment structure
@@ -154,7 +156,7 @@ li:has(> .semi-transparent)::marker {
   - *Simplicity*. Reduce the burden on claimants to navigate multiple government agencies
 
 ::: {.fragment fragment-index="2" style="margin-top: 20px"}
-### Research Gap & Objectives
+### Research gap & objectives
 
 - No previous research has modelled the dynamic co-evolution of benefit status and well-being
 - In addition, existing literature generally has not quantified the trade-off between government expenditure and long-term socioeconomic outcomes
@@ -289,15 +291,18 @@ Move people around according to the relationship $\bm{m}_{3}=\bm{m}_{2}\bm\Lambd
   - Each policy will generally have different distributions of the time spent in each state
   - This in turn determines different costs & benefits...
 
-## Data Source & Sample Selection
+## Data source & sample selection
 
 - Longitudinal data from [Understanding Society (UKHLS)](https://www.understandingsociety.ac.uk/), 40,000+ households tracked since 2009
   - Focus on working-age (16-64) individuals in Great Britain
   - Exclude those with pre-existing lifetime illnesses or disabilities to ensure results reflect policy impacts rather than health crises
-- Study Cohorts:
+- Study cohorts:
   - Universal Credit (6%): exposed to UC between 2013-2020
   - Legacy Welfare (40%): exclusive to the old benefit system
   - No Benefit (54%): never claimed support
+  
+`r vspace("30px")`
+
 - **NB**: UC rollout was administratively mandated, not triggered by personal life shocks, allowing us to evaluate the effects of the policy change
 
 ## Multi-state modelling for the UC/LW evaluation
@@ -305,7 +310,7 @@ Move people around according to the relationship $\bm{m}_{3}=\bm{m}_{2}\bm\Lambd
 :::::: columns
 ::: {.column width="55%"}
 ```{r mm1, engine='tikz',echo=F}
-#| out-width: "85%"
+#| out-width: "90%"
 #| fig-align: "center"
 
 \definecolor{sampred}{HTML}{C21718}
@@ -388,12 +393,12 @@ Move people around according to the relationship $\bm{m}_{3}=\bm{m}_{2}\bm\Lambd
      \draw[loosely dashed, thick, black!60] (-3.5,-11) -- (-3.5,-13.5);
      \draw[loosely dashed, thick, black!60] (3.5,-11) -- (3.5,-13.51);
 
-\node[font=\sffamily\bfseries] (Title) at (-5, -10.5) {{\color{sampred}Welfare States}};
+\node[font=\sffamily\bfseries] (Title) at (-5, -10.5) {{\color{sampred}Welfare states}};
 
-\node[font=\sffamily\bfseries] (Title) at (-5, 2) {{\color{sampblue}Well-being States}};
+\node[font=\sffamily\bfseries] (Title) at (-5, 2) {{\color{sampblue}Well-being states}};
 
    \node[draw, fill=gray!10, rounded corners, font=\small\itshape] (cond) at (0,-9.7) 
-   {Transition probabilities $\lambda_{s,s'}^{g,t}$, for the well-being states, are conditional on the current welfare state};
+   {The transition probabilities $\lambda_{s,s'}^{g,t}$ are conditional on the current welfare state. $g=$ LW,  UC, No benefits};
 
  \draw[thick, ->] (0,-11) -- (0,-10.1);
 \end{tikzpicture}
@@ -401,9 +406,9 @@ Move people around according to the relationship $\bm{m}_{3}=\bm{m}_{2}\bm\Lambd
 :::
 
 :::: {.column width="45%"}
-- [Layer 1 -- Welfare Status]{.samp-red}: a binary classification of either [Welfare Entry (active claim; 6)]{.light-blue} or [Welfare Exit (7)]{.orange}
+- [Layer 1 -- **Welfare states**]{.samp-red}: a binary classification of either [Welfare Exit (6)]{.light-blue} or [Welfare Entry (active claim; 7)]{.orange}
 
-- [Layer 2 -- Well-Being Space]{.samp-blue}: five distinct states of human experience:
+- [Layer 2 -- **Well-being states**]{.samp-blue}: five distinct states of human experience:
 
   - [At Risk; 1]{.blue} (Baseline): hardship-free
   - Distress States: [Financial Distress (2)]{.olive}, [Life Dissatisfaction (3)]{.purple}, or [Combined (4)]{.italian-green} (Both)
@@ -418,13 +423,13 @@ Move people around according to the relationship $\bm{m}_{3}=\bm{m}_{2}\bm\Lambd
 ::::
 ::::::
 
-## Model: Bayesian Multinomial-logistic ITS: $w$elfare status
+## Bayesian Multinomial-logistic ITS: $w$elfare status
    
 - For individuals $i = 1, 2, \ldots, n$, residing in a LSOA region $r_{i}$, belonging to a stratification group $k_{i}$, assigned to a PSU group $\psi_{i}$ and observed over time points $t$
 $$
 \begin{aligned}
 \text{Pr}(Y^{(w),i,t} & = q\mid Y^{(w),i,t-1} = q') = \frac{e^{\eta_{q',q}^{i,t}}}{\sum_{q=6}^{7}e^{\eta_{q',q}^{i,t}}} = \chi_{q',q}^{i,t}, \ \txt{with} \ \ \chi_{q',6}^{i,t} + \chi_{q',7}^{i,t} = 1, \\[10pt]
-\logit({\chi}_{q',q}^{i,t}) = {{\eta}_{q',q}^{i,t}} = & {\color{olive}\beta_{0}^{q}} + {\color{red}\beta_{1}^{q}}\txt{Age}^{i,t} +{\color{red}\beta_{2}^{q}} \txt{HEQ}^{i,t}+ {\color{red}\beta_{3}^{q}}\txt{ETH}^{i,t} + {\color{red}\beta_{4}^{q}}\txt{MS}^{i,t} + {\color{red}\beta_{5}^{q}}\txt{Sex}^{i,t} + {\color{red}\beta_{6}^{q}}\txt{GR}^{i,t} + \\
+\logit({\chi}_{q',q}^{i,t}) = {{\eta}_{q',q}^{i,t}} = & {\color{olive}\beta_{0}^{q}} + {\color{red}\beta_{1}^{q}}\txt{Age}_{i,t} +{\color{red}\beta_{2}^{q}} \txt{HEQ}_{i,t}+ {\color{red}\beta_{3}^{q}}\txt{ETH}_{i,t} + {\color{red}\beta_{4}^{q}}\txt{MS}_{i,t} + {\color{red}\beta_{5}^{q}}\txt{Sex}_{i,t} + {\color{red}\beta_{6}^{q}}\txt{GR}_{i,t} + \\
 & {\color{orange}f^{q}_{\txt{Exposed}^{i}}(t)} + {\color{orange}f^{q}_{\txt{Intervention}^{i,t}}} + {\color{blue}\gamma_{r_{i}}^{q}} + {\color{blue}\nu_{k_{i}}^{q}} + {\color{blue}\zeta_{\psi_{i}}^{q}} + {\color{purple}\delta_{t}^{q}} + {\color{purple}e_{i}^{q}}
 \end{aligned}
 $$
@@ -436,14 +441,14 @@ $$
   - [Random effects to account for temporal variability and individual heterogeneity]{.purple}
   - [Cubic B-splines]{.orange} to map complex, non-linear population changes across the 2009-2020 timeline
 
-## Model: Bayesian Multinomial-logistic ITS: $w$ell $b$eing status {visibility="uncounted"}
+## Bayesian Multinomial-logistic ITS: $w$ell $b$eing status {visibility="uncounted"}
 
 `r vspace("-30px")`
 
 $$
 \begin{aligned}
 \text{Pr}(Y^{(wb),i,t} & = s\mid Y^{(wb),i,t-1} = s', Y^{(w),i,t} = q)  = \frac{e^{\eta_{s',s}^{i,t}}(q)}{\sum_{s=1}^{5}e^{\eta_{s',s}^{i,t}}(q)} = \lambda_{s',s}^{i,t}(q), \\ & \txt{with } {\lambda}_{s',1}^{i,t}(q) + {\lambda}_{s',2}^{i,t}(q) + \ldots {\lambda}_{s',5}^{i,t}(q) = 1, \\[10pt] 
-\logit\left({{\lambda}_{s',s}^{i,t}}(q) \right) = {{\eta}_{s',s}^{i,t}}(q) = & {\color{olive}\beta_{0}^{s}} + {\color{red}\beta_{1}^{s}}\txt{Age}^{i,t} + {\color{red}\beta_{2}^{s}} \txt{HEQ}^{i,t} + {\color{red}\beta_{3}^{s}}\txt{ETH}^{i,t} + {\color{red}\beta_{4}^{s}}\txt{MS}^{i,t} + {\color{red}\beta_{5}^{s}}\txt{Sex}^{i,t} + {\color{red}\beta_{6}^{s}}\txt{GR}^{i,t} + \\
+\logit\left({{\lambda}_{s',s}^{i,t}}(q) \right) = {{\eta}_{s',s}^{i,t}}(q) = & {\color{olive}\beta_{0}^{s}} + {\color{red}\beta_{1}^{s}}\txt{Age}_{i,t} + {\color{red}\beta_{2}^{s}} \txt{HEQ}_{i,t} + {\color{red}\beta_{3}^{s}}\txt{ETH}_{i,t} + {\color{red}\beta_{4}^{s}}\txt{MS}_{i,t} + {\color{red}\beta_{5}^{s}}\txt{Sex}_{i,t} + {\color{red}\beta_{6}^{s}}\txt{GR}_{i,t} + \\
 & {\color{orange}f^{s}_{\txt{Exposed}^{i}}(t)} + {\color{orange}f^{s}_{\txt{Intervention}^{i,t}}} + {\color{blue}\gamma_{r_{i}}^{s}} + {\color{blue}\nu_{k_{i}}^{s}} + {\color{blue}\zeta_{\psi_{i}}^{s}} + {\color{purple}\delta_{t}^{s}} + {\color{purple}e_{i}^{s}} + {\color{#C21718}\theta^{s}\mathbb{I}(q = 7)}
 \end{aligned}
 $$
@@ -454,11 +459,11 @@ $$
   - [Random effects by stratification group, PSUs and LSOAs]{.blue} to control for neighborhood and regional variations (ensuring results are not just reflecting local geography)
   - [Random effects to account for temporal variability and individual heterogeneity]{.purple}
   - [Cubic B-splines]{.orange} to map complex, non-linear population changes across the 2009-2020 timeline
-  - [Intervention effect]{.samp-red}: shifts the log-odds of a well-being transition if the individual is currently receiving benefits (= in state $q=7$)
+  - [Benefits effect]{.samp-red}: shifts the log-odds of a well-being transition if the individual is currently receiving benefits (= in state $q=7$)
   
 - Use minimally informative priors + Variational Inference to generate 1000 joint posterior samples
 
-## Key Simulation Results: Well-Being
+## Key simulation results: well-being
 
 ::::: columns
 ::: {.column width="65%"}
@@ -646,7 +651,7 @@ d = tribble(
 ) |>
   mutate(
     state = factor(state, levels = c("AR", "FD", "LDS", "FD & LDS", "MD"),
-                   labels = c("(a) AR", "(b) FD", "(c) LDS", "(d) FD & LDS", "(e) MD")),
+                   labels = c("AR", "FD", "LDS", "FD & LDS", "MD")),
     benefit = factor(benefit, levels = c("Legacy Welfare", "No Benefits", "Universal Credit"))
   )
 
@@ -773,11 +778,11 @@ ggplot(d, aes(x = year_dodge, y = mean, colour = benefit, group = benefit)) +
   geom_point(size = 2.2) +
   scale_colour_manual(values = cols, name = "Benefits") +
   scale_x_continuous(breaks = 2010:2020) +
-  labs(title = "WE", x = "Year", y = "Proportion of Individuals") +
+  labs(title = "Welfare Exit", x = "Year", y = "Proportion of Individuals") +
   theme_ucl() +
   theme(
     plot.title = element_text(hjust = 0.5),
-    axis.text.x = element_text(angle = 45, hjust = 1),
+#    axis.text.x = element_text(angle = 45, hjust = 1),
     panel.grid.minor = element_blank(),
     legend.position = "bottom"
   )
@@ -825,7 +830,7 @@ cea = tibble(
 
 cea |>
   tt(
-    caption = "Posterior sample summaries of the mean and 95% credible interval of costs in millions of pounds, life-years spent on AR, change in costs, change in benefits, and the ICER between UC and LW benefit systems.",
+    caption = "Posterior sample summaries of the mean and 95% credible interval of costs in millions of pounds, life-years spent on AR, change in costs, change in benefits, and the ICER between UC and LW",
     width = c(1, 1.5, 1.5, 2.1, 2.1, 1)
   ) |>
   setNames(c("", "Cost (£1m)", "Benefit", "Differential Cost \\(\\Delta_c\\)", "Differential Benefits \\(\\Delta_e\\)", "ICER"))
@@ -833,7 +838,7 @@ cea |>
 :::
 
 ::: {.fragment fragment-index="1"}
-- Core Findings (2013-2020):
+- Core findings (2013-2020):
   - UC claimants spent an average of 0.51 fewer life-years in a hardship-free state compared to LW
   - The transition to UC cost the government an additional £47 million across the study period
   - The Incremental Cost-Effectiveness Ratio (ICER) $=\displaystyle \frac{\txt{E}[\Delta_c]}{\txt{E}[\Delta_e]}$ is strictly negative: UC is "dominated" by the legacy system, meaning it delivers significantly worse human outcomes at a higher taxpayer cost
@@ -858,29 +863,29 @@ BCEA::contour(m,graph="ggplot2") +  ylab("Incremental cost (£1,000,000)") +
   theme_ucl() + theme(legend.position="none") 
 ```
 
-## Study Limitations
+## Study limitations
 
-- Uniform Cost Assumptions
+- Uniform cost assumptions
   - The economic calculations assume a uniform expenditure per individual because precise, individual-level cost data were unavailable
 
 . . .
 
-- Undifferentiated Welfare Exits
+- Undifferentiated welfare exits
   - The data allow the model to track when individuals exit the benefit system, but it cannot differentiate whether they exited due to positive reasons (like improved financial circumstances) or negative reasons (like system disengagement or sanctions)
 
 . . .
 
-- Masked Heterogeneity
+- Masked heterogeneity
   - The model does not incorporate interaction terms between UC intervention and demographic covariates
   - Consequently, it may mask how specific groups, such as older claimants who might struggle with the system's digital design, experience more pronounced adverse effects than the average
 
 . . .
 
-- Unidirectional Causality
+- Unidirectional causality
   - The Cohort Markov Model is structurally limited by an assumption of unidirectional causality
   - It measures how welfare status influences well-being, but it does not capture the reverse effect, such as how a sudden deterioration in well-being might independently prompt someone to exit the welfare system
 
-## Policy Implications & Conclusion
+## Policy implications & conclusion
 
 - Empirical evidence contradicts foundational claims that UC effectively streamlines the safety net, reduces poverty or eases transitions to financial independence
   - In fact, UC operates as a "dominated" policy intervention, simultaneously increasing government expenditure while decreasing claimant well-being and hardship-free life-years
@@ -888,7 +893,7 @@ BCEA::contour(m,graph="ggplot2") +  ylab("Incremental cost (£1,000,000)") +
 
 . . .
 
-- Core Policy Recommendations:
+- Core policy recommendations:
   - Eliminate Structural Bottlenecks: replace or heavily subsidize the initial five-week wait with non-repayable starter grants
   - Reform punitive sanctions to focus on supportive, health-conscious employment integration
 

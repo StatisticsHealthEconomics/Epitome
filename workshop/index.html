@@ -296,8 +296,9 @@ li:has(> .semi-transparent)::marker {
 </ul></li>
 </ul>
 </section>
-<section id="background-context-objectives" class="slide level2">
-<h2>Background, Context &amp; Objectives</h2>
+<section id="background" class="slide level2">
+<h2>Background</h2>
+<h3 id="context">Context</h3>
 <ul>
 <li><strong>The Legacy System</strong> (LW): A complex, post-WWII evolved safety net that often required multiple, non-integrated applications for different areas of support</li>
 <li><strong>The Reform Goal</strong>: The 2010s policy shift aimed to replace this administrative complexity with Universal Credit (UC) – a single, integrated payment structure</li>
@@ -309,7 +310,7 @@ li:has(> .semi-transparent)::marker {
 </ul></li>
 </ul>
 <div class="fragment" data-fragment-index="2" style="margin-top: 20px">
-<h3 id="research-gap-objectives">Research Gap &amp; Objectives</h3>
+<h3 id="research-gap-objectives">Research gap &amp; objectives</h3>
 <ul>
 <li>No previous research has modelled the dynamic co-evolution of benefit status and well-being</li>
 <li>In addition, existing literature generally has not quantified the trade-off between government expenditure and long-term socioeconomic outcomes</li>
@@ -469,19 +470,22 @@ li:has(> .semi-transparent)::marker {
 </ul>
 </section>
 <section id="data-source-sample-selection" class="slide level2">
-<h2>Data Source &amp; Sample Selection</h2>
+<h2>Data source &amp; sample selection</h2>
 <ul>
 <li>Longitudinal data from <a href="https://www.understandingsociety.ac.uk/">Understanding Society (UKHLS)</a>, 40,000+ households tracked since 2009
 <ul>
 <li>Focus on working-age (16-64) individuals in Great Britain</li>
 <li>Exclude those with pre-existing lifetime illnesses or disabilities to ensure results reflect policy impacts rather than health crises</li>
 </ul></li>
-<li>Study Cohorts:
+<li>Study cohorts:
 <ul>
 <li>Universal Credit (6%): exposed to UC between 2013-2020</li>
 <li>Legacy Welfare (40%): exclusive to the old benefit system</li>
 <li>No Benefit (54%): never claimed support</li>
 </ul></li>
+</ul>
+<p><span style="display:block; margin-top: 30px ;"></span></p>
+<ul>
 <li><strong>NB</strong>: UC rollout was administratively mandated, not triggered by personal life shocks, allowing us to evaluate the effects of the policy change</li>
 </ul>
 </section>
@@ -493,15 +497,15 @@ li:has(> .semi-transparent)::marker {
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="index_files/figure-revealjs/mm1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img data-src="index_files/figure-revealjs/mm1-1.png" class="quarto-figure quarto-figure-center" style="width:85.0%"></a></p>
+<p><a href="index_files/figure-revealjs/mm1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img data-src="index_files/figure-revealjs/mm1-1.png" class="quarto-figure quarto-figure-center" style="width:90.0%"></a></p>
 </figure>
 </div>
 </div>
 </div>
 </div><div class="column" style="width:45%;">
 <ul>
-<li><p><span class="samp-red">Layer 1 – Welfare Status</span>: a binary classification of either <span class="light-blue">Welfare Entry (active claim; 6)</span> or <span class="orange">Welfare Exit (7)</span></p></li>
-<li><p><span class="samp-blue">Layer 2 – Well-Being Space</span>: five distinct states of human experience:</p>
+<li><p><span class="samp-red">Layer 1 – <strong>Welfare states</strong></span>: a binary classification of either <span class="light-blue">Welfare Exit (6)</span> or <span class="orange">Welfare Entry (active claim; 7)</span></p></li>
+<li><p><span class="samp-blue">Layer 2 – <strong>Well-being states</strong></span>: five distinct states of human experience:</p>
 <ul>
 <li><span class="blue">At Risk; 1</span> (Baseline): hardship-free</li>
 <li>Distress States: <span class="olive">Financial Distress (2)</span>, <span class="purple">Life Dissatisfaction (3)</span>, or <span class="italian-green">Combined (4)</span> (Both)</li>
@@ -520,13 +524,13 @@ li:has(> .semi-transparent)::marker {
 </div>
 </div></div>
 </section>
-<section id="model-bayesian-multinomial-logistic-its-welfare-status" class="slide level2">
-<h2>Model: Bayesian Multinomial-logistic ITS: <span class="math inline">\(w\)</span>elfare status</h2>
+<section id="bayesian-multinomial-logistic-its-welfare-status" class="slide level2">
+<h2>Bayesian Multinomial-logistic ITS: <span class="math inline">\(w\)</span>elfare status</h2>
 <ul>
 <li><p>For individuals <span class="math inline">\(i = 1, 2, \ldots, n\)</span>, residing in a LSOA region <span class="math inline">\(r_{i}\)</span>, belonging to a stratification group <span class="math inline">\(k_{i}\)</span>, assigned to a PSU group <span class="math inline">\(\psi_{i}\)</span> and observed over time points <span class="math inline">\(t\)</span> <span class="math display">\[
 \begin{aligned}
 \text{Pr}(Y^{(w),i,t} &amp; = q\mid Y^{(w),i,t-1} = q') = \frac{e^{\eta_{q',q}^{i,t}}}{\sum_{q=6}^{7}e^{\eta_{q',q}^{i,t}}} = \chi_{q',q}^{i,t}, \ \txt{with} \ \ \chi_{q',6}^{i,t} + \chi_{q',7}^{i,t} = 1, \\[10pt]
-\logit({\chi}_{q',q}^{i,t}) = {{\eta}_{q',q}^{i,t}} = &amp; {\color{olive}\beta_{0}^{q}} + {\color{red}\beta_{1}^{q}}\txt{Age}^{i,t} +{\color{red}\beta_{2}^{q}} \txt{HEQ}^{i,t}+ {\color{red}\beta_{3}^{q}}\txt{ETH}^{i,t} + {\color{red}\beta_{4}^{q}}\txt{MS}^{i,t} + {\color{red}\beta_{5}^{q}}\txt{Sex}^{i,t} + {\color{red}\beta_{6}^{q}}\txt{GR}^{i,t} + \\
+\logit({\chi}_{q',q}^{i,t}) = {{\eta}_{q',q}^{i,t}} = &amp; {\color{olive}\beta_{0}^{q}} + {\color{red}\beta_{1}^{q}}\txt{Age}_{i,t} +{\color{red}\beta_{2}^{q}} \txt{HEQ}_{i,t}+ {\color{red}\beta_{3}^{q}}\txt{ETH}_{i,t} + {\color{red}\beta_{4}^{q}}\txt{MS}_{i,t} + {\color{red}\beta_{5}^{q}}\txt{Sex}_{i,t} + {\color{red}\beta_{6}^{q}}\txt{GR}_{i,t} + \\
 &amp; {\color{orange}f^{q}_{\txt{Exposed}^{i}}(t)} + {\color{orange}f^{q}_{\txt{Intervention}^{i,t}}} + {\color{blue}\gamma_{r_{i}}^{q}} + {\color{blue}\nu_{k_{i}}^{q}} + {\color{blue}\zeta_{\psi_{i}}^{q}} + {\color{purple}\delta_{t}^{q}} + {\color{purple}e_{i}^{q}}
 \end{aligned}
 \]</span></p></li>
@@ -540,13 +544,13 @@ li:has(> .semi-transparent)::marker {
 </ul></li>
 </ul>
 </section>
-<section id="model-bayesian-multinomial-logistic-its-well-being-status" class="slide level2" data-visibility="uncounted">
-<h2>Model: Bayesian Multinomial-logistic ITS: <span class="math inline">\(w\)</span>ell <span class="math inline">\(b\)</span>eing status</h2>
+<section id="bayesian-multinomial-logistic-its-well-being-status" class="slide level2" data-visibility="uncounted">
+<h2>Bayesian Multinomial-logistic ITS: <span class="math inline">\(w\)</span>ell <span class="math inline">\(b\)</span>eing status</h2>
 <p><span style="display:block; margin-top: -30px ;"></span></p>
 <p><span class="math display">\[
 \begin{aligned}
 \text{Pr}(Y^{(wb),i,t} &amp; = s\mid Y^{(wb),i,t-1} = s', Y^{(w),i,t} = q)  = \frac{e^{\eta_{s',s}^{i,t}}(q)}{\sum_{s=1}^{5}e^{\eta_{s',s}^{i,t}}(q)} = \lambda_{s',s}^{i,t}(q), \\ &amp; \txt{with } {\lambda}_{s',1}^{i,t}(q) + {\lambda}_{s',2}^{i,t}(q) + \ldots {\lambda}_{s',5}^{i,t}(q) = 1, \\[10pt]
-\logit\left({{\lambda}_{s',s}^{i,t}}(q) \right) = {{\eta}_{s',s}^{i,t}}(q) = &amp; {\color{olive}\beta_{0}^{s}} + {\color{red}\beta_{1}^{s}}\txt{Age}^{i,t} + {\color{red}\beta_{2}^{s}} \txt{HEQ}^{i,t} + {\color{red}\beta_{3}^{s}}\txt{ETH}^{i,t} + {\color{red}\beta_{4}^{s}}\txt{MS}^{i,t} + {\color{red}\beta_{5}^{s}}\txt{Sex}^{i,t} + {\color{red}\beta_{6}^{s}}\txt{GR}^{i,t} + \\
+\logit\left({{\lambda}_{s',s}^{i,t}}(q) \right) = {{\eta}_{s',s}^{i,t}}(q) = &amp; {\color{olive}\beta_{0}^{s}} + {\color{red}\beta_{1}^{s}}\txt{Age}_{i,t} + {\color{red}\beta_{2}^{s}} \txt{HEQ}_{i,t} + {\color{red}\beta_{3}^{s}}\txt{ETH}_{i,t} + {\color{red}\beta_{4}^{s}}\txt{MS}_{i,t} + {\color{red}\beta_{5}^{s}}\txt{Sex}_{i,t} + {\color{red}\beta_{6}^{s}}\txt{GR}_{i,t} + \\
 &amp; {\color{orange}f^{s}_{\txt{Exposed}^{i}}(t)} + {\color{orange}f^{s}_{\txt{Intervention}^{i,t}}} + {\color{blue}\gamma_{r_{i}}^{s}} + {\color{blue}\nu_{k_{i}}^{s}} + {\color{blue}\zeta_{\psi_{i}}^{s}} + {\color{purple}\delta_{t}^{s}} + {\color{purple}e_{i}^{s}} + {\color{#C21718}\theta^{s}\mathbb{I}(q = 7)}
 \end{aligned}
 \]</span></p>
@@ -558,13 +562,13 @@ li:has(> .semi-transparent)::marker {
 <li><span class="blue">Random effects by stratification group, PSUs and LSOAs</span> to control for neighborhood and regional variations (ensuring results are not just reflecting local geography)</li>
 <li><span class="purple">Random effects to account for temporal variability and individual heterogeneity</span></li>
 <li><span class="orange">Cubic B-splines</span> to map complex, non-linear population changes across the 2009-2020 timeline</li>
-<li><span class="samp-red">Intervention effect</span>: shifts the log-odds of a well-being transition if the individual is currently receiving benefits (= in state <span class="math inline">\(q=7\)</span>)</li>
+<li><span class="samp-red">Benefits effect</span>: shifts the log-odds of a well-being transition if the individual is currently receiving benefits (= in state <span class="math inline">\(q=7\)</span>)</li>
 </ul></li>
 <li>Use minimally informative priors + Variational Inference to generate 1000 joint posterior samples</li>
 </ul>
 </section>
 <section id="key-simulation-results-well-being" class="slide level2">
-<h2>Key Simulation Results: Well-Being</h2>
+<h2>Key simulation results: well-being</h2>
 <div class="columns">
 <div class="column" style="width:65%;">
 <div class="cell" data-layout-align="center">
@@ -636,26 +640,26 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_wzolrxvs1v394dnmgdo9 = TinyTable.createTableFunctions("tinytable_wzolrxvs1v394dnmgdo9");
+      const tableFns_qu97o5zz0zku1l2co00l = TinyTable.createTableFunctions("tinytable_qu97o5zz0zku1l2co00l");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '2', j: 4 }, { i: '2', j: 5 } ], css_id: 'tinytable_css_yjz135mmq475bjng5uat',}, 
-          { positions: [ { i: '1', j: 4 }, { i: '1', j: 5 } ], css_id: 'tinytable_css_8gf89ovx0v881tebjg9u',}, 
-          { positions: [ { i: '0', j: 4 }, { i: '0', j: 5 } ], css_id: 'tinytable_css_1dw4p4pzlp6b9wmzd177',}, 
-          { positions: [ { i: '2', j: 2 }, { i: '2', j: 3 } ], css_id: 'tinytable_css_uj1a8905q78aykfx9pq1',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '1', j: 3 } ], css_id: 'tinytable_css_qz73hf45samllmdki94g',}, 
-          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 } ], css_id: 'tinytable_css_60qid4yoqtbilpuwuyt3',}, 
-          { positions: [ { i: '2', j: 1 }, { i: '2', j: 6 } ], css_id: 'tinytable_css_4upjqw7ybgroxm0gr4ak',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '1', j: 6 } ], css_id: 'tinytable_css_bibidhu2pufedwqsjyi2',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 6 } ], css_id: 'tinytable_css_q6mxyoephczdf5bv254n',}, 
+          { positions: [ { i: '2', j: 4 }, { i: '2', j: 5 } ], css_id: 'tinytable_css_rxnsn2logz3avl1v943g',}, 
+          { positions: [ { i: '1', j: 4 }, { i: '1', j: 5 } ], css_id: 'tinytable_css_4yz8eqqpmpl0t9reomzh',}, 
+          { positions: [ { i: '0', j: 4 }, { i: '0', j: 5 } ], css_id: 'tinytable_css_rc9rltoerx0miyu6rjqs',}, 
+          { positions: [ { i: '2', j: 2 }, { i: '2', j: 3 } ], css_id: 'tinytable_css_2ryk9f0ky412km8l6es8',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '1', j: 3 } ], css_id: 'tinytable_css_jww41laep3gvubc1tfat',}, 
+          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 } ], css_id: 'tinytable_css_curnzac2y2zmnoc9z84p',}, 
+          { positions: [ { i: '2', j: 1 }, { i: '2', j: 6 } ], css_id: 'tinytable_css_octvssjvvtfcyxklmr5i',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '1', j: 6 } ], css_id: 'tinytable_css_7o2zzni83ln7czuh8zae',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 6 } ], css_id: 'tinytable_css_81bsj7k8i04vwausv82k',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_wzolrxvs1v394dnmgdo9.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_qu97o5zz0zku1l2co00l.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -664,19 +668,19 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_wzolrxvs1v394dnmgdo9 td.tinytable_css_yjz135mmq475bjng5uat, #tinytable_wzolrxvs1v394dnmgdo9 th.tinytable_css_yjz135mmq475bjng5uat {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 23%; }
-    #tinytable_wzolrxvs1v394dnmgdo9 td.tinytable_css_8gf89ovx0v881tebjg9u, #tinytable_wzolrxvs1v394dnmgdo9 th.tinytable_css_8gf89ovx0v881tebjg9u { width: 23%; }
-    #tinytable_wzolrxvs1v394dnmgdo9 td.tinytable_css_1dw4p4pzlp6b9wmzd177, #tinytable_wzolrxvs1v394dnmgdo9 th.tinytable_css_1dw4p4pzlp6b9wmzd177 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 23%; }
-    #tinytable_wzolrxvs1v394dnmgdo9 td.tinytable_css_uj1a8905q78aykfx9pq1, #tinytable_wzolrxvs1v394dnmgdo9 th.tinytable_css_uj1a8905q78aykfx9pq1 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 16%; }
-    #tinytable_wzolrxvs1v394dnmgdo9 td.tinytable_css_qz73hf45samllmdki94g, #tinytable_wzolrxvs1v394dnmgdo9 th.tinytable_css_qz73hf45samllmdki94g { width: 16%; }
-    #tinytable_wzolrxvs1v394dnmgdo9 td.tinytable_css_60qid4yoqtbilpuwuyt3, #tinytable_wzolrxvs1v394dnmgdo9 th.tinytable_css_60qid4yoqtbilpuwuyt3 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 16%; }
-    #tinytable_wzolrxvs1v394dnmgdo9 td.tinytable_css_4upjqw7ybgroxm0gr4ak, #tinytable_wzolrxvs1v394dnmgdo9 th.tinytable_css_4upjqw7ybgroxm0gr4ak {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 11%; }
-    #tinytable_wzolrxvs1v394dnmgdo9 td.tinytable_css_bibidhu2pufedwqsjyi2, #tinytable_wzolrxvs1v394dnmgdo9 th.tinytable_css_bibidhu2pufedwqsjyi2 { width: 11%; }
-    #tinytable_wzolrxvs1v394dnmgdo9 td.tinytable_css_q6mxyoephczdf5bv254n, #tinytable_wzolrxvs1v394dnmgdo9 th.tinytable_css_q6mxyoephczdf5bv254n {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 11%; }
+    #tinytable_qu97o5zz0zku1l2co00l td.tinytable_css_rxnsn2logz3avl1v943g, #tinytable_qu97o5zz0zku1l2co00l th.tinytable_css_rxnsn2logz3avl1v943g {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 23%; }
+    #tinytable_qu97o5zz0zku1l2co00l td.tinytable_css_4yz8eqqpmpl0t9reomzh, #tinytable_qu97o5zz0zku1l2co00l th.tinytable_css_4yz8eqqpmpl0t9reomzh { width: 23%; }
+    #tinytable_qu97o5zz0zku1l2co00l td.tinytable_css_rc9rltoerx0miyu6rjqs, #tinytable_qu97o5zz0zku1l2co00l th.tinytable_css_rc9rltoerx0miyu6rjqs {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 23%; }
+    #tinytable_qu97o5zz0zku1l2co00l td.tinytable_css_2ryk9f0ky412km8l6es8, #tinytable_qu97o5zz0zku1l2co00l th.tinytable_css_2ryk9f0ky412km8l6es8 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 16%; }
+    #tinytable_qu97o5zz0zku1l2co00l td.tinytable_css_jww41laep3gvubc1tfat, #tinytable_qu97o5zz0zku1l2co00l th.tinytable_css_jww41laep3gvubc1tfat { width: 16%; }
+    #tinytable_qu97o5zz0zku1l2co00l td.tinytable_css_curnzac2y2zmnoc9z84p, #tinytable_qu97o5zz0zku1l2co00l th.tinytable_css_curnzac2y2zmnoc9z84p {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 16%; }
+    #tinytable_qu97o5zz0zku1l2co00l td.tinytable_css_octvssjvvtfcyxklmr5i, #tinytable_qu97o5zz0zku1l2co00l th.tinytable_css_octvssjvvtfcyxklmr5i {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 11%; }
+    #tinytable_qu97o5zz0zku1l2co00l td.tinytable_css_7o2zzni83ln7czuh8zae, #tinytable_qu97o5zz0zku1l2co00l th.tinytable_css_7o2zzni83ln7czuh8zae { width: 11%; }
+    #tinytable_qu97o5zz0zku1l2co00l td.tinytable_css_81bsj7k8i04vwausv82k, #tinytable_qu97o5zz0zku1l2co00l th.tinytable_css_81bsj7k8i04vwausv82k {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 11%; }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_wzolrxvs1v394dnmgdo9" style="table-layout: fixed; width: 100%; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
-        <caption>Posterior sample summaries of the mean and 95% credible interval of costs in millions of pounds, life-years spent on AR, change in costs, change in benefits, and the ICER between UC and LW benefit systems.</caption>
+      <table class="tinytable" id="tinytable_qu97o5zz0zku1l2co00l" style="table-layout: fixed; width: 100%; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        <caption>Posterior sample summaries of the mean and 95% credible interval of costs in millions of pounds, life-years spent on AR, change in costs, change in benefits, and the ICER between UC and LW</caption>
         <thead>
               <tr>
                 <th scope="col" data-row="0" data-col="1"></th>
@@ -714,7 +718,7 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
 </div>
 <div class="fragment" data-fragment-index="1">
 <ul>
-<li>Core Findings (2013-2020):
+<li>Core findings (2013-2020):
 <ul>
 <li>UC claimants spent an average of 0.51 fewer life-years in a hardship-free state compared to LW</li>
 <li>The transition to UC cost the government an additional £47 million across the study period</li>
@@ -736,16 +740,16 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
 </div>
 </section>
 <section id="study-limitations" class="slide level2">
-<h2>Study Limitations</h2>
+<h2>Study limitations</h2>
 <ul>
-<li>Uniform Cost Assumptions
+<li>Uniform cost assumptions
 <ul>
 <li>The economic calculations assume a uniform expenditure per individual because precise, individual-level cost data were unavailable</li>
 </ul></li>
 </ul>
 <div class="fragment">
 <ul>
-<li>Undifferentiated Welfare Exits
+<li>Undifferentiated welfare exits
 <ul>
 <li>The data allow the model to track when individuals exit the benefit system, but it cannot differentiate whether they exited due to positive reasons (like improved financial circumstances) or negative reasons (like system disengagement or sanctions)</li>
 </ul></li>
@@ -753,7 +757,7 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
 </div>
 <div class="fragment">
 <ul>
-<li>Masked Heterogeneity
+<li>Masked heterogeneity
 <ul>
 <li>The model does not incorporate interaction terms between UC intervention and demographic covariates</li>
 <li>Consequently, it may mask how specific groups, such as older claimants who might struggle with the system’s digital design, experience more pronounced adverse effects than the average</li>
@@ -762,7 +766,7 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
 </div>
 <div class="fragment">
 <ul>
-<li>Unidirectional Causality
+<li>Unidirectional causality
 <ul>
 <li>The Cohort Markov Model is structurally limited by an assumption of unidirectional causality</li>
 <li>It measures how welfare status influences well-being, but it does not capture the reverse effect, such as how a sudden deterioration in well-being might independently prompt someone to exit the welfare system</li>
@@ -771,7 +775,7 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
 </div>
 </section>
 <section id="policy-implications-conclusion" class="slide level2">
-<h2>Policy Implications &amp; Conclusion</h2>
+<h2>Policy implications &amp; conclusion</h2>
 <ul>
 <li>Empirical evidence contradicts foundational claims that UC effectively streamlines the safety net, reduces poverty or eases transitions to financial independence
 <ul>
@@ -781,7 +785,7 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
 </ul>
 <div class="fragment">
 <ul>
-<li>Core Policy Recommendations:
+<li>Core policy recommendations:
 <ul>
 <li>Eliminate Structural Bottlenecks: replace or heavily subsidize the initial five-week wait with non-repayable starter grants</li>
 <li>Reform punitive sanctions to focus on supportive, health-conscious employment integration</li>

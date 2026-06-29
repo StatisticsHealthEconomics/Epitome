@@ -4,7 +4,8 @@
 #
 
 # First checks whether the target folder exists and create it if not
-default="/home/gianluca/Dropbox/Rstuff/Website/public/slides/"$(basename "$PWD")
+#default="/home/gianluca/Dropbox/Rstuff/Website/public/slides/"$(basename "$PWD")
+default="/home/gianluca/Dropbox/Rstuff/Website/public/slides/epitome"
 targetdir=${1-$default}
 [ -d "$targetdir" ] || mkdir -p $targetdir
 # Figures out the name of the html file
