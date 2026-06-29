@@ -235,6 +235,12 @@ section.has-dark-background a, section.has-dark-background a:hover {
 .samp-red {
   color: #C21718;
 }
+.purple {
+  color: #800080;
+}
+.light-blue{
+  color: #90D5FF;
+}
 
 /* This makes long tables included in tabsets scrollable vertically */
 .panel-tabset {

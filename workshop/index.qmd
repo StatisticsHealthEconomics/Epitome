@@ -109,6 +109,10 @@ This presentation is a summary of the work conducted in Work-Package 4
 - I can take all the credit (...), but in reality, this has been driven by the fantastic work of **Ioannis Rotous**
 - Key contributions to this work have arrived from all the other EPITOME researchers (e.g. in discussions for the methodological framework to represent the underlying processes, as well as for the formalisation of the statistical modelling)
 
+::: {.aside}
+Rotous I, Jeffery A, Gascoigne C, Yu X, Blangiardo M, Geneletti S, Kirkbride J, Baio, G (2026). From Reform to Reassessment: Universal Credit in the Shadow of Its Predecessor". Submitted as Read Paper to the *Journal of the Royal Statistical Society*, Series A -- under second round of revisions. :crossed_fingers:
+:::
+
 ## EPITOME
 
 ```{=html}
@@ -128,56 +132,60 @@ li:has(> .semi-transparent)::marker {
 ***Evaluating Policy Implementation TO Predict MEntal health: a Bayesian hierarchical framework for quasi-experimental designs in longitudinal settings***
 
 - [**WP1: hierarchical statistical framework**]{.semi-transparent}
-   - [Core Bayesian time series model with spatial/temporal dependency, extended to stepped wedge and matched-control designs]{.semi-transparent}
-   - [Simulation study to assess robustness and sensitivity to model and prior choices]{.semi-transparent}
-
+  - [Core Bayesian time series model with spatial/temporal dependency, extended to stepped wedge and matched-control designs]{.semi-transparent}
+  - [Simulation study to assess robustness and sensitivity to model and prior choices]{.semi-transparent}
 - [**WP2: evaluating impact on mental health need in England**]{.semi-transparent}
-   - [Apply the framework to five UK datasets to estimate effects of Universal Credit and the Hostile Environment Policy]{.semi-transparent}
-   - [Test for independent and combined effects across socioeconomic and ethnic minority groups]{.semi-transparent}
-
+  - [Apply the framework to five UK datasets to estimate effects of Universal Credit and the Hostile Environment Policy]{.semi-transparent}
+  - [Test for independent and combined effects across socioeconomic and ethnic minority groups]{.semi-transparent}
 - [**WP3: developing alternative controls**]{.semi-transparent}
-   - [Develop Bayesian synthetic control and negative outcome control methods for cases with no standard control group]{.semi-transparent}
-   - [Apply these to the WP2 case studies and extend simulations to guide their use]{.semi-transparent}
-
+  - [Develop Bayesian synthetic control and negative outcome control methods for cases with no standard control group]{.semi-transparent}
+  - [Apply these to the WP2 case studies and extend simulations to guide their use]{.semi-transparent}
 - **WP4: economic evaluation**
-   - Extend existing forecasting models into a Bayesian framework, propagating uncertainty from WP1 to WP3
-   - Use multi-state modelling and potentially Value of Information analysis to assess service demand and decision adequacy
+  - Extend existing forecasting models into a Bayesian framework, propagating uncertainty from WP1 to WP3
+  - Use multi-state modelling and potentially Value of Information analysis to assess service demand and decision adequacy
 
+## Background, Context & Objectives
 
-## Background & Context
-
-- **The Legacy System**: A complex, post-WWII evolved safety net that often required multiple, non-integrated applications for different areas of support
+- **The Legacy System** (LW): A complex, post-WWII evolved safety net that often required multiple, non-integrated applications for different areas of support
 - **The Reform Goal**: The 2010s policy shift aimed to replace this administrative complexity with Universal Credit (UC) -- a single, integrated payment structure
-- Primary Policy Aims: 
-   - *Efficiency*. Streamline administration to reduce system errors and fraud
-   - *Incentive*. Create a "work-first" culture by smoothing the transition from benefit dependency to employment
-   - *Simplicity*. Reduce the burden on claimants to navigate multiple government agencies
+- Primary Policy Aims:
+  - *Efficiency*. Streamline administration to reduce system errors and fraud
+  - *Incentive*. Create a "work-first" culture by smoothing the transition from benefit dependency to employment
+  - *Simplicity*. Reduce the burden on claimants to navigate multiple government agencies
 
-## Research Gap & Objectives
+::: {.fragment fragment-index="2" style="margin-top: 20px"}
+### Research Gap & Objectives
 
-- The Missing Link: no previous research has modelled the dynamic co-evolution of benefit status and well-being
-- The Economic Blind Spot: existing literature fails to quantify the trade-off between government expenditure and long-term socioeconomic outcomes
-- Our Objective: conduct the first formal economic evaluation comparing Universal Credit (UC) to Legacy Welfare (LW)
-   - Use Health Technology Assessment (HTA) tools to map the entire "welfare trajectory", not just individual symptoms
+- No previous research has modelled the dynamic co-evolution of benefit status and well-being
+- In addition, existing literature generally has not quantified the trade-off between government expenditure and long-term socioeconomic outcomes
+- **Objective**: conduct the first formal economic evaluation comparing UC to LW
+  - Use Health Technology Assessment (HTA) tools to map the entire "welfare trajectory", not just individual symptoms
+:::
+
+## Health technology assessment (HTA) {transition="slide-out" transition-speed="slow"}
+
+#### Objective
+
+- Combine [costs]{.myred} and [benefits]{.myblue} of a given intervention into a rational scheme for allocating resources
+
+<center>![](images/hta-scheme4.png){width="80%"}</center>
 
 ## Multi-state/Markov models
 
 - Assume a set $\mathcal{S}$ made of $S$ "clinically relevant" states
-   - Exhaustive and mutually exclusive
-   
+  - Exhaustive and mutually exclusive
 - The structure (links among nodes) describes the dynamics of disease history
-   - Arrows connecting two states encode the assumption that a transition from the one where the arrow originates to the one reached by it is possible
-   - Absence of an arrow between two states implies that the transition from one to the other is not allowed by our model
-   
+  - Arrows connecting two states encode the assumption that a transition from the one where the arrow originates to the one reached by it is possible
+  - Absence of an arrow between two states implies that the transition from one to the other is not allowed by our model
+
 . . .
 
 - From one period to the next, subjects can move among the states according to the rules specified by the arrows
 
-- Movements occur according to suitable transition probabilities
-$$\color{#24568c}\bm\pi_j = \bm\pi_{j-1} \bm\Lambda_j$$
-   where
-   - $\bm\pi_j=(\pi_{1j},\ldots,\pi_{Sj})$ is the vector of probabilities for each state at time $j$
-   - $\bm\Lambda_j = [\Lambda_{j;s',s}]$ is a transition matrix describing the probability of moving from state $s$ to state $s'$ at time $j$
+- Movements occur according to suitable transition probabilities $$\color{#24568c}\bm\pi_j = \bm\pi_{j-1} \bm\Lambda_j$$ where
+
+  - $\bm\pi_j=(\pi_{1j},\ldots,\pi_{Sj})$ is the vector of probabilities for each state at time $j$
+  - $\bm\Lambda_j = [\Lambda_{j;s',s}]$ is a transition matrix describing the probability of moving from state $s$ to state $s'$ at time $j$
 
 . . .
 
@@ -185,13 +193,11 @@ $$\color{#24568c}\bm\pi_j = \bm\pi_{j-1} \bm\Lambda_j$$
 
 $$\color{blue}{\Pr(`r sftext("Being in state ")` s `r sftext(" at time ")` j)= \sum_{s'\in\mathcal{S}}\Pr(`r sftext("Being in state ")` s' `r sftext(" at time ")` j-1)\times \Pr(`r sftext("Moving from state ")`s'`r sftext(" to state ")`s)}$$
 
-
 ## Markov models {visibility="uncounted"}
 
 ### 1. Define a structure (e.g. "**Natural history**" of the disease)
 
-![](images/mm1-1.png){width="45%" fig-align="center"}
-
+![](images/mm1-1.png){width="43%" fig-align="center"}
 
 ## Markov models {visibility="uncounted"}
 
@@ -201,12 +207,11 @@ $$\color{blue}{\Pr(`r sftext("Being in state ")` s `r sftext(" at time ")` j)= \
 
 `r vspace("-20px")`
 
-For instance: 
+For instance:
 
 - $\lambda_{14} =$ general (healthy) population mortality $\Rightarrow$ Relevant data: Life tables/official records, . . .
 - $\lambda_{24} =$ disease-specific mortality $\Rightarrow$ Relevant data: Trial/observational studies, . . .
 - $\ldots$
-
 
 ## Markov models {visibility="uncounted"}
 
@@ -218,16 +223,13 @@ For instance:
 
 Distribute the "virtual cohort" across the $S$ states (typically, everybody starts in the "healthy" state...)
 
-
 ## Markov models {visibility="uncounted"}
 
 ### 3. Run the simulation: $j=1$
 
 ![](images/mm4-1.png){width="55%" fig-align="center"}
 
-`r vspace("20px")`
-Start moving people around...
-
+`r vspace("20px")` Start moving people around...
 
 ## Markov models {visibility="uncounted"}
 
@@ -237,7 +239,7 @@ Start moving people around...
 
 - $\lambda_{s'sj}$ is the probability of moving from state $s'$ to state $s$ between time $j$ and $j+1$
 
-`r vspace("20px")`   
+`r vspace("20px")`
 
 - Thus:
 
@@ -250,10 +252,9 @@ $$\color{#24568c}{m_{s\, j+1} = m_{1j}\lambda_{1sj} + m_{2j}\lambda_{2sj} + \ldo
 \color{#24568c}{\bm{m}_{j+1}} & \color{#24568c}{= \, \bm{m}_{j} \bm\Lambda_j}
 \end{align}
 
-`r vspace("30px")`  
+`r vspace("30px")`
 
 - **NB**: The transition matrix typically does depend on the time $j$, but sometimes we can relax this assumption
-
 
 ## Markov models {visibility="uncounted"}
 
@@ -265,7 +266,6 @@ $$\color{#24568c}{m_{s\, j+1} = m_{1j}\lambda_{1sj} + m_{2j}\lambda_{2sj} + \ldo
 
 Move people around according to the relationship $\bm{m}_{2}=\bm{m}_{1}\bm\Lambda_{1}$
 
-
 ## Markov models {visibility="uncounted"}
 
 ### 3. Run the simulation: $j=3$
@@ -276,7 +276,6 @@ Move people around according to the relationship $\bm{m}_{2}=\bm{m}_{1}\bm\Lambd
 
 Move people around according to the relationship $\bm{m}_{3}=\bm{m}_{2}\bm\Lambda_{2}$
 
-
 ## Markov models {visibility="uncounted"}
 
 ### 3. Run the simulation: $j=J$ ("*lifetime* horizon")
@@ -285,65 +284,60 @@ Move people around according to the relationship $\bm{m}_{3}=\bm{m}_{2}\bm\Lambd
 
 `r vspace("30px")`
 
-- We can associate suitable measures of cost and benefits with each state 
+- We can associate suitable measures of cost and benefits with each state
 - With these, we can compute the overall economic value of different policies
-   - Each policy will generally have different distributions of the time spent in each state
-   - This in turn determines different costs & benefits...
-
+  - Each policy will generally have different distributions of the time spent in each state
+  - This in turn determines different costs & benefits...
 
 ## Data Source & Sample Selection
 
-- Longitudinal data from Understanding Society (UKHLS), 40,000+ households tracked since 2009
-- Sample Filter: focused on working-age (16-64) individuals in Great Britain
-- The "Clean" Baseline: excluded those with pre-existing lifetime illnesses or disabilities to ensure results reflect policy impacts rather than health crises
-
+- Longitudinal data from [Understanding Society (UKHLS)](https://www.understandingsociety.ac.uk/), 40,000+ households tracked since 2009
+  - Focus on working-age (16-64) individuals in Great Britain
+  - Exclude those with pre-existing lifetime illnesses or disabilities to ensure results reflect policy impacts rather than health crises
 - Study Cohorts:
-   - Universal Credit (6%): exposed to UC between 2013-2020
-   - Legacy Welfare (40%): exclusive to the old benefit system
-   - No Benefit (54%): never claimed support
-
+  - Universal Credit (6%): exposed to UC between 2013-2020
+  - Legacy Welfare (40%): exclusive to the old benefit system
+  - No Benefit (54%): never claimed support
 - Natural Experiment Advantage: UC rollout was administratively mandated, not triggered by personal life shocks, allowing for an unbiased evaluation of the policy change
 
+## Multi-state modelling for the UC/LW evaluation
 
-## Explaining the Multi-State Framework
-
-- Layer 1: Welfare Status: a binary classification of either Welfare Entry (active claim) or Welfare Exit
-
-- Layer 2: Well-Being Space: five distinct states of human experience:
-   - At Risk (Baseline): hardship-free
-   - Distress States: Financial Distress, Life Dissatisfaction, or Combined (Both)
-   - Mental Distress: clinical endpoint (GHQ-12)
-
-- The Pathways: well-being pathways are conditional on welfare status. The welfare layer modulates how individuals transition through the well-being states
-
-## Multi-state framework diagram
-
+:::::: columns
+::: {.column width="55%"}
 ```{r mm1, engine='tikz',echo=F}
-#| out-width: "50%"
+#| out-width: "85%"
 #| fig-align: "center"
+
+\definecolor{sampred}{HTML}{C21718}
+\definecolor{sampblue}{HTML}{1B5497}
+\definecolor{italiangreen}{HTML}{009246}
+\definecolor{spanishyellow}{HTML}{ffc400}
+\definecolor{olive}{HTML}{334f17}
+\definecolor{sampblue}{HTML}{1B5497}
+\definecolor{lightblue}{HTML}{90D5FF}
 
 \usetikzlibrary{shapes.geometric, arrows,automata, positioning}
 \begin{tikzpicture}[shorten >=1pt, node distance=2.7cm, auto, on grid, font=\sffamily]
     % Define the states
-    \node[draw = none] (AR) {AR};
+    \node[draw = none] (AR) {\color{blue}AR};
     
     \node[state, opacity = 0] (B) [right=of AR] {B};
     \node[state, opacity = 0] (C) [left=of AR]  {C};
     
-    \node[draw = none] (FD) [below right=of B] {FD};
-    \node[draw = none] (LDS) [below left=of C] {LDS};
+    \node[draw = none] (FD) [below right=of B] {\color{olive}FD};
+    \node[draw = none] (LDS) [below left=of C] {\color{purple}LDS};
 
     \node[state, opacity = 0] (F) [below=of FD] {F};
     \node[state, opacity = 0] (G) [below=of LDS] {G};
 
-    \node[draw = none] (MD) [below=of G] {MD};
-    \node[draw = none] (FDCMD) [below=of F] {FD  \& LDS};
+    \node[draw = none] (MD) [below=of G] {\color{spanishyellow}MD};
+    \node[draw = none] (FDCMD) [below=of F] {\color{italiangreen}FD  \& LDS};
 
     \node[state, opacity = 0] (J) [below=of FDCMD] {J};
     \node[state, opacity = 0] (K) [below=of MD] {K};
      \node[state, opacity = 0] (L) [right=of K] {L};
-    \node[draw = none] (WE) [below right=of K] {WE};
-     \node[draw = none] (WI) [below left=of J] {$\text{WE}^{c}$};
+    \node[draw = none] (WE) [below right=of K] {\color{lightblue}WE};
+     \node[draw = none] (WI) [below left=of J] {$\color{orange}\text{WE}^{c}$};
 
     
 
@@ -394,52 +388,84 @@ Move people around according to the relationship $\bm{m}_{3}=\bm{m}_{2}\bm\Lambd
      \draw[loosely dashed, thick, black!60] (-3.5,-11) -- (-3.5,-13.5);
      \draw[loosely dashed, thick, black!60] (3.5,-11) -- (3.5,-13.51);
 
-\node[font=\sffamily\bfseries] (Title) at (-5, -10.5) {Welfare States};
+\node[font=\sffamily\bfseries] (Title) at (-5, -10.5) {{\color{sampred}Welfare States}};
 
-\node[font=\sffamily\bfseries] (Title) at (-5, 2) {Well-being States};
+\node[font=\sffamily\bfseries] (Title) at (-5, 2) {{\color{sampblue}Well-being States}};
 
-   % \node[draw, fill=gray!10, rounded corners, font=\small\itshape] (cond) at (0,-9.7) 
-   % {Transition probabilities $\lambda_{s,s'}^{g,t}$, for the well-being states, are conditional on the current welfare state};
+   \node[draw, fill=gray!10, rounded corners, font=\small\itshape] (cond) at (0,-9.7) 
+   {Transition probabilities $\lambda_{s,s'}^{g,t}$, for the well-being states, are conditional on the current welfare state};
 
- % \draw[thick, ->] (0,-11) -- (0,-10.1);
+ \draw[thick, ->] (0,-11) -- (0,-10.1);
 \end{tikzpicture}
 ```
+:::
 
-## The Cohort Markov Model (CMM) Design
+:::: {.column width="45%"}
+- [Layer 1 -- Welfare Status]{.samp-red}: a binary classification of either [Welfare Entry (active claim; 6)]{.light-blue} or [Welfare Exit (7)]{.orange}
 
-- The Goal: map the "Natural History" of claimants, how their well-being evolves as they move through the welfare system
-- Dual-Layer Logic:
-   - Layer 1 (Welfare): tracks status (Entry vs Exit)
-   - Layer 2 (Well-Being): tracks health/financial states (e.g. At Risk, Mental Distress)
+- [Layer 2 -- Well-Being Space]{.samp-blue}: five distinct states of human experience:
+
+  - [At Risk; 1]{.blue} (Baseline): hardship-free
+  - Distress States: [Financial Distress (2)]{.olive}, [Life Dissatisfaction (3)]{.purple}, or [Combined (4)]{.italian-green} (Both)
+  - [Mental Distress (5)]{.spanish-yellow}: clinical endpoint (GHQ-12)
+
+::: {.fragment fragment-index="2"}
+- Well-being pathways are conditional on welfare status
+  - The welfare layer modulates how individuals transition through the well-being states
+  - Assumes welfare status drives well-being outcomes rather than the other way around $\Rightarrow$ isolates the policy's direct impact
+- Simulate 5,000-person cohort year-by-year (2009-2020) to calculate the cumulative time spent in "Distress" vs "Hardship-Free" states
+:::
+::::
+::::::
+
+## Model: Bayesian Multinomial-logistic ITS
    
-- Asymmetric Causality: the model assumes welfare status drives well-being outcomes rather than the other way around. This isolates the policy's direct impact
-- Iterative Simulation: processes a 5,000-person cohort year-by-year (2009-2020) to calculate the cumulative time spent in "Distress" vs "Hardship-Free" states
+- For individuals $i = 1, 2, \ldots, n$, residing in a LSOA region $r_{i}$, belonging to a stratification group $k_{i}$, assigned to a PSU group $\psi_{i}$ and observed over time points $t$
+$$
+\begin{aligned}
+\text{Pr}(Y^{(w),i,t} & = q\mid Y^{(w),i,t-1} = q') = \frac{e^{\eta_{q',q}^{i,t}}}{\sum_{q=6}^{7}e^{\eta_{q',q}^{i,t}}} = \chi_{q',q}^{i,t}, \ \txt{with} \ \ \chi_{q',6}^{i,t} + \chi_{q',7}^{i,t} = 1, \\[10pt]
+\logit({\chi}_{q',q}^{i,t}) = {{\eta}_{q',q}^{i,t}} = & {\color{olive}\beta_{0}^{q}} + {\color{red}\beta_{1}^{q}}\txt{Age}^{i,t} +{\color{red}\beta_{2}^{q}} \txt{HEQ}^{i,t}+ {\color{red}\beta_{3}^{q}}\txt{ETH}^{i,t} + {\color{red}\beta_{4}^{q}}\txt{MS}^{i,t} + {\color{red}\beta_{5}^{q}}\txt{Sex}^{i,t} + {\color{red}\beta_{6}^{q}}\txt{GR}^{i,t} + \\
+& {\color{orange}f^{q}_{\txt{Exposed}^{i}}(t)} + {\color{orange}f^{q}_{\txt{Intervention}^{i,t}}} + {\color{blue}\gamma_{r_{i}}^{q}} + {\color{blue}\nu_{k_{i}}^{q}} + {\color{blue}\zeta_{\psi_{i}}^{q}} + {\color{purple}\delta_{t}^{q}} + {\color{purple}e_{i}^{q}}
+\end{aligned}
+$$
 
-## Statistical Methodology
+- [Destination-specific baseline log-odds]{.olive}
+- [Confounding factors]{.red}: age, highest education qualification, ethnicity, martial status, sex and Government Office region
+- Structured terms
+  - [Random effects by stratification group, PSUs and LSOAs]{.blue} to control for neighborhood and regional variations (ensuring results are not just reflecting local geography)
+  - [Random effects to account for temporal variability and individual heterogeneity]{.purple}
+  - [Cubic B-splines]{.orange} to map complex, non-linear population changes across the 2009-2020 timeline
 
-- The Model: a Bayesian multinomial-logistic interrupted time series regression, designed to capture dynamic shifts in welfare and well-being over time
-- Accounting for Real-World Complexity:
-   - Random Effects: used PSUs and LSOAs to control for neighborhood and regional variations (ensuring results aren't just reflecting local geography)
-   - Capturing Non-Linear Trends: used cubic B-splines to map complex, non-linear population changes across the 2009-2020 timeline
-   - Empirical Integrity: employed "vague" priors to ensure conclusions are driven strictly by the data rather than by external assumptions
-   - Computational Efficiency: used Variational Inference (VI) to generate 1,000 joint posterior samples, providing high probabilistic certainty
+## Model: Bayesian Multinomial-logistic ITS {visibility="uncounted"}
+
+`r vspace("-30px")`
+
+$$
+\begin{aligned}
+\text{Pr}(Y^{(wb),i,t} & = s\mid Y^{(wb),i,t-1} = s', Y^{(w),i,t} = q)  = \frac{e^{\eta_{s',s}^{i,t}}(q)}{\sum_{s=1}^{5}e^{\eta_{s',s}^{i,t}}(q)} = \lambda_{s',s}^{i,t}(q), \\ & \txt{with } {\lambda}_{s',1}^{i,t}(q) + {\lambda}_{s',2}^{i,t}(q) + \ldots {\lambda}_{s',5}^{i,t}(q) = 1, \\[10pt] 
+\logit\left({{\lambda}_{s',s}^{i,t}}(q) \right) = {{\eta}_{s',s}^{i,t}}(q) = & {\color{olive}\beta_{0}^{s}} + {\color{red}\beta_{1}^{s}}\txt{Age}^{i,t} + {\color{red}\beta_{2}^{s}} \txt{HEQ}^{i,t} + {\color{red}\beta_{3}^{s}}\txt{ETH}^{i,t} + {\color{red}\beta_{4}^{s}}\txt{MS}^{i,t} + {\color{red}\beta_{5}^{s}}\txt{Sex}^{i,t} + {\color{red}\beta_{6}^{s}\txt{GR}^{i,t}} + \\
+& {\color{orange}f^{s}_{\txt{Exposed}^{i}}(t)} + {\color{orange}f^{s}_{\txt{Intervention}^{i,t}}} + {\color{blue}\gamma_{r_{i}}^{s}} + {\color{blue}\nu_{k_{i}}^{s}} + {\color{blue}\zeta_{\psi_{i}}^{s}} + {\color{purple}\delta_{t}^{s}} + {\color{purple}e_{i}^{s}} + {\color{#C21718}\theta^{s}\mathbb{I}(q = 7)}
+\end{aligned}
+$$
+
+- [Destination-specific baseline log-odds]{.olive}
+- [Confounding factors]{.red}: age, highest education qualification, ethnicity, martial status, sex and Government Office region
+- Structured terms
+  - [Random effects by stratification group, PSUs and LSOAs]{.blue} to control for neighborhood and regional variations (ensuring results are not just reflecting local geography)
+  - [Random effects to account for temporal variability and individual heterogeneity]{.purple}
+  - [Cubic B-splines]{.orange} to map complex, non-linear population changes across the 2009-2020 timeline
+  - [Intervention effect]{.samp-red}: shifts the log-odds of a well-being transition if the individual is currently receiving benefits (= in state $q=7$)
+  
+- Use minimally informative priors + Variational Inference to generate 1000 joint posterior samples
 
 ## Key Simulation Results: Well-Being
 
-- The "Well-Being Gap": Universal Credit (UC) claimants spend significantly more time in adverse states compared to the Legacy Welfare (LW) cohort
-- Key Findings:
-   - Financial Impact: UC claimants show a substantial increase in life-years spent in Financial Distress
-   - Psychological Toll: UC increases the probability of transitioning into and staying in Mental Distress and Life Dissatisfaction
-   - Systemic Degradation: the longer an individual remains on UC, the more negative probabilities compound, reducing time spent in the "At-Risk" (hardship-free) baseline
-
-- Result: UC creates a "sticky" environment that systematically degrades claimant resilience over time
-
-## Well-being states over time
-
+::::: columns
+::: {.column width="65%"}
 ```{r}
-#| fig-width: 8
-#| fig-height: 6
-#| out-width: "70%"
+#| fig-width: 9
+#| fig-height: 7
+#| out-width: "100%"
 
 d = tribble(
   ~state, ~benefit, ~year, ~mean,  ~lower, ~upper,
@@ -636,89 +662,150 @@ ggplot(d, aes(x = year, y = mean, colour = benefit, group = benefit)) +
   scale_x_continuous(breaks = 2010:2020) +
   labs(x = "Year", y = "Proportion of Individuals") +
   theme(
-    legend.position = "top",
+    legend.position = "bottom",
     strip.text = element_text(face = "bold", size = 13),
     axis.text.x = element_text(angle = 45, hjust = 1),
     panel.grid.minor = element_blank()
   )
 ```
+:::
 
+::: {.column width="30%"}
+- UC claimants spend significantly more time in adverse states than the LW cohort
+  - UC claimants show a substantial increase in life-years spent in Financial Distress
+  - UC increases the probability of transitioning into and staying in Mental Distress and Life Dissatisfaction
+  - The longer an individual remains on UC, the more negative probabilities compound, reducing time spent in the "At-Risk" (hardship-free) baseline
+- UC creates a "sticky" environment that systematically degrades claimant resilience over time
+:::
+:::::
+
+```{=html}
 <!--
 ![](images/out_ben_all_health.png){width="78%" fig-align="center"}
 Slide 10 in the original deck: panel plot (a)-(e) of proportion of individuals over 2010-2020 in AR, FD, LDS, FD & LDS, MD states, comparing Legacy Welfare vs Migrated to Universal Credit. Reinsert as a figure/image. -->
-
-## Key Simulation Results: Welfare Exits
-
-- The "Stickiness" Metric: system performance is measured by fluidity, how effectively a system helps claimants transition off benefits (Welfare Exit) vs keeping them trapped (Welfare Entry)
-- The "UC Effect" on Exits: Universal Credit (UC) triggered a sharp, continuous drop in welfare exit rates starting in 2013-2014, falling far below the stable exit rates of Legacy Welfare
-- Universal Decline: low exit rates affect both migrated and new claimants, proving the decline is a systemic feature of UC rather than just a result of personal life shocks
-- Gender Vulnerabilities: the drop in exit capacity is universal across genders, but is most severe among male new claimants
-- Policy Contradiction: instead of acting as an empowering bridge to work, UC introduces structural barriers that prolong welfare reliance
+```
 
 ## Welfare exit rates over time
 
+::::: columns
+::: {.column width="60%"}
 ```{r}
 #| fig-width: 8
 #| fig-height: 6
-#| out-width: "65%"
+#| out-width: "100%"
 
 d = tribble(
   ~benefit, ~year, ~mean, ~lower, ~upper,
-  "Legacy Welfare", 2010, 0.130, 0.107, 0.153,
-  "Legacy Welfare", 2011, 0.220, 0.187, 0.258,
-  "Legacy Welfare", 2012, 0.319, 0.273, 0.365,
-  "Legacy Welfare", 2013, 0.396, 0.347, 0.445,
-  "Legacy Welfare", 2014, 0.367, 0.320, 0.413,
-  "Legacy Welfare", 2015, 0.361, 0.309, 0.413,
-  "Legacy Welfare", 2016, 0.355, 0.302, 0.410,
-  "Legacy Welfare", 2017, 0.373, 0.317, 0.428,
-  "Legacy Welfare", 2018, 0.400, 0.332, 0.463,
-  "Legacy Welfare", 2019, 0.446, 0.376, 0.512,
-  "Legacy Welfare", 2020, 0.408, 0.338, 0.475,
-  "Universal Credit", 2010, 0.135, 0.104, 0.168,
-  "Universal Credit", 2011, 0.212, 0.171, 0.255,
-  "Universal Credit", 2012, 0.281, 0.235, 0.328,
-  "Universal Credit", 2013, 0.319, 0.268, 0.372,
-  "Universal Credit", 2014, 0.185, 0.151, 0.219,
-  "Universal Credit", 2015, 0.157, 0.121, 0.194,
-  "Universal Credit", 2016, 0.116, 0.087, 0.148,
-  "Universal Credit", 2017, 0.096, 0.066, 0.126,
-  "Universal Credit", 2018, 0.087, 0.060, 0.113,
-  "Universal Credit", 2019, 0.051, 0.035, 0.067,
-  "Universal Credit", 2020, 0.026, 0.014, 0.040
+  "Legacy Welfare", 2010, 0.514, 0.412, 0.610,
+  "Legacy Welfare", 2011, 0.412, 0.328, 0.490,
+  "Legacy Welfare", 2012, 0.408, 0.330, 0.485,
+  "Legacy Welfare", 2013, 0.432, 0.355, 0.510,
+  "Legacy Welfare", 2014, 0.455, 0.360, 0.548,
+  "Legacy Welfare", 2015, 0.460, 0.365, 0.555,
+  "Legacy Welfare", 2016, 0.445, 0.348, 0.545,
+  "Legacy Welfare", 2017, 0.420, 0.318, 0.525,
+  "Legacy Welfare", 2018, 0.399, 0.295, 0.510,
+  "Legacy Welfare", 2019, 0.377, 0.265, 0.490,
+  "Legacy Welfare", 2020, 0.324, 0.225, 0.430,
+  "Migrated to Universal Credit", 2010, 0.658, 0.535, 0.778,
+  "Migrated to Universal Credit", 2011, 0.518, 0.398, 0.642,
+  "Migrated to Universal Credit", 2012, 0.450, 0.337, 0.575,
+  "Migrated to Universal Credit", 2013, 0.398, 0.300, 0.512,
+  "Migrated to Universal Credit", 2014, 0.332, 0.237, 0.448,
+  "Migrated to Universal Credit", 2015, 0.262, 0.178, 0.358,
+  "Migrated to Universal Credit", 2016, 0.221, 0.143, 0.310,
+  "Migrated to Universal Credit", 2017, 0.207, 0.135, 0.288,
+  "Migrated to Universal Credit", 2018, 0.183, 0.115, 0.260,
+  "Migrated to Universal Credit", 2019, 0.135, 0.080, 0.205,
+  "Migrated to Universal Credit", 2020, 0.098, 0.050, 0.160,
+  "New Claims to Universal Credit", 2010, 0.683, 0.553, 0.835,
+  "New Claims to Universal Credit", 2011, 0.543, 0.420, 0.700,
+  "New Claims to Universal Credit", 2012, 0.461, 0.345, 0.615,
+  "New Claims to Universal Credit", 2013, 0.418, 0.318, 0.558,
+  "New Claims to Universal Credit", 2014, 0.344, 0.243, 0.450,
+  "New Claims to Universal Credit", 2015, 0.252, 0.170, 0.357,
+  "New Claims to Universal Credit", 2016, 0.208, 0.132, 0.302,
+  "New Claims to Universal Credit", 2017, 0.207, 0.135, 0.286,
+  "New Claims to Universal Credit", 2018, 0.179, 0.112, 0.255,
+  "New Claims to Universal Credit", 2019, 0.122, 0.070, 0.193,
+  "New Claims to Universal Credit", 2020, 0.092, 0.045, 0.150,
+  "Universal Credit", 2010, 0.666, 0.555, 0.778,
+  "Universal Credit", 2011, 0.522, 0.405, 0.662,
+  "Universal Credit", 2012, 0.456, 0.345, 0.588,
+  "Universal Credit", 2013, 0.417, 0.318, 0.556,
+  "Universal Credit", 2014, 0.341, 0.243, 0.450,
+  "Universal Credit", 2015, 0.268, 0.182, 0.362,
+  "Universal Credit", 2016, 0.222, 0.145, 0.310,
+  "Universal Credit", 2017, 0.207, 0.135, 0.288,
+  "Universal Credit", 2018, 0.184, 0.115, 0.262,
+  "Universal Credit", 2019, 0.140, 0.085, 0.210,
+  "Universal Credit", 2020, 0.102, 0.052, 0.160
 ) |>
-  mutate(benefit = factor(benefit, levels = c("Legacy Welfare", "Universal Credit")))
+  mutate(benefit = factor(benefit, levels = c(
+    "Legacy Welfare", "Migrated to Universal Credit",
+    "New Claims to Universal Credit", "Universal Credit"
+  )))
 
-cols = c("Legacy Welfare" = "blue", "Universal Credit" = "red")
+cols = c(
+  "Legacy Welfare" = "blue",
+  "Migrated to Universal Credit" = "#90ee90",
+  "New Claims to Universal Credit" = "#006400",
+  "Universal Credit" = "red"
+)
 
-ggplot(d, aes(x = year, y = mean, colour = benefit, group = benefit)) +
+# Small per-series horizontal offset so overlapping points/error bars
+# at each year are distinguishable -- matches the slight stagger visible
+# in the original plot (most noticeable for Legacy Welfare in 2010)
+offsets = c(
+  "Legacy Welfare" = -0.08,
+  "Migrated to Universal Credit" = -0.03,
+  "New Claims to Universal Credit" = 0.03,
+  "Universal Credit" = 0.08
+)
+
+d = d |>
+  mutate(year_dodge = year + offsets[as.character(benefit)])
+
+
+ggplot(d, aes(x = year_dodge, y = mean, colour = benefit, group = benefit)) +
   geom_errorbar(aes(ymin = lower, ymax = upper), width = 0, linewidth = 0.5) +
   geom_line(linewidth = 0.7) +
   geom_point(size = 2.2) +
   scale_colour_manual(values = cols, name = "Benefits") +
   scale_x_continuous(breaks = 2010:2020) +
-  labs(title = "WE", x = "Year", y = "Percentage of individuals") +
+  labs(title = "WE", x = "Year", y = "Proportion of Individuals") +
+  theme_ucl() +
   theme(
     plot.title = element_text(hjust = 0.5),
-    panel.grid.minor = element_blank()
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    panel.grid.minor = element_blank(),
+    legend.position = "bottom"
   )
-```
 
+```
+:::
+
+::: {.column width="35%"}
+- System performance is measured by fluidity, how effectively a system helps claimants transition off benefits (Welfare Exit) vs keeping them trapped (Welfare Entry)
+- UC triggered a sharp, continuous drop in welfare exit rates starting in 2013-2014, falling far below the stable exit rates of LW
+- Low exit rates affect both migrated and new claimants, proving the decline is a systemic feature of UC rather than just a result of personal life shocks
+- Drop in exit capacity is universal across genders, but is most severe among male new claimants
+- Instead of acting as an empowering bridge to work, UC introduces structural barriers that prolong welfare reliance
+:::
+:::::
+
+```{=html}
 <!-- 
 ![](images/all_WE_pic_1_error.png){width="68%" fig-align="center"} 
 Slide 12 in the original deck: line plot of proportion of individuals in Welfare Exit (WE) state over 2010-2020, comparing Legacy Welfare, Migrated to Universal Credit, New Claims to Universal Credit and overall Universal Credit. Reinsert as a figure/image. -->
+```
 
-## Cost-Effectiveness Analysis (CEA)
+## Economic evaluation
 
-- The Methodological Framework: applies standard Health Technology Assessment (HTA) principles to measure the financial cost per unit of human well-being achieved by each system
-- Primary Outcome Metric: evaluates the expected number of life-years an individual spends in the completely hardship-free At Risk (AR) baseline state
-- Core Findings (2013-2020):
-   - Diminished Well-Being: Universal Credit (UC) claimants spent an average of 0.51 fewer life-years in a hardship-free state compared to Legacy Welfare (LW)
-   - Increased Fiscal Burden: the transition to UC cost the government an additional £47 million across the study period
-   - The Economic Verdict: the Incremental Cost-Effectiveness Ratio (ICER) is strictly negative. UC is "dominated" by the legacy system, meaning it delivers significantly worse human outcomes at a higher taxpayer cost
+- Adapts standard Health Technology Assessment (HTA) principles to measure the financial cost per unit of human well-being achieved by each system
+  - Evaluates the expected number of life-years an individual spends in the completely hardship-free At Risk (AR) baseline state
 
-## CEA results table
-
+::: {.fragment fragment-index="1" style="margin-bottom: 30px"}
 ```{r}
 #| echo: false
 
@@ -741,14 +828,14 @@ cea |>
   ) |>
   setNames(c("", "Cost", "Benefit", "Differential Cost", "Differential Benefits", "ICER"))
 ```
+:::
 
-`r vspace("60px")`
-
-- Incremental Cost-Effectiveness Ratio $\displaystyle = \txt{ICER} = \frac{\text{E}[\Delta_c]}{\text{E}[\Delta_e]}$
-
-- The ICER has a known interpretation in the HTA context 
-  - Represents the "cost per increase of one unit of benefit"
-  - Bodies such as NICE make decisions on this (and similar!) metric, based on QALYs
+::: {.fragment fragment-index="1"}
+- Core Findings (2013-2020):
+  - UC claimants spent an average of 0.51 fewer life-years in a hardship-free state compared to LW
+  - The transition to UC cost the government an additional £47 million across the study period
+  - The Incremental Cost-Effectiveness Ratio (ICER) $=\displaystyle \frac{\txt{E}[\Delta_c]}{\txt{E}[\Delta_e]}$ is strictly negative: UC is "dominated" by the legacy system, meaning it delivers significantly worse human outcomes at a higher taxpayer cost
+:::
 
 ## Uncertainty analysis
 
@@ -761,35 +848,49 @@ set.seed(14081973)
 c=cbind(rnorm(1000,120,6.5),rnorm(1000,72,7.5))
 e=cbind(rnorm(1000,3.35,0.3),rnorm(1000,3.87,0.295))
 m=BCEA::bcea(e,c,ref=1,interventions=c("Universal credit","Legacy welfare"))
-BCEA::contour(m) + theme_ucl() + theme(legend.position="none") 
+BCEA::contour(m,graph="ggplot2") + theme_ucl() + theme(legend.position="none") 
 ```
 
 ## Study Limitations
 
 - Uniform Cost Assumptions
-   - The economic calculations assume a uniform expenditure per individual because precise, individual-level cost data was unavailable
-- Undifferentiated Welfare Exits 
-   - The data allows the model to track when individuals exit the benefit system, but it cannot differentiate whether they exited due to positive reasons (like improved financial circumstances) or negative reasons (like system disengagement or sanctions)
-- Masked Heterogeneity 
-   - The model does not incorporate interaction terms between the Universal Credit intervention and demographic covariates
-   - Consequently, it may mask how specific groups, such as older claimants who might struggle with the system's digital design, experience more pronounced adverse effects than the average
-- Unidirectional Causality 
-   - The Cohort Markov Model is structurally limited by an assumption of unidirectional causality 
-   - It measures how welfare status influences well-being, but it does not capture the reverse effect, such as how a sudden deterioration in well-being might independently prompt someone to exit the welfare system
+  - The economic calculations assume a uniform expenditure per individual because precise, individual-level cost data were unavailable
+
+. . .
+
+- Undifferentiated Welfare Exits
+  - The data allow the model to track when individuals exit the benefit system, but it cannot differentiate whether they exited due to positive reasons (like improved financial circumstances) or negative reasons (like system disengagement or sanctions)
+
+. . .
+
+- Masked Heterogeneity
+  - The model does not incorporate interaction terms between UC intervention and demographic covariates
+  - Consequently, it may mask how specific groups, such as older claimants who might struggle with the system's digital design, experience more pronounced adverse effects than the average
+
+. . .
+
+- Unidirectional Causality
+  - The Cohort Markov Model is structurally limited by an assumption of unidirectional causality
+  - It measures how welfare status influences well-being, but it does not capture the reverse effect, such as how a sudden deterioration in well-being might independently prompt someone to exit the welfare system
 
 ## Policy Implications & Conclusion
 
-- Dismantling the Central Narrative: the empirical evidence disproves foundational claims that Universal Credit (UC) effectively streamlines the safety net, reduces poverty or eases transitions to financial independence
-- The High Price of Modernization: UC operates as a "dominated" policy intervention, simultaneously increasing government expenditure while decreasing claimant well-being and hardship-free life-years
-- The Cost of Systemic Barriers: built-in features like the mandatory five-week initial wait time and punitive sanction regimes act as direct structural drivers of chronic financial and mental distress
+- Empirical evidence contradicts foundational claims that UC effectively streamlines the safety net, reduces poverty or eases transitions to financial independence
+  - In fact, UC operates as a "dominated" policy intervention, simultaneously increasing government expenditure while decreasing claimant well-being and hardship-free life-years
+  - Built-in features like the mandatory five-week initial wait time and punitive sanction regimes act as direct structural drivers of chronic financial and mental distress
+
+. . .
 
 - Core Policy Recommendations:
-   - Eliminate Structural Bottlenecks: replace or heavily subsidize the initial five-week wait with non-repayable starter grants
-   - Overhaul Conditionality: reform punitive sanctions to focus on supportive, health-conscious employment integration
+  - Eliminate Structural Bottlenecks: replace or heavily subsidize the initial five-week wait with non-repayable starter grants
+  - Reform punitive sanctions to focus on supportive, health-conscious employment integration
 
-- Concluding Takeaway: future welfare design must move past purely administrative and fiscal-tightening metrics. Social safety nets should instead be evaluated using holistic, health-economic frameworks prioritizing long-term claimant resilience
+. . .
 
+- Future welfare design must move past purely administrative and fiscal-tightening metrics
+  - Social safety nets should instead be evaluated using holistic, health-economic frameworks prioritizing long-term claimant resilience
 
+```{=html}
 <!-- 
    If the meta parameter 'thank-you' is set to "false", this won't show. Can 
    choose among various options, all stored in the 'assets' folder. For now:
@@ -797,6 +898,8 @@ BCEA::contour(m) + theme_ucl() + theme(legend.position="none")
    - phoebe
    - reese
 -->
+```
+
 ::: {.content-hidden unless-meta="thank-you.show"}
 {{< include assets/thankyou.qmd >}}
 :::

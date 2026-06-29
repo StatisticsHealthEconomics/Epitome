@@ -255,7 +255,10 @@
 <li>I can take all the credit (…), but in reality, this has been driven by the fantastic work of <strong>Ioannis Rotous</strong></li>
 <li>Key contributions to this work have arrived from all the other EPITOME researchers (e.g.&nbsp;in discussions for the methodological framework to represent the underlying processes, as well as for the formalisation of the statistical modelling)</li>
 </ul>
-</section>
+
+<aside><div>
+<p>Rotous I, Jeffery A, Gascoigne C, Yu X, Blangiardo M, Geneletti S, Kirkbride J, Baio, G (2026). From Reform to Reassessment: Universal Credit in the Shadow of Its Predecessor”. Submitted as Read Paper to the <em>Journal of the Royal Statistical Society</em>, Series A – under second round of revisions. <span class="emoji" data-emoji="crossed_fingers">🤞</span></p>
+</div></aside></section>
 <section id="epitome" class="slide level2">
 <h2>EPITOME</h2>
 <style>
@@ -293,10 +296,10 @@ li:has(> .semi-transparent)::marker {
 </ul></li>
 </ul>
 </section>
-<section id="background-context" class="slide level2">
-<h2>Background &amp; Context</h2>
+<section id="background-context-objectives" class="slide level2">
+<h2>Background, Context &amp; Objectives</h2>
 <ul>
-<li><strong>The Legacy System</strong>: A complex, post-WWII evolved safety net that often required multiple, non-integrated applications for different areas of support</li>
+<li><strong>The Legacy System</strong> (LW): A complex, post-WWII evolved safety net that often required multiple, non-integrated applications for different areas of support</li>
 <li><strong>The Reform Goal</strong>: The 2010s policy shift aimed to replace this administrative complexity with Universal Credit (UC) – a single, integrated payment structure</li>
 <li>Primary Policy Aims:
 <ul>
@@ -305,17 +308,27 @@ li:has(> .semi-transparent)::marker {
 <li><em>Simplicity</em>. Reduce the burden on claimants to navigate multiple government agencies</li>
 </ul></li>
 </ul>
-</section>
-<section id="research-gap-objectives" class="slide level2">
-<h2>Research Gap &amp; Objectives</h2>
+<div class="fragment" data-fragment-index="2" style="margin-top: 20px">
+<h3 id="research-gap-objectives">Research Gap &amp; Objectives</h3>
 <ul>
-<li>The Missing Link: no previous research has modelled the dynamic co-evolution of benefit status and well-being</li>
-<li>The Economic Blind Spot: existing literature fails to quantify the trade-off between government expenditure and long-term socioeconomic outcomes</li>
-<li>Our Objective: conduct the first formal economic evaluation comparing Universal Credit (UC) to Legacy Welfare (LW)
+<li>No previous research has modelled the dynamic co-evolution of benefit status and well-being</li>
+<li>In addition, existing literature generally has not quantified the trade-off between government expenditure and long-term socioeconomic outcomes</li>
+<li><strong>Objective</strong>: conduct the first formal economic evaluation comparing UC to LW
 <ul>
 <li>Use Health Technology Assessment (HTA) tools to map the entire “welfare trajectory”, not just individual symptoms</li>
 </ul></li>
 </ul>
+</div>
+</section>
+<section id="health-technology-assessment-hta" class="slide level2" data-transition="slide-out" data-transition-speed="slow">
+<h2>Health technology assessment (HTA)</h2>
+<h4 id="objective">Objective</h4>
+<ul>
+<li>Combine <span class="myred">costs</span> and <span class="myblue">benefits</span> of a given intervention into a rational scheme for allocating resources</li>
+</ul>
+<center>
+<img data-src="images/hta-scheme4.png" style="width:80.0%">
+</center>
 </section>
 <section id="multi-statemarkov-models" class="slide level2">
 <h2>Multi-state/Markov models</h2>
@@ -352,7 +365,7 @@ li:has(> .semi-transparent)::marker {
 <h3 id="define-a-structure-e.g.-natural-history-of-the-disease">1. Define a structure (e.g.&nbsp;“<strong>Natural history</strong>” of the disease)</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="images/mm1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="images/mm1-1.png" class="quarto-figure quarto-figure-center" style="width:45.0%"></a></p>
+<p><a href="images/mm1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="images/mm1-1.png" class="quarto-figure quarto-figure-center" style="width:43.0%"></a></p>
 </figure>
 </div>
 </section>
@@ -458,137 +471,161 @@ li:has(> .semi-transparent)::marker {
 <section id="data-source-sample-selection" class="slide level2">
 <h2>Data Source &amp; Sample Selection</h2>
 <ul>
-<li><p>Longitudinal data from Understanding Society (UKHLS), 40,000+ households tracked since 2009</p></li>
-<li><p>Sample Filter: focused on working-age (16-64) individuals in Great Britain</p></li>
-<li><p>The “Clean” Baseline: excluded those with pre-existing lifetime illnesses or disabilities to ensure results reflect policy impacts rather than health crises</p></li>
-<li><p>Study Cohorts:</p>
+<li>Longitudinal data from <a href="https://www.understandingsociety.ac.uk/">Understanding Society (UKHLS)</a>, 40,000+ households tracked since 2009
+<ul>
+<li>Focus on working-age (16-64) individuals in Great Britain</li>
+<li>Exclude those with pre-existing lifetime illnesses or disabilities to ensure results reflect policy impacts rather than health crises</li>
+</ul></li>
+<li>Study Cohorts:
 <ul>
 <li>Universal Credit (6%): exposed to UC between 2013-2020</li>
 <li>Legacy Welfare (40%): exclusive to the old benefit system</li>
 <li>No Benefit (54%): never claimed support</li>
 </ul></li>
-<li><p>Natural Experiment Advantage: UC rollout was administratively mandated, not triggered by personal life shocks, allowing for an unbiased evaluation of the policy change</p></li>
+<li>Natural Experiment Advantage: UC rollout was administratively mandated, not triggered by personal life shocks, allowing for an unbiased evaluation of the policy change</li>
 </ul>
 </section>
-<section id="explaining-the-multi-state-framework" class="slide level2">
-<h2>Explaining the Multi-State Framework</h2>
-<ul>
-<li><p>Layer 1: Welfare Status: a binary classification of either Welfare Entry (active claim) or Welfare Exit</p></li>
-<li><p>Layer 2: Well-Being Space: five distinct states of human experience:</p>
-<ul>
-<li>At Risk (Baseline): hardship-free</li>
-<li>Distress States: Financial Distress, Life Dissatisfaction, or Combined (Both)</li>
-<li>Mental Distress: clinical endpoint (GHQ-12)</li>
-</ul></li>
-<li><p>The Pathways: well-being pathways are conditional on welfare status. The welfare layer modulates how individuals transition through the well-being states</p></li>
-</ul>
-</section>
-<section id="multi-state-framework-diagram" class="slide level2">
-<h2>Multi-state framework diagram</h2>
+<section id="multi-state-modelling-for-the-uclw-evaluation" class="slide level2">
+<h2>Multi-state modelling for the UC/LW evaluation</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="index_files/figure-revealjs/mm1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img data-src="index_files/figure-revealjs/mm1-1.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></a></p>
+<p><a href="index_files/figure-revealjs/mm1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img data-src="index_files/figure-revealjs/mm1-1.png" class="quarto-figure quarto-figure-center" style="width:85.0%"></a></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="the-cohort-markov-model-cmm-design" class="slide level2">
-<h2>The Cohort Markov Model (CMM) Design</h2>
+</div><div class="column" style="width:45%;">
 <ul>
-<li>The Goal: map the “Natural History” of claimants, how their well-being evolves as they move through the welfare system</li>
-<li>Dual-Layer Logic:
+<li><p><span class="samp-red">Layer 1 – Welfare Status</span>: a binary classification of either <span class="light-blue">Welfare Entry (active claim; 6)</span> or <span class="orange">Welfare Exit (7)</span></p></li>
+<li><p><span class="samp-blue">Layer 2 – Well-Being Space</span>: five distinct states of human experience:</p>
 <ul>
-<li>Layer 1 (Welfare): tracks status (Entry vs Exit)</li>
-<li>Layer 2 (Well-Being): tracks health/financial states (e.g.&nbsp;At Risk, Mental Distress)</li>
+<li><span class="blue">At Risk; 1</span> (Baseline): hardship-free</li>
+<li>Distress States: <span class="olive">Financial Distress (2)</span>, <span class="purple">Life Dissatisfaction (3)</span>, or <span class="italian-green">Combined (4)</span> (Both)</li>
+<li><span class="spanish-yellow">Mental Distress (5)</span>: clinical endpoint (GHQ-12)</li>
 </ul></li>
-<li>Asymmetric Causality: the model assumes welfare status drives well-being outcomes rather than the other way around. This isolates the policy’s direct impact</li>
-<li>Iterative Simulation: processes a 5,000-person cohort year-by-year (2009-2020) to calculate the cumulative time spent in “Distress” vs “Hardship-Free” states</li>
+</ul>
+<div class="fragment" data-fragment-index="2">
+<ul>
+<li>Well-being pathways are conditional on welfare status
+<ul>
+<li>The welfare layer modulates how individuals transition through the well-being states</li>
+<li>Assumes welfare status drives well-being outcomes rather than the other way around <span class="math inline">\(\Rightarrow\)</span> isolates the policy’s direct impact</li>
+</ul></li>
+<li>Simulate 5,000-person cohort year-by-year (2009-2020) to calculate the cumulative time spent in “Distress” vs “Hardship-Free” states</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="model-bayesian-multinomial-logistic-its" class="slide level2">
+<h2>Model: Bayesian Multinomial-logistic ITS</h2>
+<ul>
+<li><p>For individuals <span class="math inline">\(i = 1, 2, \ldots, n\)</span>, residing in a LSOA region <span class="math inline">\(r_{i}\)</span>, belonging to a stratification group <span class="math inline">\(k_{i}\)</span>, assigned to a PSU group <span class="math inline">\(\psi_{i}\)</span> and observed over time points <span class="math inline">\(t\)</span> <span class="math display">\[
+\begin{aligned}
+\text{Pr}(Y^{(w),i,t} &amp; = q\mid Y^{(w),i,t-1} = q') = \frac{e^{\eta_{q',q}^{i,t}}}{\sum_{q=6}^{7}e^{\eta_{q',q}^{i,t}}} = \chi_{q',q}^{i,t}, \ \txt{with} \ \ \chi_{q',6}^{i,t} + \chi_{q',7}^{i,t} = 1, \\[10pt]
+\logit({\chi}_{q',q}^{i,t}) = {{\eta}_{q',q}^{i,t}} = &amp; {\color{olive}\beta_{0}^{q}} + {\color{red}\beta_{1}^{q}}\txt{Age}^{i,t} +{\color{red}\beta_{2}^{q}} \txt{HEQ}^{i,t}+ {\color{red}\beta_{3}^{q}}\txt{ETH}^{i,t} + {\color{red}\beta_{4}^{q}}\txt{MS}^{i,t} + {\color{red}\beta_{5}^{q}}\txt{Sex}^{i,t} + {\color{red}\beta_{6}^{q}}\txt{GR}^{i,t} + \\
+&amp; {\color{orange}f^{q}_{\txt{Exposed}^{i}}(t)} + {\color{orange}f^{q}_{\txt{Intervention}^{i,t}}} + {\color{blue}\gamma_{r_{i}}^{q}} + {\color{blue}\nu_{k_{i}}^{q}} + {\color{blue}\zeta_{\psi_{i}}^{q}} + {\color{purple}\delta_{t}^{q}} + {\color{purple}e_{i}^{q}}
+\end{aligned}
+\]</span></p></li>
+<li><p><span class="olive">Destination-specific baseline log-odds</span></p></li>
+<li><p><span class="red">Confounding factors</span>: age, highest education qualification, ethnicity, martial status, sex and Government Office region</p></li>
+<li><p>Structured terms</p>
+<ul>
+<li><span class="blue">Random effects by stratification group, PSUs and LSOAs</span> to control for neighborhood and regional variations (ensuring results are not just reflecting local geography)</li>
+<li><span class="purple">Random effects to account for temporal variability and individual heterogeneity</span></li>
+<li><span class="orange">Cubic B-splines</span> to map complex, non-linear population changes across the 2009-2020 timeline</li>
+</ul></li>
 </ul>
 </section>
-<section id="statistical-methodology" class="slide level2">
-<h2>Statistical Methodology</h2>
+<section id="model-bayesian-multinomial-logistic-its-1" class="slide level2" data-visibility="uncounted">
+<h2>Model: Bayesian Multinomial-logistic ITS</h2>
+<p><span style="display:block; margin-top: -30px ;"></span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\text{Pr}(Y^{(wb),i,t} &amp; = s\mid Y^{(wb),i,t-1} = s', Y^{(w),i,t} = q)  = \frac{e^{\eta_{s',s}^{i,t}}(q)}{\sum_{s=1}^{5}e^{\eta_{s',s}^{i,t}}(q)} = \lambda_{s',s}^{i,t}(q), \\ &amp; \txt{with } {\lambda}_{s',1}^{i,t}(q) + {\lambda}_{s',2}^{i,t}(q) + \ldots {\lambda}_{s',5}^{i,t}(q) = 1, \\[10pt]
+\logit\left({{\lambda}_{s',s}^{i,t}}(q) \right) = {{\eta}_{s',s}^{i,t}}(q) = &amp; {\color{olive}\beta_{0}^{s}} + {\color{red}\beta_{1}^{s}}\txt{Age}^{i,t} + {\color{red}\beta_{2}^{s}} \txt{HEQ}^{i,t} + {\color{red}\beta_{3}^{s}}\txt{ETH}^{i,t} + {\color{red}\beta_{4}^{s}}\txt{MS}^{i,t} + {\color{red}\beta_{5}^{s}}\txt{Sex}^{i,t} + {\color{red}\beta_{6}^{s}\txt{GR}^{i,t}} + \\
+&amp; {\color{orange}f^{s}_{\txt{Exposed}^{i}}(t)} + {\color{orange}f^{s}_{\txt{Intervention}^{i,t}}} + {\color{blue}\gamma_{r_{i}}^{s}} + {\color{blue}\nu_{k_{i}}^{s}} + {\color{blue}\zeta_{\psi_{i}}^{s}} + {\color{purple}\delta_{t}^{s}} + {\color{purple}e_{i}^{s}} + {\color{#C21718}\theta^{s}\mathbb{I}(q = 7)}
+\end{aligned}
+\]</span></p>
 <ul>
-<li>The Model: a Bayesian multinomial-logistic interrupted time series regression, designed to capture dynamic shifts in welfare and well-being over time</li>
-<li>Accounting for Real-World Complexity:
+<li><span class="olive">Destination-specific baseline log-odds</span></li>
+<li><span class="red">Confounding factors</span>: age, highest education qualification, ethnicity, martial status, sex and Government Office region</li>
+<li>Structured terms
 <ul>
-<li>Random Effects: used PSUs and LSOAs to control for neighborhood and regional variations (ensuring results aren’t just reflecting local geography)</li>
-<li>Capturing Non-Linear Trends: used cubic B-splines to map complex, non-linear population changes across the 2009-2020 timeline</li>
-<li>Empirical Integrity: employed “vague” priors to ensure conclusions are driven strictly by the data rather than by external assumptions</li>
-<li>Computational Efficiency: used Variational Inference (VI) to generate 1,000 joint posterior samples, providing high probabilistic certainty</li>
+<li><span class="blue">Random effects by stratification group, PSUs and LSOAs</span> to control for neighborhood and regional variations (ensuring results are not just reflecting local geography)</li>
+<li><span class="purple">Random effects to account for temporal variability and individual heterogeneity</span></li>
+<li><span class="orange">Cubic B-splines</span> to map complex, non-linear population changes across the 2009-2020 timeline</li>
+<li><span class="samp-red">Intervention effect</span>: shifts the log-odds of a well-being transition if the individual is currently receiving benefits (= in state <span class="math inline">\(q=7\)</span>)</li>
 </ul></li>
+<li>Use minimally informative priors + Variational Inference to generate 1000 joint posterior samples</li>
 </ul>
 </section>
 <section id="key-simulation-results-well-being" class="slide level2">
 <h2>Key Simulation Results: Well-Being</h2>
-<ul>
-<li>The “Well-Being Gap”: Universal Credit (UC) claimants spend significantly more time in adverse states compared to the Legacy Welfare (LW) cohort</li>
-<li>Key Findings:
-<ul>
-<li>Financial Impact: UC claimants show a substantial increase in life-years spent in Financial Distress</li>
-<li>Psychological Toll: UC increases the probability of transitioning into and staying in Mental Distress and Life Dissatisfaction</li>
-<li>Systemic Degradation: the longer an individual remains on UC, the more negative probabilities compound, reducing time spent in the “At-Risk” (hardship-free) baseline</li>
-</ul></li>
-<li>Result: UC creates a “sticky” environment that systematically degrades claimant resilience over time</li>
-</ul>
-</section>
-<section id="well-being-states-over-time" class="slide level2">
-<h2>Well-being states over time</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="index_files/figure-revealjs/unnamed-chunk-1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img data-src="index_files/figure-revealjs/unnamed-chunk-1-1.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></a></p>
+<p><a href="index_files/figure-revealjs/unnamed-chunk-1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img data-src="index_files/figure-revealjs/unnamed-chunk-1-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></a></p>
 </figure>
 </div>
 </div>
 </div>
+</div><div class="column" style="width:30%;">
+<ul>
+<li>UC claimants spend significantly more time in adverse states than the LW cohort
+<ul>
+<li>UC claimants show a substantial increase in life-years spent in Financial Distress</li>
+<li>UC increases the probability of transitioning into and staying in Mental Distress and Life Dissatisfaction</li>
+<li>The longer an individual remains on UC, the more negative probabilities compound, reducing time spent in the “At-Risk” (hardship-free) baseline</li>
+</ul></li>
+<li>UC creates a “sticky” environment that systematically degrades claimant resilience over time</li>
+</ul>
+</div></div>
 <!--
 ![](images/out_ben_all_health.png){width="78%" fig-align="center"}
 Slide 10 in the original deck: panel plot (a)-(e) of proportion of individuals over 2010-2020 in AR, FD, LDS, FD & LDS, MD states, comparing Legacy Welfare vs Migrated to Universal Credit. Reinsert as a figure/image. -->
 </section>
-<section id="key-simulation-results-welfare-exits" class="slide level2">
-<h2>Key Simulation Results: Welfare Exits</h2>
-<ul>
-<li>The “Stickiness” Metric: system performance is measured by fluidity, how effectively a system helps claimants transition off benefits (Welfare Exit) vs keeping them trapped (Welfare Entry)</li>
-<li>The “UC Effect” on Exits: Universal Credit (UC) triggered a sharp, continuous drop in welfare exit rates starting in 2013-2014, falling far below the stable exit rates of Legacy Welfare</li>
-<li>Universal Decline: low exit rates affect both migrated and new claimants, proving the decline is a systemic feature of UC rather than just a result of personal life shocks</li>
-<li>Gender Vulnerabilities: the drop in exit capacity is universal across genders, but is most severe among male new claimants</li>
-<li>Policy Contradiction: instead of acting as an empowering bridge to work, UC introduces structural barriers that prolong welfare reliance</li>
-</ul>
-</section>
 <section id="welfare-exit-rates-over-time" class="slide level2">
 <h2>Welfare exit rates over time</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="index_files/figure-revealjs/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img data-src="index_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center" style="width:65.0%"></a></p>
+<p><a href="index_files/figure-revealjs/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img data-src="index_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></a></p>
 </figure>
 </div>
 </div>
 </div>
+</div><div class="column" style="width:35%;">
+<ul>
+<li>System performance is measured by fluidity, how effectively a system helps claimants transition off benefits (Welfare Exit) vs keeping them trapped (Welfare Entry)</li>
+<li>UC triggered a sharp, continuous drop in welfare exit rates starting in 2013-2014, falling far below the stable exit rates of LW</li>
+<li>Low exit rates affect both migrated and new claimants, proving the decline is a systemic feature of UC rather than just a result of personal life shocks</li>
+<li>Drop in exit capacity is universal across genders, but is most severe among male new claimants</li>
+<li>Instead of acting as an empowering bridge to work, UC introduces structural barriers that prolong welfare reliance</li>
+</ul>
+</div></div>
 <!-- 
 ![](images/all_WE_pic_1_error.png){width="68%" fig-align="center"} 
 Slide 12 in the original deck: line plot of proportion of individuals in Welfare Exit (WE) state over 2010-2020, comparing Legacy Welfare, Migrated to Universal Credit, New Claims to Universal Credit and overall Universal Credit. Reinsert as a figure/image. -->
 </section>
-<section id="cost-effectiveness-analysis-cea" class="slide level2">
-<h2>Cost-Effectiveness Analysis (CEA)</h2>
+<section id="economic-evaluation" class="slide level2">
+<h2>Economic evaluation</h2>
 <ul>
-<li>The Methodological Framework: applies standard Health Technology Assessment (HTA) principles to measure the financial cost per unit of human well-being achieved by each system</li>
-<li>Primary Outcome Metric: evaluates the expected number of life-years an individual spends in the completely hardship-free At Risk (AR) baseline state</li>
-<li>Core Findings (2013-2020):
+<li>Adapts standard Health Technology Assessment (HTA) principles to measure the financial cost per unit of human well-being achieved by each system
 <ul>
-<li>Diminished Well-Being: Universal Credit (UC) claimants spent an average of 0.51 fewer life-years in a hardship-free state compared to Legacy Welfare (LW)</li>
-<li>Increased Fiscal Burden: the transition to UC cost the government an additional £47 million across the study period</li>
-<li>The Economic Verdict: the Incremental Cost-Effectiveness Ratio (ICER) is strictly negative. UC is “dominated” by the legacy system, meaning it delivers significantly worse human outcomes at a higher taxpayer cost</li>
+<li>Evaluates the expected number of life-years an individual spends in the completely hardship-free At Risk (AR) baseline state</li>
 </ul></li>
 </ul>
-</section>
-<section id="cea-results-table" class="slide level2">
-<h2>CEA results table</h2>
+<div class="fragment" data-fragment-index="1" style="margin-bottom: 30px">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <!-- preamble start -->
@@ -597,29 +634,29 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_7qbpuwoqyd6yiszkm6yc = TinyTable.createTableFunctions("tinytable_7qbpuwoqyd6yiszkm6yc");
+      const tableFns_52adswu05nuz4e2aqy8k = TinyTable.createTableFunctions("tinytable_52adswu05nuz4e2aqy8k");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '2', j: 6 } ], css_id: 'tinytable_css_fzgup2vhlg449y77j880',}, 
-          { positions: [ { i: '1', j: 6 } ], css_id: 'tinytable_css_8r4jpta7ow653vznw58c',}, 
-          { positions: [ { i: '0', j: 6 } ], css_id: 'tinytable_css_xl18c23wgdq9yu4wdmb6',}, 
-          { positions: [ { i: '2', j: 3 }, { i: '2', j: 4 }, { i: '2', j: 5 } ], css_id: 'tinytable_css_io78ae17q8eplj5rkihk',}, 
-          { positions: [ { i: '1', j: 3 }, { i: '1', j: 4 }, { i: '1', j: 5 } ], css_id: 'tinytable_css_0t9dpyf87sgrr1oy68h6',}, 
-          { positions: [ { i: '0', j: 3 }, { i: '0', j: 4 }, { i: '0', j: 5 } ], css_id: 'tinytable_css_odlfgaogk8kmbyvan3d3',}, 
-          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_q0wa5qcy9ykvzwdgken0',}, 
-          { positions: [ { i: '1', j: 2 } ], css_id: 'tinytable_css_25vh85zw7of8hxgn474e',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_d3w2qhhjrjxbgkjkyxtw',}, 
-          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_4r46hfvc7vkub6x5et11',}, 
-          { positions: [ { i: '1', j: 1 } ], css_id: 'tinytable_css_yktwrooetpecg51kdh93',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_y4whfhs6haukbrtuexze',}, 
+          { positions: [ { i: '2', j: 6 } ], css_id: 'tinytable_css_p8b0y86ukpubmuxmyir4',}, 
+          { positions: [ { i: '1', j: 6 } ], css_id: 'tinytable_css_l8r6i6xmpq0vffzefl7z',}, 
+          { positions: [ { i: '0', j: 6 } ], css_id: 'tinytable_css_ew16es69zsjkwhk2xdhk',}, 
+          { positions: [ { i: '2', j: 3 }, { i: '2', j: 4 }, { i: '2', j: 5 } ], css_id: 'tinytable_css_jou26w2f514dmbv0ccwf',}, 
+          { positions: [ { i: '1', j: 3 }, { i: '1', j: 4 }, { i: '1', j: 5 } ], css_id: 'tinytable_css_2q20d2h8t726gsk4q1bt',}, 
+          { positions: [ { i: '0', j: 3 }, { i: '0', j: 4 }, { i: '0', j: 5 } ], css_id: 'tinytable_css_ynm53oawtipdbxzrnw12',}, 
+          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_m4bz3wkqi03yv97yur4z',}, 
+          { positions: [ { i: '1', j: 2 } ], css_id: 'tinytable_css_u8dyvp8pew1n6sk0eeza',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_dpjz5oabbkncbso2l22d',}, 
+          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_n594qrbh0pvx325nnjj4',}, 
+          { positions: [ { i: '1', j: 1 } ], css_id: 'tinytable_css_7ek5ry196dzkpv3x0422',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_vawqzerjtc3s6q4gp3oq',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_7qbpuwoqyd6yiszkm6yc.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_52adswu05nuz4e2aqy8k.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -628,21 +665,21 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_7qbpuwoqyd6yiszkm6yc td.tinytable_css_fzgup2vhlg449y77j880, #tinytable_7qbpuwoqyd6yiszkm6yc th.tinytable_css_fzgup2vhlg449y77j880 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 11%; }
-    #tinytable_7qbpuwoqyd6yiszkm6yc td.tinytable_css_8r4jpta7ow653vznw58c, #tinytable_7qbpuwoqyd6yiszkm6yc th.tinytable_css_8r4jpta7ow653vznw58c { width: 11%; }
-    #tinytable_7qbpuwoqyd6yiszkm6yc td.tinytable_css_xl18c23wgdq9yu4wdmb6, #tinytable_7qbpuwoqyd6yiszkm6yc th.tinytable_css_xl18c23wgdq9yu4wdmb6 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 11%; }
-    #tinytable_7qbpuwoqyd6yiszkm6yc td.tinytable_css_io78ae17q8eplj5rkihk, #tinytable_7qbpuwoqyd6yiszkm6yc th.tinytable_css_io78ae17q8eplj5rkihk {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 20%; }
-    #tinytable_7qbpuwoqyd6yiszkm6yc td.tinytable_css_0t9dpyf87sgrr1oy68h6, #tinytable_7qbpuwoqyd6yiszkm6yc th.tinytable_css_0t9dpyf87sgrr1oy68h6 { width: 20%; }
-    #tinytable_7qbpuwoqyd6yiszkm6yc td.tinytable_css_odlfgaogk8kmbyvan3d3, #tinytable_7qbpuwoqyd6yiszkm6yc th.tinytable_css_odlfgaogk8kmbyvan3d3 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 20%; }
-    #tinytable_7qbpuwoqyd6yiszkm6yc td.tinytable_css_q0wa5qcy9ykvzwdgken0, #tinytable_7qbpuwoqyd6yiszkm6yc th.tinytable_css_q0wa5qcy9ykvzwdgken0 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 17%; }
-    #tinytable_7qbpuwoqyd6yiszkm6yc td.tinytable_css_25vh85zw7of8hxgn474e, #tinytable_7qbpuwoqyd6yiszkm6yc th.tinytable_css_25vh85zw7of8hxgn474e { width: 17%; }
-    #tinytable_7qbpuwoqyd6yiszkm6yc td.tinytable_css_d3w2qhhjrjxbgkjkyxtw, #tinytable_7qbpuwoqyd6yiszkm6yc th.tinytable_css_d3w2qhhjrjxbgkjkyxtw {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 17%; }
-    #tinytable_7qbpuwoqyd6yiszkm6yc td.tinytable_css_4r46hfvc7vkub6x5et11, #tinytable_7qbpuwoqyd6yiszkm6yc th.tinytable_css_4r46hfvc7vkub6x5et11 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 12%; }
-    #tinytable_7qbpuwoqyd6yiszkm6yc td.tinytable_css_yktwrooetpecg51kdh93, #tinytable_7qbpuwoqyd6yiszkm6yc th.tinytable_css_yktwrooetpecg51kdh93 { width: 12%; }
-    #tinytable_7qbpuwoqyd6yiszkm6yc td.tinytable_css_y4whfhs6haukbrtuexze, #tinytable_7qbpuwoqyd6yiszkm6yc th.tinytable_css_y4whfhs6haukbrtuexze {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 12%; }
+    #tinytable_52adswu05nuz4e2aqy8k td.tinytable_css_p8b0y86ukpubmuxmyir4, #tinytable_52adswu05nuz4e2aqy8k th.tinytable_css_p8b0y86ukpubmuxmyir4 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 11%; }
+    #tinytable_52adswu05nuz4e2aqy8k td.tinytable_css_l8r6i6xmpq0vffzefl7z, #tinytable_52adswu05nuz4e2aqy8k th.tinytable_css_l8r6i6xmpq0vffzefl7z { width: 11%; }
+    #tinytable_52adswu05nuz4e2aqy8k td.tinytable_css_ew16es69zsjkwhk2xdhk, #tinytable_52adswu05nuz4e2aqy8k th.tinytable_css_ew16es69zsjkwhk2xdhk {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 11%; }
+    #tinytable_52adswu05nuz4e2aqy8k td.tinytable_css_jou26w2f514dmbv0ccwf, #tinytable_52adswu05nuz4e2aqy8k th.tinytable_css_jou26w2f514dmbv0ccwf {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 20%; }
+    #tinytable_52adswu05nuz4e2aqy8k td.tinytable_css_2q20d2h8t726gsk4q1bt, #tinytable_52adswu05nuz4e2aqy8k th.tinytable_css_2q20d2h8t726gsk4q1bt { width: 20%; }
+    #tinytable_52adswu05nuz4e2aqy8k td.tinytable_css_ynm53oawtipdbxzrnw12, #tinytable_52adswu05nuz4e2aqy8k th.tinytable_css_ynm53oawtipdbxzrnw12 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 20%; }
+    #tinytable_52adswu05nuz4e2aqy8k td.tinytable_css_m4bz3wkqi03yv97yur4z, #tinytable_52adswu05nuz4e2aqy8k th.tinytable_css_m4bz3wkqi03yv97yur4z {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 17%; }
+    #tinytable_52adswu05nuz4e2aqy8k td.tinytable_css_u8dyvp8pew1n6sk0eeza, #tinytable_52adswu05nuz4e2aqy8k th.tinytable_css_u8dyvp8pew1n6sk0eeza { width: 17%; }
+    #tinytable_52adswu05nuz4e2aqy8k td.tinytable_css_dpjz5oabbkncbso2l22d, #tinytable_52adswu05nuz4e2aqy8k th.tinytable_css_dpjz5oabbkncbso2l22d {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 17%; }
+    #tinytable_52adswu05nuz4e2aqy8k td.tinytable_css_n594qrbh0pvx325nnjj4, #tinytable_52adswu05nuz4e2aqy8k th.tinytable_css_n594qrbh0pvx325nnjj4 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 12%; }
+    #tinytable_52adswu05nuz4e2aqy8k td.tinytable_css_7ek5ry196dzkpv3x0422, #tinytable_52adswu05nuz4e2aqy8k th.tinytable_css_7ek5ry196dzkpv3x0422 { width: 12%; }
+    #tinytable_52adswu05nuz4e2aqy8k td.tinytable_css_vawqzerjtc3s6q4gp3oq, #tinytable_52adswu05nuz4e2aqy8k th.tinytable_css_vawqzerjtc3s6q4gp3oq {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 12%; }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_7qbpuwoqyd6yiszkm6yc" style="table-layout: fixed; width: 100%; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_52adswu05nuz4e2aqy8k" style="table-layout: fixed; width: 100%; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <caption>Posterior sample summaries of the mean and 95% credible interval of costs in millions of pounds, life-years spent on AR, change in costs, change in benefits, and the ICER between UC and LW benefit systems.</caption>
         <thead>
               <tr>
@@ -678,15 +715,17 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
 <!-- hack to avoid NA insertion in last line -->
 </div>
 </div>
-<p><span style="display:block; margin-top: 60px ;"></span></p>
+</div>
+<div class="fragment" data-fragment-index="1">
 <ul>
-<li><p>Incremental Cost-Effectiveness Ratio <span class="math inline">\(\displaystyle = \txt{ICER} = \frac{\text{E}[\Delta_c]}{\text{E}[\Delta_e]}\)</span></p></li>
-<li><p>The ICER has a known interpretation in the HTA context</p>
+<li>Core Findings (2013-2020):
 <ul>
-<li>Represents the “cost per increase of one unit of benefit”</li>
-<li>Bodies such as NICE make decisions on this (and similar!) metric, based on QALYs</li>
+<li>UC claimants spent an average of 0.51 fewer life-years in a hardship-free state compared to LW</li>
+<li>The transition to UC cost the government an additional £47 million across the study period</li>
+<li>The Incremental Cost-Effectiveness Ratio (ICER) <span class="math inline">\(=\displaystyle \frac{\txt{E}[\Delta_c]}{\txt{E}[\Delta_e]}\)</span> is strictly negative: UC is “dominated” by the legacy system, meaning it delivers significantly worse human outcomes at a higher taxpayer cost</li>
 </ul></li>
 </ul>
+</div>
 </section>
 <section id="uncertainty-analysis" class="slide level2">
 <h2>Uncertainty analysis</h2>
@@ -705,36 +744,60 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
 <ul>
 <li>Uniform Cost Assumptions
 <ul>
-<li>The economic calculations assume a uniform expenditure per individual because precise, individual-level cost data was unavailable</li>
+<li>The economic calculations assume a uniform expenditure per individual because precise, individual-level cost data were unavailable</li>
 </ul></li>
+</ul>
+<div class="fragment">
+<ul>
 <li>Undifferentiated Welfare Exits
 <ul>
-<li>The data allows the model to track when individuals exit the benefit system, but it cannot differentiate whether they exited due to positive reasons (like improved financial circumstances) or negative reasons (like system disengagement or sanctions)</li>
+<li>The data allow the model to track when individuals exit the benefit system, but it cannot differentiate whether they exited due to positive reasons (like improved financial circumstances) or negative reasons (like system disengagement or sanctions)</li>
 </ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
 <li>Masked Heterogeneity
 <ul>
-<li>The model does not incorporate interaction terms between the Universal Credit intervention and demographic covariates</li>
+<li>The model does not incorporate interaction terms between UC intervention and demographic covariates</li>
 <li>Consequently, it may mask how specific groups, such as older claimants who might struggle with the system’s digital design, experience more pronounced adverse effects than the average</li>
 </ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
 <li>Unidirectional Causality
 <ul>
 <li>The Cohort Markov Model is structurally limited by an assumption of unidirectional causality</li>
 <li>It measures how welfare status influences well-being, but it does not capture the reverse effect, such as how a sudden deterioration in well-being might independently prompt someone to exit the welfare system</li>
 </ul></li>
 </ul>
+</div>
 </section>
 <section id="policy-implications-conclusion" class="slide level2">
 <h2>Policy Implications &amp; Conclusion</h2>
 <ul>
-<li><p>Dismantling the Central Narrative: the empirical evidence disproves foundational claims that Universal Credit (UC) effectively streamlines the safety net, reduces poverty or eases transitions to financial independence</p></li>
-<li><p>The High Price of Modernization: UC operates as a “dominated” policy intervention, simultaneously increasing government expenditure while decreasing claimant well-being and hardship-free life-years</p></li>
-<li><p>The Cost of Systemic Barriers: built-in features like the mandatory five-week initial wait time and punitive sanction regimes act as direct structural drivers of chronic financial and mental distress</p></li>
-<li><p>Core Policy Recommendations:</p>
+<li>Empirical evidence contradicts foundational claims that UC effectively streamlines the safety net, reduces poverty or eases transitions to financial independence
+<ul>
+<li>In fact, UC operates as a “dominated” policy intervention, simultaneously increasing government expenditure while decreasing claimant well-being and hardship-free life-years</li>
+<li>Built-in features like the mandatory five-week initial wait time and punitive sanction regimes act as direct structural drivers of chronic financial and mental distress</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Core Policy Recommendations:
 <ul>
 <li>Eliminate Structural Bottlenecks: replace or heavily subsidize the initial five-week wait with non-repayable starter grants</li>
-<li>Overhaul Conditionality: reform punitive sanctions to focus on supportive, health-conscious employment integration</li>
+<li>Reform punitive sanctions to focus on supportive, health-conscious employment integration</li>
 </ul></li>
-<li><p>Concluding Takeaway: future welfare design must move past purely administrative and fiscal-tightening metrics. Social safety nets should instead be evaluated using holistic, health-economic frameworks prioritizing long-term claimant resilience</p></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Future welfare design must move past purely administrative and fiscal-tightening metrics
+<ul>
+<li>Social safety nets should instead be evaluated using holistic, health-economic frameworks prioritizing long-term claimant resilience</li>
+</ul></li>
 </ul>
 <!-- 
    If the meta parameter 'thank-you' is set to "false", this won't show. Can 
@@ -744,6 +807,7 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
    - reese
 -->
 <!-- this adds an empty slide with the "Thank you" gif selected in the yml of the talk -->
+</div>
 </section></section>
 <section id="section" class="title-slide slide level1 thank-you center" data-background-image="images/reese.gif" data-background="#002248" data-footer="false">
 <h1></h1>
