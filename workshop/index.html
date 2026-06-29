@@ -337,16 +337,16 @@ li:has(> .semi-transparent)::marker {
 <ul>
 <li>Exhaustive and mutually exclusive</li>
 </ul></li>
-<li>The structure (links among nodes) describes the dynamics of disease history
+<li>The <strong>structure</strong> (links among nodes) describes the dynamics of disease history
 <ul>
-<li>Arrows connecting two states encode the assumption that a transition from the one where the arrow originates to the one reached by it is possible</li>
-<li>Absence of an arrow between two states implies that the transition from one to the other is not allowed by our model</li>
+<li>Links connecting two states encode the assumption that a transition from the one where the link originates to the one reached by it is possible</li>
+<li>Absence of a link between two states implies that the transition from one to the other is not allowed by the model</li>
 </ul></li>
 </ul>
 <div class="fragment">
 <ul>
-<li><p>From one period to the next, subjects can move among the states according to the rules specified by the arrows</p></li>
-<li><p>Movements occur according to suitable transition probabilities <span class="math display">\[\color{#24568c}\bm\pi_j = \bm\pi_{j-1} \bm\Lambda_j\]</span> where</p>
+<li><p>From one period to the next, subjects can move across the states according to the rules specified by the links</p></li>
+<li><p>Movements occur according to suitable <strong>transition probabilities</strong> <span class="math display">\[\color{#24568c}\bm\pi_j = \bm\pi_{j-1} \bm\Lambda_j\]</span> where</p>
 <ul>
 <li><span class="math inline">\(\bm\pi_j=(\pi_{1j},\ldots,\pi_{Sj})\)</span> is the vector of probabilities for each state at time <span class="math inline">\(j\)</span></li>
 <li><span class="math inline">\(\bm\Lambda_j = [\Lambda_{j;s',s}]\)</span> is a transition matrix describing the probability of moving from state <span class="math inline">\(s\)</span> to state <span class="math inline">\(s'\)</span> at time <span class="math inline">\(j\)</span></li>
@@ -360,8 +360,8 @@ li:has(> .semi-transparent)::marker {
 <p><span class="math display">\[\color{blue}{\Pr(\style{font-family:inherit;}{\text{Being in state }} s \style{font-family:inherit;}{\text{ at time }} j)= \sum_{s'\in\mathcal{S}}\Pr(\style{font-family:inherit;}{\text{Being in state }} s' \style{font-family:inherit;}{\text{ at time }} j-1)\times \Pr(\style{font-family:inherit;}{\text{Moving from state }}s'\style{font-family:inherit;}{\text{ to state }}s)}\]</span></p>
 </div>
 </section>
-<section id="markov-models" class="slide level2" data-visibility="uncounted">
-<h2>Markov models</h2>
+<section id="multi-statemarkov-models-1" class="slide level2" data-visibility="uncounted">
+<h2>Multi-state/Markov models</h2>
 <h3 id="define-a-structure-e.g.-natural-history-of-the-disease">1. Define a structure (e.g.&nbsp;“<strong>Natural history</strong>” of the disease)</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -369,8 +369,8 @@ li:has(> .semi-transparent)::marker {
 </figure>
 </div>
 </section>
-<section id="markov-models-1" class="slide level2" data-visibility="uncounted">
-<h2>Markov models</h2>
+<section id="multi-statemarkov-models-2" class="slide level2" data-visibility="uncounted">
+<h2>Multi-state/Markov models</h2>
 <h3 id="estimate-the-transition-probabilities">2. Estimate the transition probabilities</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -385,8 +385,8 @@ li:has(> .semi-transparent)::marker {
 <li><span class="math inline">\(\ldots\)</span></li>
 </ul>
 </section>
-<section id="markov-models-2" class="slide level2" data-visibility="uncounted">
-<h2>Markov models</h2>
+<section id="multi-statemarkov-models-3" class="slide level2" data-visibility="uncounted">
+<h2>Multi-state/Markov models</h2>
 <h3 id="run-the-simulation-j0">3. Run the simulation: <span class="math inline">\(j=0\)</span></h3>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -396,8 +396,8 @@ li:has(> .semi-transparent)::marker {
 <p><span style="display:block; margin-top: 20px ;"></span></p>
 <p>Distribute the “virtual cohort” across the <span class="math inline">\(S\)</span> states (typically, everybody starts in the “healthy” state…)</p>
 </section>
-<section id="markov-models-3" class="slide level2" data-visibility="uncounted">
-<h2>Markov models</h2>
+<section id="multi-statemarkov-models-4" class="slide level2" data-visibility="uncounted">
+<h2>Multi-state/Markov models</h2>
 <h3 id="run-the-simulation-j1">3. Run the simulation: <span class="math inline">\(j=1\)</span></h3>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -406,8 +406,8 @@ li:has(> .semi-transparent)::marker {
 </div>
 <p><span style="display:block; margin-top: 20px ;"></span> Start moving people around…</p>
 </section>
-<section id="markov-models-4" class="slide level2" data-visibility="uncounted">
-<h2>Markov models</h2>
+<section id="multi-statemarkov-models-5" class="slide level2" data-visibility="uncounted">
+<h2>Multi-state/Markov models</h2>
 <h3 id="matrix-algebra-and-state-occupancy">Matrix algebra and “state occupancy”</h3>
 <ul>
 <li><p><span class="math inline">\(m_{sj}\)</span> is the <strong>number</strong> of people in state <span class="math inline">\(s\)</span> at time <span class="math inline">\(j\)</span></p></li>
@@ -428,8 +428,8 @@ li:has(> .semi-transparent)::marker {
 <li><strong>NB</strong>: The transition matrix typically does depend on the time <span class="math inline">\(j\)</span>, but sometimes we can relax this assumption</li>
 </ul>
 </section>
-<section id="markov-models-5" class="slide level2" data-visibility="uncounted">
-<h2>Markov models</h2>
+<section id="multi-statemarkov-models-6" class="slide level2" data-visibility="uncounted">
+<h2>Multi-state/Markov models</h2>
 <h3 id="run-the-simulation-j2">3. Run the simulation: <span class="math inline">\(j=2\)</span></h3>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -439,8 +439,8 @@ li:has(> .semi-transparent)::marker {
 <p><span style="display:block; margin-top: 20px ;"></span></p>
 <p>Move people around according to the relationship <span class="math inline">\(\bm{m}_{2}=\bm{m}_{1}\bm\Lambda_{1}\)</span></p>
 </section>
-<section id="markov-models-6" class="slide level2" data-visibility="uncounted">
-<h2>Markov models</h2>
+<section id="multi-statemarkov-models-7" class="slide level2" data-visibility="uncounted">
+<h2>Multi-state/Markov models</h2>
 <h3 id="run-the-simulation-j3">3. Run the simulation: <span class="math inline">\(j=3\)</span></h3>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -450,8 +450,8 @@ li:has(> .semi-transparent)::marker {
 <p><span style="display:block; margin-top: 20px ;"></span></p>
 <p>Move people around according to the relationship <span class="math inline">\(\bm{m}_{3}=\bm{m}_{2}\bm\Lambda_{2}\)</span></p>
 </section>
-<section id="markov-models-7" class="slide level2" data-visibility="uncounted">
-<h2>Markov models</h2>
+<section id="multi-statemarkov-models-8" class="slide level2" data-visibility="uncounted">
+<h2>Multi-state/Markov models</h2>
 <h3 id="run-the-simulation-jj-lifetime-horizon">3. Run the simulation: <span class="math inline">\(j=J\)</span> (“<em>lifetime</em> horizon”)</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -482,7 +482,7 @@ li:has(> .semi-transparent)::marker {
 <li>Legacy Welfare (40%): exclusive to the old benefit system</li>
 <li>No Benefit (54%): never claimed support</li>
 </ul></li>
-<li>Natural Experiment Advantage: UC rollout was administratively mandated, not triggered by personal life shocks, allowing for an unbiased evaluation of the policy change</li>
+<li><strong>NB</strong>: UC rollout was administratively mandated, not triggered by personal life shocks, allowing us to evaluate the effects of the policy change</li>
 </ul>
 </section>
 <section id="multi-state-modelling-for-the-uclw-evaluation" class="slide level2">
@@ -522,6 +522,7 @@ li:has(> .semi-transparent)::marker {
 </section>
 <section id="model-bayesian-multinomial-logistic-its" class="slide level2">
 <h2>Model: Bayesian Multinomial-logistic ITS</h2>
+<h4 id="welfare-status"><span class="math inline">\(w\)</span>elfare status</h4>
 <ul>
 <li><p>For individuals <span class="math inline">\(i = 1, 2, \ldots, n\)</span>, residing in a LSOA region <span class="math inline">\(r_{i}\)</span>, belonging to a stratification group <span class="math inline">\(k_{i}\)</span>, assigned to a PSU group <span class="math inline">\(\psi_{i}\)</span> and observed over time points <span class="math inline">\(t\)</span> <span class="math display">\[
 \begin{aligned}
@@ -542,6 +543,7 @@ li:has(> .semi-transparent)::marker {
 </section>
 <section id="model-bayesian-multinomial-logistic-its-1" class="slide level2" data-visibility="uncounted">
 <h2>Model: Bayesian Multinomial-logistic ITS</h2>
+<h4 id="well-being-status"><span class="math inline">\(w\)</span>ell <span class="math inline">\(b\)</span>eing status</h4>
 <p><span style="display:block; margin-top: -30px ;"></span></p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -634,29 +636,29 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_52adswu05nuz4e2aqy8k = TinyTable.createTableFunctions("tinytable_52adswu05nuz4e2aqy8k");
+      const tableFns_jje3qxw067zzfog45518 = TinyTable.createTableFunctions("tinytable_jje3qxw067zzfog45518");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '2', j: 6 } ], css_id: 'tinytable_css_p8b0y86ukpubmuxmyir4',}, 
-          { positions: [ { i: '1', j: 6 } ], css_id: 'tinytable_css_l8r6i6xmpq0vffzefl7z',}, 
-          { positions: [ { i: '0', j: 6 } ], css_id: 'tinytable_css_ew16es69zsjkwhk2xdhk',}, 
-          { positions: [ { i: '2', j: 3 }, { i: '2', j: 4 }, { i: '2', j: 5 } ], css_id: 'tinytable_css_jou26w2f514dmbv0ccwf',}, 
-          { positions: [ { i: '1', j: 3 }, { i: '1', j: 4 }, { i: '1', j: 5 } ], css_id: 'tinytable_css_2q20d2h8t726gsk4q1bt',}, 
-          { positions: [ { i: '0', j: 3 }, { i: '0', j: 4 }, { i: '0', j: 5 } ], css_id: 'tinytable_css_ynm53oawtipdbxzrnw12',}, 
-          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_m4bz3wkqi03yv97yur4z',}, 
-          { positions: [ { i: '1', j: 2 } ], css_id: 'tinytable_css_u8dyvp8pew1n6sk0eeza',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_dpjz5oabbkncbso2l22d',}, 
-          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_n594qrbh0pvx325nnjj4',}, 
-          { positions: [ { i: '1', j: 1 } ], css_id: 'tinytable_css_7ek5ry196dzkpv3x0422',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_vawqzerjtc3s6q4gp3oq',}, 
+          { positions: [ { i: '2', j: 6 } ], css_id: 'tinytable_css_0timh34h8mrazm2whx43',}, 
+          { positions: [ { i: '1', j: 6 } ], css_id: 'tinytable_css_tl6bbvcj67f6tn2h6a65',}, 
+          { positions: [ { i: '0', j: 6 } ], css_id: 'tinytable_css_z6cx21cyu4yqfkc1o66a',}, 
+          { positions: [ { i: '2', j: 3 }, { i: '2', j: 4 }, { i: '2', j: 5 } ], css_id: 'tinytable_css_0c6wyvnv600e2m2uftwj',}, 
+          { positions: [ { i: '1', j: 3 }, { i: '1', j: 4 }, { i: '1', j: 5 } ], css_id: 'tinytable_css_khey59s2rl8a5rnamggr',}, 
+          { positions: [ { i: '0', j: 3 }, { i: '0', j: 4 }, { i: '0', j: 5 } ], css_id: 'tinytable_css_rvdneamtlc2yo6v2g52k',}, 
+          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_rod4s9l3zndvxa9wbc06',}, 
+          { positions: [ { i: '1', j: 2 } ], css_id: 'tinytable_css_xgwzntsdhu8xb3sqp5dn',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_1ldi3lnbf7otkuqs9jpg',}, 
+          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_umglfwhj0ngpvx71sk0q',}, 
+          { positions: [ { i: '1', j: 1 } ], css_id: 'tinytable_css_5lz0f99n9lmqb3c0126c',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_dmrxl1cwv7vmxu83prql',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_52adswu05nuz4e2aqy8k.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_jje3qxw067zzfog45518.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -665,21 +667,21 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_52adswu05nuz4e2aqy8k td.tinytable_css_p8b0y86ukpubmuxmyir4, #tinytable_52adswu05nuz4e2aqy8k th.tinytable_css_p8b0y86ukpubmuxmyir4 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 11%; }
-    #tinytable_52adswu05nuz4e2aqy8k td.tinytable_css_l8r6i6xmpq0vffzefl7z, #tinytable_52adswu05nuz4e2aqy8k th.tinytable_css_l8r6i6xmpq0vffzefl7z { width: 11%; }
-    #tinytable_52adswu05nuz4e2aqy8k td.tinytable_css_ew16es69zsjkwhk2xdhk, #tinytable_52adswu05nuz4e2aqy8k th.tinytable_css_ew16es69zsjkwhk2xdhk {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 11%; }
-    #tinytable_52adswu05nuz4e2aqy8k td.tinytable_css_jou26w2f514dmbv0ccwf, #tinytable_52adswu05nuz4e2aqy8k th.tinytable_css_jou26w2f514dmbv0ccwf {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 20%; }
-    #tinytable_52adswu05nuz4e2aqy8k td.tinytable_css_2q20d2h8t726gsk4q1bt, #tinytable_52adswu05nuz4e2aqy8k th.tinytable_css_2q20d2h8t726gsk4q1bt { width: 20%; }
-    #tinytable_52adswu05nuz4e2aqy8k td.tinytable_css_ynm53oawtipdbxzrnw12, #tinytable_52adswu05nuz4e2aqy8k th.tinytable_css_ynm53oawtipdbxzrnw12 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 20%; }
-    #tinytable_52adswu05nuz4e2aqy8k td.tinytable_css_m4bz3wkqi03yv97yur4z, #tinytable_52adswu05nuz4e2aqy8k th.tinytable_css_m4bz3wkqi03yv97yur4z {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 17%; }
-    #tinytable_52adswu05nuz4e2aqy8k td.tinytable_css_u8dyvp8pew1n6sk0eeza, #tinytable_52adswu05nuz4e2aqy8k th.tinytable_css_u8dyvp8pew1n6sk0eeza { width: 17%; }
-    #tinytable_52adswu05nuz4e2aqy8k td.tinytable_css_dpjz5oabbkncbso2l22d, #tinytable_52adswu05nuz4e2aqy8k th.tinytable_css_dpjz5oabbkncbso2l22d {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 17%; }
-    #tinytable_52adswu05nuz4e2aqy8k td.tinytable_css_n594qrbh0pvx325nnjj4, #tinytable_52adswu05nuz4e2aqy8k th.tinytable_css_n594qrbh0pvx325nnjj4 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 12%; }
-    #tinytable_52adswu05nuz4e2aqy8k td.tinytable_css_7ek5ry196dzkpv3x0422, #tinytable_52adswu05nuz4e2aqy8k th.tinytable_css_7ek5ry196dzkpv3x0422 { width: 12%; }
-    #tinytable_52adswu05nuz4e2aqy8k td.tinytable_css_vawqzerjtc3s6q4gp3oq, #tinytable_52adswu05nuz4e2aqy8k th.tinytable_css_vawqzerjtc3s6q4gp3oq {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 12%; }
+    #tinytable_jje3qxw067zzfog45518 td.tinytable_css_0timh34h8mrazm2whx43, #tinytable_jje3qxw067zzfog45518 th.tinytable_css_0timh34h8mrazm2whx43 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 11%; }
+    #tinytable_jje3qxw067zzfog45518 td.tinytable_css_tl6bbvcj67f6tn2h6a65, #tinytable_jje3qxw067zzfog45518 th.tinytable_css_tl6bbvcj67f6tn2h6a65 { width: 11%; }
+    #tinytable_jje3qxw067zzfog45518 td.tinytable_css_z6cx21cyu4yqfkc1o66a, #tinytable_jje3qxw067zzfog45518 th.tinytable_css_z6cx21cyu4yqfkc1o66a {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 11%; }
+    #tinytable_jje3qxw067zzfog45518 td.tinytable_css_0c6wyvnv600e2m2uftwj, #tinytable_jje3qxw067zzfog45518 th.tinytable_css_0c6wyvnv600e2m2uftwj {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 20%; }
+    #tinytable_jje3qxw067zzfog45518 td.tinytable_css_khey59s2rl8a5rnamggr, #tinytable_jje3qxw067zzfog45518 th.tinytable_css_khey59s2rl8a5rnamggr { width: 20%; }
+    #tinytable_jje3qxw067zzfog45518 td.tinytable_css_rvdneamtlc2yo6v2g52k, #tinytable_jje3qxw067zzfog45518 th.tinytable_css_rvdneamtlc2yo6v2g52k {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 20%; }
+    #tinytable_jje3qxw067zzfog45518 td.tinytable_css_rod4s9l3zndvxa9wbc06, #tinytable_jje3qxw067zzfog45518 th.tinytable_css_rod4s9l3zndvxa9wbc06 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 17%; }
+    #tinytable_jje3qxw067zzfog45518 td.tinytable_css_xgwzntsdhu8xb3sqp5dn, #tinytable_jje3qxw067zzfog45518 th.tinytable_css_xgwzntsdhu8xb3sqp5dn { width: 17%; }
+    #tinytable_jje3qxw067zzfog45518 td.tinytable_css_1ldi3lnbf7otkuqs9jpg, #tinytable_jje3qxw067zzfog45518 th.tinytable_css_1ldi3lnbf7otkuqs9jpg {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 17%; }
+    #tinytable_jje3qxw067zzfog45518 td.tinytable_css_umglfwhj0ngpvx71sk0q, #tinytable_jje3qxw067zzfog45518 th.tinytable_css_umglfwhj0ngpvx71sk0q {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 12%; }
+    #tinytable_jje3qxw067zzfog45518 td.tinytable_css_5lz0f99n9lmqb3c0126c, #tinytable_jje3qxw067zzfog45518 th.tinytable_css_5lz0f99n9lmqb3c0126c { width: 12%; }
+    #tinytable_jje3qxw067zzfog45518 td.tinytable_css_dmrxl1cwv7vmxu83prql, #tinytable_jje3qxw067zzfog45518 th.tinytable_css_dmrxl1cwv7vmxu83prql {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 12%; }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_52adswu05nuz4e2aqy8k" style="table-layout: fixed; width: 100%; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_jje3qxw067zzfog45518" style="table-layout: fixed; width: 100%; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <caption>Posterior sample summaries of the mean and 95% credible interval of costs in millions of pounds, life-years spent on AR, change in costs, change in benefits, and the ICER between UC and LW benefit systems.</caption>
         <thead>
               <tr>

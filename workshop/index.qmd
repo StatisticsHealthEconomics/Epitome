@@ -174,15 +174,15 @@ li:has(> .semi-transparent)::marker {
 
 - Assume a set $\mathcal{S}$ made of $S$ "clinically relevant" states
   - Exhaustive and mutually exclusive
-- The structure (links among nodes) describes the dynamics of disease history
-  - Arrows connecting two states encode the assumption that a transition from the one where the arrow originates to the one reached by it is possible
-  - Absence of an arrow between two states implies that the transition from one to the other is not allowed by our model
+- The **structure** (links among nodes) describes the dynamics of disease history
+  - Links connecting two states encode the assumption that a transition from the one where the link originates to the one reached by it is possible
+  - Absence of a link between two states implies that the transition from one to the other is not allowed by the model
 
 . . .
 
-- From one period to the next, subjects can move among the states according to the rules specified by the arrows
+- From one period to the next, subjects can move across the states according to the rules specified by the links
 
-- Movements occur according to suitable transition probabilities $$\color{#24568c}\bm\pi_j = \bm\pi_{j-1} \bm\Lambda_j$$ where
+- Movements occur according to suitable **transition probabilities** $$\color{#24568c}\bm\pi_j = \bm\pi_{j-1} \bm\Lambda_j$$ where
 
   - $\bm\pi_j=(\pi_{1j},\ldots,\pi_{Sj})$ is the vector of probabilities for each state at time $j$
   - $\bm\Lambda_j = [\Lambda_{j;s',s}]$ is a transition matrix describing the probability of moving from state $s$ to state $s'$ at time $j$
@@ -193,13 +193,13 @@ li:has(> .semi-transparent)::marker {
 
 $$\color{blue}{\Pr(`r sftext("Being in state ")` s `r sftext(" at time ")` j)= \sum_{s'\in\mathcal{S}}\Pr(`r sftext("Being in state ")` s' `r sftext(" at time ")` j-1)\times \Pr(`r sftext("Moving from state ")`s'`r sftext(" to state ")`s)}$$
 
-## Markov models {visibility="uncounted"}
+## Multi-state/Markov models {visibility="uncounted"}
 
 ### 1. Define a structure (e.g. "**Natural history**" of the disease)
 
 ![](images/mm1-1.png){width="43%" fig-align="center"}
 
-## Markov models {visibility="uncounted"}
+## Multi-state/Markov models {visibility="uncounted"}
 
 ### 2. Estimate the transition probabilities
 
@@ -213,7 +213,7 @@ For instance:
 - $\lambda_{24} =$ disease-specific mortality $\Rightarrow$ Relevant data: Trial/observational studies, . . .
 - $\ldots$
 
-## Markov models {visibility="uncounted"}
+## Multi-state/Markov models {visibility="uncounted"}
 
 ### 3. Run the simulation: $j=0$
 
@@ -223,7 +223,7 @@ For instance:
 
 Distribute the "virtual cohort" across the $S$ states (typically, everybody starts in the "healthy" state...)
 
-## Markov models {visibility="uncounted"}
+## Multi-state/Markov models {visibility="uncounted"}
 
 ### 3. Run the simulation: $j=1$
 
@@ -231,7 +231,7 @@ Distribute the "virtual cohort" across the $S$ states (typically, everybody star
 
 `r vspace("20px")` Start moving people around...
 
-## Markov models {visibility="uncounted"}
+## Multi-state/Markov models {visibility="uncounted"}
 
 ### Matrix algebra and "state occupancy"
 
@@ -256,7 +256,7 @@ $$\color{#24568c}{m_{s\, j+1} = m_{1j}\lambda_{1sj} + m_{2j}\lambda_{2sj} + \ldo
 
 - **NB**: The transition matrix typically does depend on the time $j$, but sometimes we can relax this assumption
 
-## Markov models {visibility="uncounted"}
+## Multi-state/Markov models {visibility="uncounted"}
 
 ### 3. Run the simulation: $j=2$
 
@@ -266,7 +266,7 @@ $$\color{#24568c}{m_{s\, j+1} = m_{1j}\lambda_{1sj} + m_{2j}\lambda_{2sj} + \ldo
 
 Move people around according to the relationship $\bm{m}_{2}=\bm{m}_{1}\bm\Lambda_{1}$
 
-## Markov models {visibility="uncounted"}
+## Multi-state/Markov models {visibility="uncounted"}
 
 ### 3. Run the simulation: $j=3$
 
@@ -276,7 +276,7 @@ Move people around according to the relationship $\bm{m}_{2}=\bm{m}_{1}\bm\Lambd
 
 Move people around according to the relationship $\bm{m}_{3}=\bm{m}_{2}\bm\Lambda_{2}$
 
-## Markov models {visibility="uncounted"}
+## Multi-state/Markov models {visibility="uncounted"}
 
 ### 3. Run the simulation: $j=J$ ("*lifetime* horizon")
 
@@ -298,7 +298,7 @@ Move people around according to the relationship $\bm{m}_{3}=\bm{m}_{2}\bm\Lambd
   - Universal Credit (6%): exposed to UC between 2013-2020
   - Legacy Welfare (40%): exclusive to the old benefit system
   - No Benefit (54%): never claimed support
-- Natural Experiment Advantage: UC rollout was administratively mandated, not triggered by personal life shocks, allowing for an unbiased evaluation of the policy change
+- **NB**: UC rollout was administratively mandated, not triggered by personal life shocks, allowing us to evaluate the effects of the policy change
 
 ## Multi-state modelling for the UC/LW evaluation
 
@@ -419,6 +419,8 @@ Move people around according to the relationship $\bm{m}_{3}=\bm{m}_{2}\bm\Lambd
 ::::::
 
 ## Model: Bayesian Multinomial-logistic ITS
+
+#### $w$elfare status
    
 - For individuals $i = 1, 2, \ldots, n$, residing in a LSOA region $r_{i}$, belonging to a stratification group $k_{i}$, assigned to a PSU group $\psi_{i}$ and observed over time points $t$
 $$
@@ -437,6 +439,8 @@ $$
   - [Cubic B-splines]{.orange} to map complex, non-linear population changes across the 2009-2020 timeline
 
 ## Model: Bayesian Multinomial-logistic ITS {visibility="uncounted"}
+
+#### $w$ell $b$eing status
 
 `r vspace("-30px")`
 
