@@ -520,9 +520,8 @@ li:has(> .semi-transparent)::marker {
 </div>
 </div></div>
 </section>
-<section id="model-bayesian-multinomial-logistic-its" class="slide level2">
-<h2>Model: Bayesian Multinomial-logistic ITS</h2>
-<h4 id="welfare-status"><span class="math inline">\(w\)</span>elfare status</h4>
+<section id="model-bayesian-multinomial-logistic-its-welfare-status" class="slide level2">
+<h2>Model: Bayesian Multinomial-logistic ITS: <span class="math inline">\(w\)</span>elfare status</h2>
 <ul>
 <li><p>For individuals <span class="math inline">\(i = 1, 2, \ldots, n\)</span>, residing in a LSOA region <span class="math inline">\(r_{i}\)</span>, belonging to a stratification group <span class="math inline">\(k_{i}\)</span>, assigned to a PSU group <span class="math inline">\(\psi_{i}\)</span> and observed over time points <span class="math inline">\(t\)</span> <span class="math display">\[
 \begin{aligned}
@@ -541,14 +540,13 @@ li:has(> .semi-transparent)::marker {
 </ul></li>
 </ul>
 </section>
-<section id="model-bayesian-multinomial-logistic-its-1" class="slide level2" data-visibility="uncounted">
-<h2>Model: Bayesian Multinomial-logistic ITS</h2>
-<h4 id="well-being-status"><span class="math inline">\(w\)</span>ell <span class="math inline">\(b\)</span>eing status</h4>
+<section id="model-bayesian-multinomial-logistic-its-well-being-status" class="slide level2" data-visibility="uncounted">
+<h2>Model: Bayesian Multinomial-logistic ITS: <span class="math inline">\(w\)</span>ell <span class="math inline">\(b\)</span>eing status</h2>
 <p><span style="display:block; margin-top: -30px ;"></span></p>
 <p><span class="math display">\[
 \begin{aligned}
 \text{Pr}(Y^{(wb),i,t} &amp; = s\mid Y^{(wb),i,t-1} = s', Y^{(w),i,t} = q)  = \frac{e^{\eta_{s',s}^{i,t}}(q)}{\sum_{s=1}^{5}e^{\eta_{s',s}^{i,t}}(q)} = \lambda_{s',s}^{i,t}(q), \\ &amp; \txt{with } {\lambda}_{s',1}^{i,t}(q) + {\lambda}_{s',2}^{i,t}(q) + \ldots {\lambda}_{s',5}^{i,t}(q) = 1, \\[10pt]
-\logit\left({{\lambda}_{s',s}^{i,t}}(q) \right) = {{\eta}_{s',s}^{i,t}}(q) = &amp; {\color{olive}\beta_{0}^{s}} + {\color{red}\beta_{1}^{s}}\txt{Age}^{i,t} + {\color{red}\beta_{2}^{s}} \txt{HEQ}^{i,t} + {\color{red}\beta_{3}^{s}}\txt{ETH}^{i,t} + {\color{red}\beta_{4}^{s}}\txt{MS}^{i,t} + {\color{red}\beta_{5}^{s}}\txt{Sex}^{i,t} + {\color{red}\beta_{6}^{s}\txt{GR}^{i,t}} + \\
+\logit\left({{\lambda}_{s',s}^{i,t}}(q) \right) = {{\eta}_{s',s}^{i,t}}(q) = &amp; {\color{olive}\beta_{0}^{s}} + {\color{red}\beta_{1}^{s}}\txt{Age}^{i,t} + {\color{red}\beta_{2}^{s}} \txt{HEQ}^{i,t} + {\color{red}\beta_{3}^{s}}\txt{ETH}^{i,t} + {\color{red}\beta_{4}^{s}}\txt{MS}^{i,t} + {\color{red}\beta_{5}^{s}}\txt{Sex}^{i,t} + {\color{red}\beta_{6}^{s}}\txt{GR}^{i,t} + \\
 &amp; {\color{orange}f^{s}_{\txt{Exposed}^{i}}(t)} + {\color{orange}f^{s}_{\txt{Intervention}^{i,t}}} + {\color{blue}\gamma_{r_{i}}^{s}} + {\color{blue}\nu_{k_{i}}^{s}} + {\color{blue}\zeta_{\psi_{i}}^{s}} + {\color{purple}\delta_{t}^{s}} + {\color{purple}e_{i}^{s}} + {\color{#C21718}\theta^{s}\mathbb{I}(q = 7)}
 \end{aligned}
 \]</span></p>
@@ -624,7 +622,9 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
 <ul>
 <li>Adapts standard Health Technology Assessment (HTA) principles to measure the financial cost per unit of human well-being achieved by each system
 <ul>
-<li>Evaluates the expected number of life-years an individual spends in the completely hardship-free At Risk (AR) baseline state</li>
+<li>Benefits = expected number of life-years an individual spends in the completely hardship-free At Risk (AR) baseline state</li>
+<li>Costs = total cost for those in receipt of benefits</li>
+<li>Both discounted at 3.5% yearly, in line with NICE suggestions</li>
 </ul></li>
 </ul>
 <div class="fragment" data-fragment-index="1" style="margin-bottom: 30px">
@@ -636,29 +636,26 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_jje3qxw067zzfog45518 = TinyTable.createTableFunctions("tinytable_jje3qxw067zzfog45518");
+      const tableFns_wzolrxvs1v394dnmgdo9 = TinyTable.createTableFunctions("tinytable_wzolrxvs1v394dnmgdo9");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '2', j: 6 } ], css_id: 'tinytable_css_0timh34h8mrazm2whx43',}, 
-          { positions: [ { i: '1', j: 6 } ], css_id: 'tinytable_css_tl6bbvcj67f6tn2h6a65',}, 
-          { positions: [ { i: '0', j: 6 } ], css_id: 'tinytable_css_z6cx21cyu4yqfkc1o66a',}, 
-          { positions: [ { i: '2', j: 3 }, { i: '2', j: 4 }, { i: '2', j: 5 } ], css_id: 'tinytable_css_0c6wyvnv600e2m2uftwj',}, 
-          { positions: [ { i: '1', j: 3 }, { i: '1', j: 4 }, { i: '1', j: 5 } ], css_id: 'tinytable_css_khey59s2rl8a5rnamggr',}, 
-          { positions: [ { i: '0', j: 3 }, { i: '0', j: 4 }, { i: '0', j: 5 } ], css_id: 'tinytable_css_rvdneamtlc2yo6v2g52k',}, 
-          { positions: [ { i: '2', j: 2 } ], css_id: 'tinytable_css_rod4s9l3zndvxa9wbc06',}, 
-          { positions: [ { i: '1', j: 2 } ], css_id: 'tinytable_css_xgwzntsdhu8xb3sqp5dn',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_1ldi3lnbf7otkuqs9jpg',}, 
-          { positions: [ { i: '2', j: 1 } ], css_id: 'tinytable_css_umglfwhj0ngpvx71sk0q',}, 
-          { positions: [ { i: '1', j: 1 } ], css_id: 'tinytable_css_5lz0f99n9lmqb3c0126c',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_dmrxl1cwv7vmxu83prql',}, 
+          { positions: [ { i: '2', j: 4 }, { i: '2', j: 5 } ], css_id: 'tinytable_css_yjz135mmq475bjng5uat',}, 
+          { positions: [ { i: '1', j: 4 }, { i: '1', j: 5 } ], css_id: 'tinytable_css_8gf89ovx0v881tebjg9u',}, 
+          { positions: [ { i: '0', j: 4 }, { i: '0', j: 5 } ], css_id: 'tinytable_css_1dw4p4pzlp6b9wmzd177',}, 
+          { positions: [ { i: '2', j: 2 }, { i: '2', j: 3 } ], css_id: 'tinytable_css_uj1a8905q78aykfx9pq1',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '1', j: 3 } ], css_id: 'tinytable_css_qz73hf45samllmdki94g',}, 
+          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 } ], css_id: 'tinytable_css_60qid4yoqtbilpuwuyt3',}, 
+          { positions: [ { i: '2', j: 1 }, { i: '2', j: 6 } ], css_id: 'tinytable_css_4upjqw7ybgroxm0gr4ak',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '1', j: 6 } ], css_id: 'tinytable_css_bibidhu2pufedwqsjyi2',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 6 } ], css_id: 'tinytable_css_q6mxyoephczdf5bv254n',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_jje3qxw067zzfog45518.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_wzolrxvs1v394dnmgdo9.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -667,29 +664,26 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_jje3qxw067zzfog45518 td.tinytable_css_0timh34h8mrazm2whx43, #tinytable_jje3qxw067zzfog45518 th.tinytable_css_0timh34h8mrazm2whx43 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 11%; }
-    #tinytable_jje3qxw067zzfog45518 td.tinytable_css_tl6bbvcj67f6tn2h6a65, #tinytable_jje3qxw067zzfog45518 th.tinytable_css_tl6bbvcj67f6tn2h6a65 { width: 11%; }
-    #tinytable_jje3qxw067zzfog45518 td.tinytable_css_z6cx21cyu4yqfkc1o66a, #tinytable_jje3qxw067zzfog45518 th.tinytable_css_z6cx21cyu4yqfkc1o66a {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 11%; }
-    #tinytable_jje3qxw067zzfog45518 td.tinytable_css_0c6wyvnv600e2m2uftwj, #tinytable_jje3qxw067zzfog45518 th.tinytable_css_0c6wyvnv600e2m2uftwj {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 20%; }
-    #tinytable_jje3qxw067zzfog45518 td.tinytable_css_khey59s2rl8a5rnamggr, #tinytable_jje3qxw067zzfog45518 th.tinytable_css_khey59s2rl8a5rnamggr { width: 20%; }
-    #tinytable_jje3qxw067zzfog45518 td.tinytable_css_rvdneamtlc2yo6v2g52k, #tinytable_jje3qxw067zzfog45518 th.tinytable_css_rvdneamtlc2yo6v2g52k {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 20%; }
-    #tinytable_jje3qxw067zzfog45518 td.tinytable_css_rod4s9l3zndvxa9wbc06, #tinytable_jje3qxw067zzfog45518 th.tinytable_css_rod4s9l3zndvxa9wbc06 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 17%; }
-    #tinytable_jje3qxw067zzfog45518 td.tinytable_css_xgwzntsdhu8xb3sqp5dn, #tinytable_jje3qxw067zzfog45518 th.tinytable_css_xgwzntsdhu8xb3sqp5dn { width: 17%; }
-    #tinytable_jje3qxw067zzfog45518 td.tinytable_css_1ldi3lnbf7otkuqs9jpg, #tinytable_jje3qxw067zzfog45518 th.tinytable_css_1ldi3lnbf7otkuqs9jpg {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 17%; }
-    #tinytable_jje3qxw067zzfog45518 td.tinytable_css_umglfwhj0ngpvx71sk0q, #tinytable_jje3qxw067zzfog45518 th.tinytable_css_umglfwhj0ngpvx71sk0q {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 12%; }
-    #tinytable_jje3qxw067zzfog45518 td.tinytable_css_5lz0f99n9lmqb3c0126c, #tinytable_jje3qxw067zzfog45518 th.tinytable_css_5lz0f99n9lmqb3c0126c { width: 12%; }
-    #tinytable_jje3qxw067zzfog45518 td.tinytable_css_dmrxl1cwv7vmxu83prql, #tinytable_jje3qxw067zzfog45518 th.tinytable_css_dmrxl1cwv7vmxu83prql {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 12%; }
+    #tinytable_wzolrxvs1v394dnmgdo9 td.tinytable_css_yjz135mmq475bjng5uat, #tinytable_wzolrxvs1v394dnmgdo9 th.tinytable_css_yjz135mmq475bjng5uat {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 23%; }
+    #tinytable_wzolrxvs1v394dnmgdo9 td.tinytable_css_8gf89ovx0v881tebjg9u, #tinytable_wzolrxvs1v394dnmgdo9 th.tinytable_css_8gf89ovx0v881tebjg9u { width: 23%; }
+    #tinytable_wzolrxvs1v394dnmgdo9 td.tinytable_css_1dw4p4pzlp6b9wmzd177, #tinytable_wzolrxvs1v394dnmgdo9 th.tinytable_css_1dw4p4pzlp6b9wmzd177 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 23%; }
+    #tinytable_wzolrxvs1v394dnmgdo9 td.tinytable_css_uj1a8905q78aykfx9pq1, #tinytable_wzolrxvs1v394dnmgdo9 th.tinytable_css_uj1a8905q78aykfx9pq1 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 16%; }
+    #tinytable_wzolrxvs1v394dnmgdo9 td.tinytable_css_qz73hf45samllmdki94g, #tinytable_wzolrxvs1v394dnmgdo9 th.tinytable_css_qz73hf45samllmdki94g { width: 16%; }
+    #tinytable_wzolrxvs1v394dnmgdo9 td.tinytable_css_60qid4yoqtbilpuwuyt3, #tinytable_wzolrxvs1v394dnmgdo9 th.tinytable_css_60qid4yoqtbilpuwuyt3 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 16%; }
+    #tinytable_wzolrxvs1v394dnmgdo9 td.tinytable_css_4upjqw7ybgroxm0gr4ak, #tinytable_wzolrxvs1v394dnmgdo9 th.tinytable_css_4upjqw7ybgroxm0gr4ak {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 11%; }
+    #tinytable_wzolrxvs1v394dnmgdo9 td.tinytable_css_bibidhu2pufedwqsjyi2, #tinytable_wzolrxvs1v394dnmgdo9 th.tinytable_css_bibidhu2pufedwqsjyi2 { width: 11%; }
+    #tinytable_wzolrxvs1v394dnmgdo9 td.tinytable_css_q6mxyoephczdf5bv254n, #tinytable_wzolrxvs1v394dnmgdo9 th.tinytable_css_q6mxyoephczdf5bv254n {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 11%; }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_jje3qxw067zzfog45518" style="table-layout: fixed; width: 100%; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_wzolrxvs1v394dnmgdo9" style="table-layout: fixed; width: 100%; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <caption>Posterior sample summaries of the mean and 95% credible interval of costs in millions of pounds, life-years spent on AR, change in costs, change in benefits, and the ICER between UC and LW benefit systems.</caption>
         <thead>
               <tr>
                 <th scope="col" data-row="0" data-col="1"></th>
-                <th scope="col" data-row="0" data-col="2">Cost</th>
+                <th scope="col" data-row="0" data-col="2">Cost (£1m)</th>
                 <th scope="col" data-row="0" data-col="3">Benefit</th>
-                <th scope="col" data-row="0" data-col="4">Differential Cost</th>
-                <th scope="col" data-row="0" data-col="5">Differential Benefits</th>
+                <th scope="col" data-row="0" data-col="4">Differential Cost \(\Delta_c\)</th>
+                <th scope="col" data-row="0" data-col="5">Differential Benefits \(\Delta_e\)</th>
                 <th scope="col" data-row="0" data-col="6">ICER</th>
               </tr>
         </thead>

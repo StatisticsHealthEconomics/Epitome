@@ -418,9 +418,7 @@ Move people around according to the relationship $\bm{m}_{3}=\bm{m}_{2}\bm\Lambd
 ::::
 ::::::
 
-## Model: Bayesian Multinomial-logistic ITS
-
-#### $w$elfare status
+## Model: Bayesian Multinomial-logistic ITS: $w$elfare status
    
 - For individuals $i = 1, 2, \ldots, n$, residing in a LSOA region $r_{i}$, belonging to a stratification group $k_{i}$, assigned to a PSU group $\psi_{i}$ and observed over time points $t$
 $$
@@ -438,16 +436,14 @@ $$
   - [Random effects to account for temporal variability and individual heterogeneity]{.purple}
   - [Cubic B-splines]{.orange} to map complex, non-linear population changes across the 2009-2020 timeline
 
-## Model: Bayesian Multinomial-logistic ITS {visibility="uncounted"}
-
-#### $w$ell $b$eing status
+## Model: Bayesian Multinomial-logistic ITS: $w$ell $b$eing status {visibility="uncounted"}
 
 `r vspace("-30px")`
 
 $$
 \begin{aligned}
 \text{Pr}(Y^{(wb),i,t} & = s\mid Y^{(wb),i,t-1} = s', Y^{(w),i,t} = q)  = \frac{e^{\eta_{s',s}^{i,t}}(q)}{\sum_{s=1}^{5}e^{\eta_{s',s}^{i,t}}(q)} = \lambda_{s',s}^{i,t}(q), \\ & \txt{with } {\lambda}_{s',1}^{i,t}(q) + {\lambda}_{s',2}^{i,t}(q) + \ldots {\lambda}_{s',5}^{i,t}(q) = 1, \\[10pt] 
-\logit\left({{\lambda}_{s',s}^{i,t}}(q) \right) = {{\eta}_{s',s}^{i,t}}(q) = & {\color{olive}\beta_{0}^{s}} + {\color{red}\beta_{1}^{s}}\txt{Age}^{i,t} + {\color{red}\beta_{2}^{s}} \txt{HEQ}^{i,t} + {\color{red}\beta_{3}^{s}}\txt{ETH}^{i,t} + {\color{red}\beta_{4}^{s}}\txt{MS}^{i,t} + {\color{red}\beta_{5}^{s}}\txt{Sex}^{i,t} + {\color{red}\beta_{6}^{s}\txt{GR}^{i,t}} + \\
+\logit\left({{\lambda}_{s',s}^{i,t}}(q) \right) = {{\eta}_{s',s}^{i,t}}(q) = & {\color{olive}\beta_{0}^{s}} + {\color{red}\beta_{1}^{s}}\txt{Age}^{i,t} + {\color{red}\beta_{2}^{s}} \txt{HEQ}^{i,t} + {\color{red}\beta_{3}^{s}}\txt{ETH}^{i,t} + {\color{red}\beta_{4}^{s}}\txt{MS}^{i,t} + {\color{red}\beta_{5}^{s}}\txt{Sex}^{i,t} + {\color{red}\beta_{6}^{s}}\txt{GR}^{i,t} + \\
 & {\color{orange}f^{s}_{\txt{Exposed}^{i}}(t)} + {\color{orange}f^{s}_{\txt{Intervention}^{i,t}}} + {\color{blue}\gamma_{r_{i}}^{s}} + {\color{blue}\nu_{k_{i}}^{s}} + {\color{blue}\zeta_{\psi_{i}}^{s}} + {\color{purple}\delta_{t}^{s}} + {\color{purple}e_{i}^{s}} + {\color{#C21718}\theta^{s}\mathbb{I}(q = 7)}
 \end{aligned}
 $$
@@ -807,7 +803,9 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
 ## Economic evaluation
 
 - Adapts standard Health Technology Assessment (HTA) principles to measure the financial cost per unit of human well-being achieved by each system
-  - Evaluates the expected number of life-years an individual spends in the completely hardship-free At Risk (AR) baseline state
+  - Benefits = expected number of life-years an individual spends in the completely hardship-free At Risk (AR) baseline state
+  - Costs = total cost for those in receipt of benefits
+  - Both discounted at 3.5% yearly, in line with NICE suggestions
 
 ::: {.fragment fragment-index="1" style="margin-bottom: 30px"}
 ```{r}
@@ -828,9 +826,9 @@ cea = tibble(
 cea |>
   tt(
     caption = "Posterior sample summaries of the mean and 95% credible interval of costs in millions of pounds, life-years spent on AR, change in costs, change in benefits, and the ICER between UC and LW benefit systems.",
-    width = c(1, 1.5, 1.8, 1.8, 1.8, 1)
+    width = c(1, 1.5, 1.5, 2.1, 2.1, 1)
   ) |>
-  setNames(c("", "Cost", "Benefit", "Differential Cost", "Differential Benefits", "ICER"))
+  setNames(c("", "Cost (£1m)", "Benefit", "Differential Cost \\(\\Delta_c\\)", "Differential Benefits \\(\\Delta_e\\)", "ICER"))
 ```
 :::
 
@@ -852,7 +850,12 @@ set.seed(14081973)
 c=cbind(rnorm(1000,120,6.5),rnorm(1000,72,7.5))
 e=cbind(rnorm(1000,3.35,0.3),rnorm(1000,3.87,0.295))
 m=BCEA::bcea(e,c,ref=1,interventions=c("Universal credit","Legacy welfare"))
-BCEA::contour(m,graph="ggplot2") + theme_ucl() + theme(legend.position="none") 
+BCEA::contour(m,graph="ggplot2") +  ylab("Incremental cost (£1,000,000)") + 
+  geom_point(
+    data=tibble(x=m$delta_e[,1] |> mean(),y=m$delta_c[,1] |> mean()), 
+    aes(x=x,y=y),inherit.aes=FALSE,size=2.5,col="red"
+  ) +
+  theme_ucl() + theme(legend.position="none") 
 ```
 
 ## Study Limitations
