@@ -919,7 +919,7 @@ BCEA::contour(m,graph="ggplot2") +  ylab("Incremental cost (£1,000,000)") +
 {{< include assets/thankyou.qmd >}}
 :::
 
-## Discounting
+## Discounting {visibility="uncounted"}
 
 :::: {.columns}
 ::: {.column width="45%"}
