@@ -426,8 +426,8 @@ Move people around according to the relationship $\bm{m}_{3}=\bm{m}_{2}\bm\Lambd
 ::::
 ::::::
 
-## Bayesian Multinomial-logistic ITS: $w$elfare status
-   
+## Bayesian Multinomial-logistic ITS: $w$elfare status {#model}
+
 - For individuals $i = 1, 2, \ldots, n$, residing in a LSOA region $r_{i}$, belonging to a stratification group $k_{i}$, assigned to a PSU group $\psi_{i}$ and observed over time points $t$
 $$
 \begin{aligned}
@@ -442,9 +442,9 @@ $$
 - Structured terms
   - [Random effects by stratification group, PSUs and LSOAs]{.blue} to control for neighborhood and regional variations (ensuring results are not just reflecting local geography)
   - [Random effects to account for temporal variability and individual heterogeneity]{.purple}
-  - [Cubic B-splines]{.orange} to map complex, non-linear population changes across the 2009-2020 timeline
+  - [[[Cubic B-splines](#model-specification)]{.orange}]{.no-link} to map complex, non-linear population changes across the 2009-2020 timeline
 
-## Bayesian Multinomial-logistic ITS: $w$ell $b$eing status {visibility="uncounted"}
+## Bayesian Multinomial-logistic ITS: $w$ell $b$eing status {#model2 visibility="uncounted"}
 
 `r vspace("-30px")`
 
@@ -464,7 +464,7 @@ $$
   - [Cubic B-splines]{.orange} to map complex, non-linear population changes across the 2009-2020 timeline
   - [Benefits effect]{.samp-red}: shifts the log-odds of a well-being transition if the individual is currently receiving benefits (= in state $q=7$)
   
-- Use minimally informative priors + Variational Inference to generate 1000 joint posterior samples
+- Use [[minimally informative priors](#prior-distributions)]{.no-link} + [[Variational Inference](#variational-inference)]{.no-link} to generate 1000 joint posterior samples
 
 ## Key simulation results: well-being
 
@@ -813,7 +813,7 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
 - Adapts standard Health Technology Assessment (HTA) principles to measure the financial cost per unit of human well-being achieved by each system
   - Benefits = expected number of life-years an individual spends in the completely hardship-free At Risk (AR) baseline state
   - Costs = total cost for those in receipt of benefits
-  - Both [discounted](#discounting) at 3.5% yearly, in line with NICE suggestions
+  - Both [[discounted](#discounting)]{.no-link} at 3.5% yearly, in line with NICE suggestions
 
 ::: {.fragment fragment-index="1" style="margin-bottom: 30px"}
 ```{r}
@@ -919,6 +919,65 @@ BCEA::contour(m,graph="ggplot2") +  ylab("Incremental cost (£1,000,000)") +
 {{< include assets/thankyou.qmd >}}
 :::
 
+# Back up slides {.divider visibility="uncounted"}
+
+## Model specification {visibility="uncounted"}
+
+[
+$$
+\begin{aligned}
+f^{h}_{\txt{Exposed}^{i}}(t)  = & \sum_{m=1}^{M}B_{m}(t)\left(\alpha_{m,\txt{NB}}^{h} + \alpha_{m,\txt{LW}}^{h}\mathbb{I}(\txt{Exposed}^{i}=\txt{LW}) + \alpha_{m,\txt{UC}}^{h}\mathbb{I}(\txt{Exposed}^{i}=\txt{UC})\right)
+\end{aligned}
+$$]{.myblue}
+
+- $h$ indicates the state in the Markov model
+- $M$ is the total number of basis functions -- set to $M=7$
+- $B_m(t)$ is the $m$-th basis function at time $t$. These are cubic splines -- capture non-linearity
+- $\alpha_{m,\txt{NB}}^{h}, \alpha_{m,\txt{LW}}^{h}, \alpha_{m,\txt{UC}}^{h} \stackrel{iid}{\sim} \dnorm(0,v)$ are the spline coefficients
+
+`r vspace("20px")`
+
+[
+$$
+f^{h}_{\txt{Intervention}^{i,t}} = \sum_{m=1}^{M} B_{m}(t) \left( \omega_{m,\txt{Mig}}^{h} \txt{Intervention}_{\txt{Mig},i,t} + \omega_{m,\txt{New}}^{h} \txt{Intervention}_{\txt{New},i,t} \right)
+$$]{.myblue}
+
+- $\txt{Intervention}_{\txt{Mig},i,t}$ is a binary indicator for individuals who transitioned from LW to UC
+- $\txt{Intervention}_{\txt{New},i,t}$ is a binary indicator for individuals who initiated a new UC claim from the NB population
+- $\omega_{m,\txt{Mig}}^{h}, \omega_{m,\txt{New}}^{h} \stackrel{iid}{\sim} \dnorm(0,v)$ are the spline coefficients
+
+
+{{< fa arrow-left >}} [Back to slides](#model)
+
+## Prior distributions {visibility="uncounted"}
+
+- Unstructured effects
+   - $\bm\beta^q, \bm\beta^s, \theta^s \stackrel{iid}{\sim} \dnorm(0,v)$
+- Individual heterogeneity
+   - $e_{i}^{s} \sim \dnorm(0,\sigma_{e}^{s})$ and $e_{i}^{ q} \sim \text{Normal}(0, \sigma_{e}^{q})$, with $\sigma_{e}^{s}, \sigma_{e}^{q} \stackrel{iid}{\sim} \txt{Half-Normal}(0, v)$
+- Random effect by PSU
+   - $\zeta_{\psi_{i}}^{s} \sim \dnorm(0,\sigma_{\zeta}^{s})$ and $\zeta_{\psi_{i}}^{q} \sim \text{Normal}(0, \sigma_{\zeta}^{q})$, with $\sigma_{\zeta}^{s}, \sigma_{\zeta}^{q} \stackrel{iid}{\sim} \txt{Half-Normal}(0, v)$
+- Random effect by stratification group
+   - $\nu_{k_{i}}^{s} \sim \dnorm(0,\sigma_{\nu}^{s})$ and $\nu_{k_{i}}^{q} \sim \text{Normal}(0, \sigma_{\nu}^{q})$, with $\sigma_{\nu}^{s}, \sigma_{\nu}^{q} \stackrel{iid}{\sim} \txt{Half-Normal}(0, v)$
+- Linear trend
+   - $\delta_t^s \sim \dnorm(0,\sigma_{\delta}^{s})$, with $\sigma_{\delta}^{s} \sim \txt{Half-Normal}(0,v)$
+- LSOA spatial effects
+   - $\gamma_{r_{i}}^{s} \sim \txt{BYM2} \Rightarrow$ specifically designed to account for spatial correlation
+
+{{< fa arrow-left >}} [Back to slides](#model2)
+
+## Variational inference {visibility="uncounted"}
+
+- Bayesian inference needs the posterior $p(\theta \mid y)$, but exact computation is often intractable and MCMC can be too slow for large or complex models
+- Variational inference (VI) turns inference into optimisation
+   - Pick a simple family $q_\phi(\theta)$ and find $\phi$ minimising $\txt{KL}\left(q_\phi \mid\mid p(\theta \mid y)\right)$
+   - In `Stan`, transforms constrained parameters to an unconstrained space, then use a Normal distribution for $q_\phi$
+   - Optimisation uses automatic differentiation, so no model-specific derivation is needed
+- Much faster than MCMC, but approximated inference 
+   - In complex cases, might understate uncertainty, with no general convergence guarantee
+
+{{< fa arrow-left >}} [Back to slides](#model2)
+
 ## Discounting {visibility="uncounted"}
 
 :::: {.columns}
@@ -946,5 +1005,6 @@ $$
 ]{.myblue}
 :::
 ::::
+
 
 {{< fa arrow-left >}} [Back to slides](#economic-evaluation)

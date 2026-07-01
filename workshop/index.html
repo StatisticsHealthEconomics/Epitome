@@ -38,7 +38,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-9939cc1c745a8e53c3914db3a274c595.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-552c2e5628eff58afc6ea3ee19a150d4.css">
   <link rel="stylesheet" href="./css/fonts.css">
   <link rel="stylesheet" href="./css/common.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -526,7 +526,7 @@ li:has(> .semi-transparent)::marker {
 </div>
 </div></div>
 </section>
-<section id="bayesian-multinomial-logistic-its-welfare-status" class="slide level2">
+<section id="model" class="slide level2">
 <h2>Bayesian Multinomial-logistic ITS: <span class="math inline">\(w\)</span>elfare status</h2>
 <ul>
 <li><p>For individuals <span class="math inline">\(i = 1, 2, \ldots, n\)</span>, residing in a LSOA region <span class="math inline">\(r_{i}\)</span>, belonging to a stratification group <span class="math inline">\(k_{i}\)</span>, assigned to a PSU group <span class="math inline">\(\psi_{i}\)</span> and observed over time points <span class="math inline">\(t\)</span> <span class="math display">\[
@@ -542,11 +542,11 @@ li:has(> .semi-transparent)::marker {
 <ul>
 <li><span class="blue">Random effects by stratification group, PSUs and LSOAs</span> to control for neighborhood and regional variations (ensuring results are not just reflecting local geography)</li>
 <li><span class="purple">Random effects to account for temporal variability and individual heterogeneity</span></li>
-<li><span class="orange">Cubic B-splines</span> to map complex, non-linear population changes across the 2009-2020 timeline</li>
+<li><span class="no-link"><span class="orange"><a href="#/model-specification">Cubic B-splines</a></span></span> to map complex, non-linear population changes across the 2009-2020 timeline</li>
 </ul></li>
 </ul>
 </section>
-<section id="bayesian-multinomial-logistic-its-well-being-status" class="slide level2" data-visibility="uncounted">
+<section id="model2" class="slide level2" data-visibility="uncounted">
 <h2>Bayesian Multinomial-logistic ITS: <span class="math inline">\(w\)</span>ell <span class="math inline">\(b\)</span>eing status</h2>
 <p><span style="display:block; margin-top: -30px ;"></span></p>
 <p><span class="math display">\[
@@ -566,7 +566,7 @@ li:has(> .semi-transparent)::marker {
 <li><span class="orange">Cubic B-splines</span> to map complex, non-linear population changes across the 2009-2020 timeline</li>
 <li><span class="samp-red">Benefits effect</span>: shifts the log-odds of a well-being transition if the individual is currently receiving benefits (= in state <span class="math inline">\(q=7\)</span>)</li>
 </ul></li>
-<li>Use minimally informative priors + Variational Inference to generate 1000 joint posterior samples</li>
+<li>Use <span class="no-link"><a href="#/prior-distributions">minimally informative priors</a></span> + <span class="no-link"><a href="#/variational-inference">Variational Inference</a></span> to generate 1000 joint posterior samples</li>
 </ul>
 </section>
 <section id="key-simulation-results-well-being" class="slide level2">
@@ -630,7 +630,7 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
 <ul>
 <li>Benefits = expected number of life-years an individual spends in the completely hardship-free At Risk (AR) baseline state</li>
 <li>Costs = total cost for those in receipt of benefits</li>
-<li>Both <a href="#/discounting">discounted</a> at 3.5% yearly, in line with NICE suggestions</li>
+<li>Both <span class="no-link"><a href="#/discounting">discounted</a></span> at 3.5% yearly, in line with NICE suggestions</li>
 </ul></li>
 </ul>
 <div class="fragment" data-fragment-index="1" style="margin-bottom: 30px">
@@ -642,26 +642,26 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_2a47tu7lz4yidhypt447 = TinyTable.createTableFunctions("tinytable_2a47tu7lz4yidhypt447");
+      const tableFns_fnhk2jszqj22yb5erf5v = TinyTable.createTableFunctions("tinytable_fnhk2jszqj22yb5erf5v");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '2', j: 4 }, { i: '2', j: 5 } ], css_id: 'tinytable_css_hq1ozhrdsczd293c6u3l',}, 
-          { positions: [ { i: '1', j: 4 }, { i: '1', j: 5 } ], css_id: 'tinytable_css_nc28zfin53puf5kcbqwj',}, 
-          { positions: [ { i: '0', j: 4 }, { i: '0', j: 5 } ], css_id: 'tinytable_css_j5wkm6pih9oma8fiscjo',}, 
-          { positions: [ { i: '2', j: 2 }, { i: '2', j: 3 } ], css_id: 'tinytable_css_55azzhhwj39mwiku1xo8',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '1', j: 3 } ], css_id: 'tinytable_css_oq9oogo83s8maywfga5i',}, 
-          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 } ], css_id: 'tinytable_css_m08v2hupja3k44goj255',}, 
-          { positions: [ { i: '2', j: 1 }, { i: '2', j: 6 } ], css_id: 'tinytable_css_9jgxmiq81y9xvg97zxc2',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '1', j: 6 } ], css_id: 'tinytable_css_97makz9gjzmfiqim7boe',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 6 } ], css_id: 'tinytable_css_eczz3m8klbeomd0z9vpi',}, 
+          { positions: [ { i: '2', j: 4 }, { i: '2', j: 5 } ], css_id: 'tinytable_css_37i0aonlubrtj8uerb1a',}, 
+          { positions: [ { i: '1', j: 4 }, { i: '1', j: 5 } ], css_id: 'tinytable_css_fysjucjmgea4vg3fy9kk',}, 
+          { positions: [ { i: '0', j: 4 }, { i: '0', j: 5 } ], css_id: 'tinytable_css_cfjgcj5m3pulkib0szev',}, 
+          { positions: [ { i: '2', j: 2 }, { i: '2', j: 3 } ], css_id: 'tinytable_css_9255yqjadcxd3mc6erzu',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '1', j: 3 } ], css_id: 'tinytable_css_sykyb4j2ceqjm1rckj9r',}, 
+          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 } ], css_id: 'tinytable_css_3g0hwrg4klb6tezc2eyp',}, 
+          { positions: [ { i: '2', j: 1 }, { i: '2', j: 6 } ], css_id: 'tinytable_css_l7lqkeyffoox6svtkhn6',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '1', j: 6 } ], css_id: 'tinytable_css_cjwvs43jslibaoj0pfkk',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 6 } ], css_id: 'tinytable_css_2ljoj3caqu5cl9td0bq0',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_2a47tu7lz4yidhypt447.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_fnhk2jszqj22yb5erf5v.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -670,18 +670,18 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_2a47tu7lz4yidhypt447 td.tinytable_css_hq1ozhrdsczd293c6u3l, #tinytable_2a47tu7lz4yidhypt447 th.tinytable_css_hq1ozhrdsczd293c6u3l {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 23%; }
-    #tinytable_2a47tu7lz4yidhypt447 td.tinytable_css_nc28zfin53puf5kcbqwj, #tinytable_2a47tu7lz4yidhypt447 th.tinytable_css_nc28zfin53puf5kcbqwj { width: 23%; }
-    #tinytable_2a47tu7lz4yidhypt447 td.tinytable_css_j5wkm6pih9oma8fiscjo, #tinytable_2a47tu7lz4yidhypt447 th.tinytable_css_j5wkm6pih9oma8fiscjo {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 23%; }
-    #tinytable_2a47tu7lz4yidhypt447 td.tinytable_css_55azzhhwj39mwiku1xo8, #tinytable_2a47tu7lz4yidhypt447 th.tinytable_css_55azzhhwj39mwiku1xo8 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 16%; }
-    #tinytable_2a47tu7lz4yidhypt447 td.tinytable_css_oq9oogo83s8maywfga5i, #tinytable_2a47tu7lz4yidhypt447 th.tinytable_css_oq9oogo83s8maywfga5i { width: 16%; }
-    #tinytable_2a47tu7lz4yidhypt447 td.tinytable_css_m08v2hupja3k44goj255, #tinytable_2a47tu7lz4yidhypt447 th.tinytable_css_m08v2hupja3k44goj255 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 16%; }
-    #tinytable_2a47tu7lz4yidhypt447 td.tinytable_css_9jgxmiq81y9xvg97zxc2, #tinytable_2a47tu7lz4yidhypt447 th.tinytable_css_9jgxmiq81y9xvg97zxc2 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 11%; }
-    #tinytable_2a47tu7lz4yidhypt447 td.tinytable_css_97makz9gjzmfiqim7boe, #tinytable_2a47tu7lz4yidhypt447 th.tinytable_css_97makz9gjzmfiqim7boe { width: 11%; }
-    #tinytable_2a47tu7lz4yidhypt447 td.tinytable_css_eczz3m8klbeomd0z9vpi, #tinytable_2a47tu7lz4yidhypt447 th.tinytable_css_eczz3m8klbeomd0z9vpi {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 11%; }
+    #tinytable_fnhk2jszqj22yb5erf5v td.tinytable_css_37i0aonlubrtj8uerb1a, #tinytable_fnhk2jszqj22yb5erf5v th.tinytable_css_37i0aonlubrtj8uerb1a {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 23%; }
+    #tinytable_fnhk2jszqj22yb5erf5v td.tinytable_css_fysjucjmgea4vg3fy9kk, #tinytable_fnhk2jszqj22yb5erf5v th.tinytable_css_fysjucjmgea4vg3fy9kk { width: 23%; }
+    #tinytable_fnhk2jszqj22yb5erf5v td.tinytable_css_cfjgcj5m3pulkib0szev, #tinytable_fnhk2jszqj22yb5erf5v th.tinytable_css_cfjgcj5m3pulkib0szev {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 23%; }
+    #tinytable_fnhk2jszqj22yb5erf5v td.tinytable_css_9255yqjadcxd3mc6erzu, #tinytable_fnhk2jszqj22yb5erf5v th.tinytable_css_9255yqjadcxd3mc6erzu {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 16%; }
+    #tinytable_fnhk2jszqj22yb5erf5v td.tinytable_css_sykyb4j2ceqjm1rckj9r, #tinytable_fnhk2jszqj22yb5erf5v th.tinytable_css_sykyb4j2ceqjm1rckj9r { width: 16%; }
+    #tinytable_fnhk2jszqj22yb5erf5v td.tinytable_css_3g0hwrg4klb6tezc2eyp, #tinytable_fnhk2jszqj22yb5erf5v th.tinytable_css_3g0hwrg4klb6tezc2eyp {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 16%; }
+    #tinytable_fnhk2jszqj22yb5erf5v td.tinytable_css_l7lqkeyffoox6svtkhn6, #tinytable_fnhk2jszqj22yb5erf5v th.tinytable_css_l7lqkeyffoox6svtkhn6 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 11%; }
+    #tinytable_fnhk2jszqj22yb5erf5v td.tinytable_css_cjwvs43jslibaoj0pfkk, #tinytable_fnhk2jszqj22yb5erf5v th.tinytable_css_cjwvs43jslibaoj0pfkk { width: 11%; }
+    #tinytable_fnhk2jszqj22yb5erf5v td.tinytable_css_2ljoj3caqu5cl9td0bq0, #tinytable_fnhk2jszqj22yb5erf5v th.tinytable_css_2ljoj3caqu5cl9td0bq0 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 11%; }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_2a47tu7lz4yidhypt447" style="table-layout: fixed; width: 100%; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_fnhk2jszqj22yb5erf5v" style="table-layout: fixed; width: 100%; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <caption>Posterior sample summaries of the mean and 95% credible interval of costs in millions of pounds, life-years spent on AR, change in costs, change in benefits, and the ICER between UC and LW</caption>
         <thead>
               <tr>
@@ -811,13 +811,89 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
 <!-- this adds an empty slide with the "Thank you" gif selected in the yml of the talk -->
 </div>
 </section></section>
-<section>
 <section id="section" class="title-slide slide level1 thank-you center" data-background-image="images/reese.gif" data-background="#002248" data-footer="false">
 <h1></h1>
 <!--
 ::: {.footer style="background-color: transparent!important; background: transparent!important"}
 :::
 -->
+</section>
+
+<section>
+<section id="back-up-slides" class="title-slide slide level1 divider center" data-visibility="uncounted">
+<h1>Back up slides</h1>
+
+</section>
+<section id="model-specification" class="slide level2" data-visibility="uncounted">
+<h2>Model specification</h2>
+<p><span class="myblue"><span class="math display">\[
+\begin{aligned}
+f^{h}_{\txt{Exposed}^{i}}(t)  = &amp; \sum_{m=1}^{M}B_{m}(t)\left(\alpha_{m,\txt{NB}}^{h} + \alpha_{m,\txt{LW}}^{h}\mathbb{I}(\txt{Exposed}^{i}=\txt{LW}) + \alpha_{m,\txt{UC}}^{h}\mathbb{I}(\txt{Exposed}^{i}=\txt{UC})\right)
+\end{aligned}
+\]</span></span></p>
+<ul>
+<li><span class="math inline">\(h\)</span> indicates the state in the Markov model</li>
+<li><span class="math inline">\(M\)</span> is the total number of basis functions – set to <span class="math inline">\(M=7\)</span></li>
+<li><span class="math inline">\(B_m(t)\)</span> is the <span class="math inline">\(m\)</span>-th basis function at time <span class="math inline">\(t\)</span>. These are cubic splines – capture non-linearity</li>
+<li><span class="math inline">\(\alpha_{m,\txt{NB}}^{h}, \alpha_{m,\txt{LW}}^{h}, \alpha_{m,\txt{UC}}^{h} \stackrel{iid}{\sim} \dnorm(0,v)\)</span> are the spline coefficients</li>
+</ul>
+<p><span style="display:block; margin-top: 20px ;"></span></p>
+<p><span class="myblue"><span class="math display">\[
+f^{h}_{\txt{Intervention}^{i,t}} = \sum_{m=1}^{M} B_{m}(t) \left( \omega_{m,\txt{Mig}}^{h} \txt{Intervention}_{\txt{Mig},i,t} + \omega_{m,\txt{New}}^{h} \txt{Intervention}_{\txt{New},i,t} \right)
+\]</span></span></p>
+<ul>
+<li><span class="math inline">\(\txt{Intervention}_{\txt{Mig},i,t}\)</span> is a binary indicator for individuals who transitioned from LW to UC</li>
+<li><span class="math inline">\(\txt{Intervention}_{\txt{New},i,t}\)</span> is a binary indicator for individuals who initiated a new UC claim from the NB population</li>
+<li><span class="math inline">\(\omega_{m,\txt{Mig}}^{h}, \omega_{m,\txt{New}}^{h} \stackrel{iid}{\sim} \dnorm(0,v)\)</span> are the spline coefficients</li>
+</ul>
+<p><i class="fa-solid fa-arrow-left" aria-label="arrow-left"></i> <a href="#/model">Back to slides</a></p>
+</section>
+<section id="prior-distributions" class="slide level2" data-visibility="uncounted">
+<h2>Prior distributions</h2>
+<ul>
+<li>Unstructured effects
+<ul>
+<li><span class="math inline">\(\bm\beta^q, \bm\beta^s, \theta^s \stackrel{iid}{\sim} \dnorm(0,v)\)</span></li>
+</ul></li>
+<li>Individual heterogeneity
+<ul>
+<li><span class="math inline">\(e_{i}^{s} \sim \dnorm(0,\sigma_{e}^{s})\)</span> and <span class="math inline">\(e_{i}^{ q} \sim \text{Normal}(0, \sigma_{e}^{q})\)</span>, with <span class="math inline">\(\sigma_{e}^{s}, \sigma_{e}^{q} \stackrel{iid}{\sim} \txt{Half-Normal}(0, v)\)</span></li>
+</ul></li>
+<li>Random effect by PSU
+<ul>
+<li><span class="math inline">\(\zeta_{\psi_{i}}^{s} \sim \dnorm(0,\sigma_{\zeta}^{s})\)</span> and <span class="math inline">\(\zeta_{\psi_{i}}^{q} \sim \text{Normal}(0, \sigma_{\zeta}^{q})\)</span>, with <span class="math inline">\(\sigma_{\zeta}^{s}, \sigma_{\zeta}^{q} \stackrel{iid}{\sim} \txt{Half-Normal}(0, v)\)</span></li>
+</ul></li>
+<li>Random effect by stratification group
+<ul>
+<li><span class="math inline">\(\nu_{k_{i}}^{s} \sim \dnorm(0,\sigma_{\nu}^{s})\)</span> and <span class="math inline">\(\nu_{k_{i}}^{q} \sim \text{Normal}(0, \sigma_{\nu}^{q})\)</span>, with <span class="math inline">\(\sigma_{\nu}^{s}, \sigma_{\nu}^{q} \stackrel{iid}{\sim} \txt{Half-Normal}(0, v)\)</span></li>
+</ul></li>
+<li>Linear trend
+<ul>
+<li><span class="math inline">\(\delta_t^s \sim \dnorm(0,\sigma_{\delta}^{s})\)</span>, with <span class="math inline">\(\sigma_{\delta}^{s} \sim \txt{Half-Normal}(0,v)\)</span></li>
+</ul></li>
+<li>LSOA spatial effects
+<ul>
+<li><span class="math inline">\(\gamma_{r_{i}}^{s} \sim \txt{BYM2} \Rightarrow\)</span> specifically designed to account for spatial correlation</li>
+</ul></li>
+</ul>
+<p><i class="fa-solid fa-arrow-left" aria-label="arrow-left"></i> <a href="#/model2">Back to slides</a></p>
+</section>
+<section id="variational-inference" class="slide level2" data-visibility="uncounted">
+<h2>Variational inference</h2>
+<ul>
+<li>Bayesian inference needs the posterior <span class="math inline">\(p(\theta \mid y)\)</span>, but exact computation is often intractable and MCMC can be too slow for large or complex models</li>
+<li>Variational inference (VI) turns inference into optimisation
+<ul>
+<li>Pick a simple family <span class="math inline">\(q_\phi(\theta)\)</span> and find <span class="math inline">\(\phi\)</span> minimising <span class="math inline">\(\txt{KL}\left(q_\phi \mid\mid p(\theta \mid y)\right)\)</span></li>
+<li>In <code>Stan</code>, transforms constrained parameters to an unconstrained space, then use a Normal distribution for <span class="math inline">\(q_\phi\)</span></li>
+<li>Optimisation uses automatic differentiation, so no model-specific derivation is needed</li>
+</ul></li>
+<li>Much faster than MCMC, but approximated inference
+<ul>
+<li>In complex cases, might understate uncertainty, with no general convergence guarantee</li>
+</ul></li>
+</ul>
+<p><i class="fa-solid fa-arrow-left" aria-label="arrow-left"></i> <a href="#/model2">Back to slides</a></p>
 </section>
 <section id="discounting" class="slide level2" data-visibility="uncounted">
 <h2>Discounting</h2>
