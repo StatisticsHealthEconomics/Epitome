@@ -971,9 +971,19 @@ $$]{.myblue}
 - Bayesian inference needs the posterior $p(\theta \mid y)$, but exact computation is often intractable and MCMC can be too slow for large or complex models
 - Variational inference (VI) turns inference into optimisation
    - Pick a simple family $q_\phi(\theta)$ and find $\phi$ minimising $\txt{KL}\left(q_\phi \mid\mid p(\theta \mid y)\right)$
-   - In `Stan`, transforms constrained parameters to an unconstrained space, then use a Normal distribution for $q_\phi$
-   - Optimisation uses automatic differentiation, so no model-specific derivation is needed
-- Much faster than MCMC, but approximated inference 
+   [
+   $$
+   \begin{aligned}
+   \txt{KL}\left(q_\phi \mid\mid p(\theta \mid y)\right) =& \txt{E}_{q_\phi}\left[\log q_\phi(\theta) - \log p(\theta \mid y)\right] \\
+   =& \txt{E}_{q_\phi}\left[\log q_\phi(\theta) - \log p(\theta)p(y \mid \theta) + \log p(y)\right] \\
+   =& \underbrace{\txt{E}_{q_\phi}\left[\log q_\phi(\theta) - \log p(\theta)p(y \mid \theta)\right]}_{-\txt{Evidence Lower BOund}(\phi)} + \log p(y) \\[5pt]
+   \log p(y) = & \txt{ELBO}(\phi) + \txt{KL}\left(q_\phi(\theta) \mid\mid p(\theta \mid y)\right)
+   \end{aligned}
+   $$]{.myblue}
+   - Since $\txt{KL}>0$ and $p(y)$ is constant (wrt to $\phi$), maximising $\txt{ELBO}(\phi)$ is equivalent to minimising $\txt{KL}\left(q_\phi \mid\mid p(\theta \mid y)\right)$ 
+   - `Stan` transforms constrained parameters to an unconstrained space, then use a Normal distribution for $q_\phi$
+- Optimisation uses automatic differentiation, so no model-specific derivation is needed
+   - Much faster than MCMC, but approximated inference 
    - In complex cases, might understate uncertainty, with no general convergence guarantee
 
 {{< fa arrow-left >}} [Back to slides](#model2)
