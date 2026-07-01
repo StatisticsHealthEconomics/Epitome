@@ -106,7 +106,7 @@ source("assets/setup.R")
 
 This presentation is a summary of the work conducted in Work-Package 4
 
-- I can take all the credit (...), but in reality, this has been driven by the fantastic work of **Ioannis Rotous**
+- I can take all the credit (:wink:), but in reality, this has been driven by the fantastic work of **Ioannis Rotous**
 - Key contributions to this work have arrived from all the other EPITOME researchers (e.g. in discussions for the methodological framework to represent the underlying processes, as well as for the formalisation of the statistical modelling)
 
 ::: {.aside}
@@ -148,8 +148,8 @@ li:has(> .semi-transparent)::marker {
 
 ### Context
 
-- **The Legacy System** (LW): A complex, post-WWII evolved safety net that often required multiple, non-integrated applications for different areas of support
-- **The Reform Goal**: The 2010s policy shift aimed to replace this administrative complexity with Universal Credit (UC) -- a single, integrated payment structure
+- The [**Legacy Welfare**]{.samp-blue} (LW) system is a complex, post-WWII evolved safety net that often required multiple, non-integrated applications for different areas of support
+- The 2010s policy shift aimed to replace this administrative complexity with [**Universal Credit**]{.samp-red} (UC) -- a single, integrated payment structure
 - Primary Policy Aims:
   - *Efficiency*. Streamline administration to reduce system errors and fraud
   - *Incentive*. Create a "work-first" culture by smoothing the transition from benefit dependency to employment
@@ -213,6 +213,7 @@ For instance:
 
 - $\lambda_{14} =$ general (healthy) population mortality $\Rightarrow$ Relevant data: Life tables/official records, . . .
 - $\lambda_{24} =$ disease-specific mortality $\Rightarrow$ Relevant data: Trial/observational studies, . . .
+- $\lambda_{44} =1$. Assumes no zombies. . .
 - $\ldots$
 
 ## Multi-state/Markov models {visibility="uncounted"}
@@ -296,11 +297,13 @@ Move people around according to the relationship $\bm{m}_{3}=\bm{m}_{2}\bm\Lambd
 - Longitudinal data from [Understanding Society (UKHLS)](https://www.understandingsociety.ac.uk/), 40,000+ households tracked since 2009
   - Focus on working-age (16-64) individuals in Great Britain
   - Exclude those with pre-existing lifetime illnesses or disabilities to ensure results reflect policy impacts rather than health crises
+  - Stratified sampling design: 108 geographical strata, with primary sampling units (PSUs) selected on either postcode sectors or groups of postcode sectors and systematic sampling within each PSU
 - Study cohorts:
   - Universal Credit (6%): exposed to UC between 2013-2020
   - Legacy Welfare (40%): exclusive to the old benefit system
   - No Benefit (54%): never claimed support
   
+
 `r vspace("30px")`
 
 - **NB**: UC rollout was administratively mandated, not triggered by personal life shocks, allowing us to evaluate the effects of the policy change
@@ -791,7 +794,7 @@ ggplot(d, aes(x = year_dodge, y = mean, colour = benefit, group = benefit)) +
 :::
 
 ::: {.column width="35%"}
-- System performance is measured by fluidity, how effectively a system helps claimants transition off benefits (Welfare Exit) vs keeping them trapped (Welfare Entry)
+- Performance measured by **fluidity**: how effectively a system helps claimants transition off benefits (Welfare Exit) vs keeping them trapped (Welfare Entry)
 - UC triggered a sharp, continuous drop in welfare exit rates starting in 2013-2014, falling far below the stable exit rates of LW
 - Low exit rates affect both migrated and new claimants, proving the decline is a systemic feature of UC rather than just a result of personal life shocks
 - Drop in exit capacity is universal across genders, but is most severe among male new claimants
@@ -810,7 +813,7 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
 - Adapts standard Health Technology Assessment (HTA) principles to measure the financial cost per unit of human well-being achieved by each system
   - Benefits = expected number of life-years an individual spends in the completely hardship-free At Risk (AR) baseline state
   - Costs = total cost for those in receipt of benefits
-  - Both discounted at 3.5% yearly, in line with NICE suggestions
+  - Both [discounted](#discounting) at 3.5% yearly, in line with NICE suggestions
 
 ::: {.fragment fragment-index="1" style="margin-bottom: 30px"}
 ```{r}
@@ -915,3 +918,33 @@ BCEA::contour(m,graph="ggplot2") +  ylab("Incremental cost (£1,000,000)") +
 ::: {.content-hidden unless-meta="thank-you.show"}
 {{< include assets/thankyou.qmd >}}
 :::
+
+## Discounting
+
+:::: {.columns}
+::: {.column width="45%"}
+
+```{r}
+#| out-width: "100%"
+x=100
+d=0.03
+t=seq(0,15)
+tibble(t=t,value=x/((1+d)^t)) |> ggplot(aes(t,value)) + geom_col(width=.8) +
+  geom_text(aes(label = round(value, 1)), vjust = -0.3) +
+  xlab("Time (years)") + ylab("Discounted value")
+```
+:::
+
+::: {.column width="50%"}
+- When discounted at 3%, something that has a value of 100 today (time $t=0$) has a value of 97.1 at time $t=1$, 94.3 at time $t=2$, etc
+
+- In general:
+[
+$$
+\txt{Present value} = \sum_{t=0}^T \frac{\txt{Value}}{(1+\txt{Discount rate})^t}
+$$
+]{.myblue}
+:::
+::::
+
+{{< fa arrow-left >}} [Back to slides](#economic-evaluation)

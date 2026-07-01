@@ -252,7 +252,7 @@
 <h1>Disclaimer</h1>
 <p>This presentation is a summary of the work conducted in Work-Package 4</p>
 <ul>
-<li>I can take all the credit (…), but in reality, this has been driven by the fantastic work of <strong>Ioannis Rotous</strong></li>
+<li>I can take all the credit (<span class="emoji" data-emoji="wink">😉</span>), but in reality, this has been driven by the fantastic work of <strong>Ioannis Rotous</strong></li>
 <li>Key contributions to this work have arrived from all the other EPITOME researchers (e.g.&nbsp;in discussions for the methodological framework to represent the underlying processes, as well as for the formalisation of the statistical modelling)</li>
 </ul>
 
@@ -300,8 +300,8 @@ li:has(> .semi-transparent)::marker {
 <h2>Background</h2>
 <h3 id="context">Context</h3>
 <ul>
-<li><strong>The Legacy System</strong> (LW): A complex, post-WWII evolved safety net that often required multiple, non-integrated applications for different areas of support</li>
-<li><strong>The Reform Goal</strong>: The 2010s policy shift aimed to replace this administrative complexity with Universal Credit (UC) – a single, integrated payment structure</li>
+<li>The <span class="samp-blue"><strong>Legacy Welfare</strong></span> (LW) system is a complex, post-WWII evolved safety net that often required multiple, non-integrated applications for different areas of support</li>
+<li>The 2010s policy shift aimed to replace this administrative complexity with <span class="samp-red"><strong>Universal Credit</strong></span> (UC) – a single, integrated payment structure</li>
 <li>Primary Policy Aims:
 <ul>
 <li><em>Efficiency</em>. Streamline administration to reduce system errors and fraud</li>
@@ -383,6 +383,7 @@ li:has(> .semi-transparent)::marker {
 <ul>
 <li><span class="math inline">\(\lambda_{14} =\)</span> general (healthy) population mortality <span class="math inline">\(\Rightarrow\)</span> Relevant data: Life tables/official records, . . .</li>
 <li><span class="math inline">\(\lambda_{24} =\)</span> disease-specific mortality <span class="math inline">\(\Rightarrow\)</span> Relevant data: Trial/observational studies, . . .</li>
+<li><span class="math inline">\(\lambda_{44} =1\)</span>. Assumes no zombies. . .</li>
 <li><span class="math inline">\(\ldots\)</span></li>
 </ul>
 </section>
@@ -476,6 +477,7 @@ li:has(> .semi-transparent)::marker {
 <ul>
 <li>Focus on working-age (16-64) individuals in Great Britain</li>
 <li>Exclude those with pre-existing lifetime illnesses or disabilities to ensure results reflect policy impacts rather than health crises</li>
+<li>Stratified sampling design: 108 geographical strata, with primary sampling units (PSUs) selected on either postcode sectors or groups of postcode sectors and systematic sampling within each PSU</li>
 </ul></li>
 <li>Study cohorts:
 <ul>
@@ -610,7 +612,7 @@ Slide 10 in the original deck: panel plot (a)-(e) of proportion of individuals o
 </div>
 </div><div class="column" style="width:35%;">
 <ul>
-<li>System performance is measured by fluidity, how effectively a system helps claimants transition off benefits (Welfare Exit) vs keeping them trapped (Welfare Entry)</li>
+<li>Performance measured by <strong>fluidity</strong>: how effectively a system helps claimants transition off benefits (Welfare Exit) vs keeping them trapped (Welfare Entry)</li>
 <li>UC triggered a sharp, continuous drop in welfare exit rates starting in 2013-2014, falling far below the stable exit rates of LW</li>
 <li>Low exit rates affect both migrated and new claimants, proving the decline is a systemic feature of UC rather than just a result of personal life shocks</li>
 <li>Drop in exit capacity is universal across genders, but is most severe among male new claimants</li>
@@ -628,7 +630,7 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
 <ul>
 <li>Benefits = expected number of life-years an individual spends in the completely hardship-free At Risk (AR) baseline state</li>
 <li>Costs = total cost for those in receipt of benefits</li>
-<li>Both discounted at 3.5% yearly, in line with NICE suggestions</li>
+<li>Both <a href="#/discounting">discounted</a> at 3.5% yearly, in line with NICE suggestions</li>
 </ul></li>
 </ul>
 <div class="fragment" data-fragment-index="1" style="margin-bottom: 30px">
@@ -640,26 +642,26 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_qu97o5zz0zku1l2co00l = TinyTable.createTableFunctions("tinytable_qu97o5zz0zku1l2co00l");
+      const tableFns_pmoqi5mt3d6ilf6hdwbh = TinyTable.createTableFunctions("tinytable_pmoqi5mt3d6ilf6hdwbh");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '2', j: 4 }, { i: '2', j: 5 } ], css_id: 'tinytable_css_rxnsn2logz3avl1v943g',}, 
-          { positions: [ { i: '1', j: 4 }, { i: '1', j: 5 } ], css_id: 'tinytable_css_4yz8eqqpmpl0t9reomzh',}, 
-          { positions: [ { i: '0', j: 4 }, { i: '0', j: 5 } ], css_id: 'tinytable_css_rc9rltoerx0miyu6rjqs',}, 
-          { positions: [ { i: '2', j: 2 }, { i: '2', j: 3 } ], css_id: 'tinytable_css_2ryk9f0ky412km8l6es8',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '1', j: 3 } ], css_id: 'tinytable_css_jww41laep3gvubc1tfat',}, 
-          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 } ], css_id: 'tinytable_css_curnzac2y2zmnoc9z84p',}, 
-          { positions: [ { i: '2', j: 1 }, { i: '2', j: 6 } ], css_id: 'tinytable_css_octvssjvvtfcyxklmr5i',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '1', j: 6 } ], css_id: 'tinytable_css_7o2zzni83ln7czuh8zae',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 6 } ], css_id: 'tinytable_css_81bsj7k8i04vwausv82k',}, 
+          { positions: [ { i: '2', j: 4 }, { i: '2', j: 5 } ], css_id: 'tinytable_css_1hzjun1x88m2nhu0d9re',}, 
+          { positions: [ { i: '1', j: 4 }, { i: '1', j: 5 } ], css_id: 'tinytable_css_o500ma6x0lhopx8azc98',}, 
+          { positions: [ { i: '0', j: 4 }, { i: '0', j: 5 } ], css_id: 'tinytable_css_9hxllap2vxjsgnpk77tf',}, 
+          { positions: [ { i: '2', j: 2 }, { i: '2', j: 3 } ], css_id: 'tinytable_css_7z86euyfhvtvxzgyav2m',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '1', j: 3 } ], css_id: 'tinytable_css_x1xxk19tmnebjr54qwj9',}, 
+          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 } ], css_id: 'tinytable_css_jhw4sku9nqzhmcx7tcde',}, 
+          { positions: [ { i: '2', j: 1 }, { i: '2', j: 6 } ], css_id: 'tinytable_css_mwrzeinx59comekw9chr',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '1', j: 6 } ], css_id: 'tinytable_css_hsruwts08p2j0dy0k9ei',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 6 } ], css_id: 'tinytable_css_sf7lmxgrkqlfgrlseri9',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_qu97o5zz0zku1l2co00l.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_pmoqi5mt3d6ilf6hdwbh.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -668,18 +670,18 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_qu97o5zz0zku1l2co00l td.tinytable_css_rxnsn2logz3avl1v943g, #tinytable_qu97o5zz0zku1l2co00l th.tinytable_css_rxnsn2logz3avl1v943g {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 23%; }
-    #tinytable_qu97o5zz0zku1l2co00l td.tinytable_css_4yz8eqqpmpl0t9reomzh, #tinytable_qu97o5zz0zku1l2co00l th.tinytable_css_4yz8eqqpmpl0t9reomzh { width: 23%; }
-    #tinytable_qu97o5zz0zku1l2co00l td.tinytable_css_rc9rltoerx0miyu6rjqs, #tinytable_qu97o5zz0zku1l2co00l th.tinytable_css_rc9rltoerx0miyu6rjqs {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 23%; }
-    #tinytable_qu97o5zz0zku1l2co00l td.tinytable_css_2ryk9f0ky412km8l6es8, #tinytable_qu97o5zz0zku1l2co00l th.tinytable_css_2ryk9f0ky412km8l6es8 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 16%; }
-    #tinytable_qu97o5zz0zku1l2co00l td.tinytable_css_jww41laep3gvubc1tfat, #tinytable_qu97o5zz0zku1l2co00l th.tinytable_css_jww41laep3gvubc1tfat { width: 16%; }
-    #tinytable_qu97o5zz0zku1l2co00l td.tinytable_css_curnzac2y2zmnoc9z84p, #tinytable_qu97o5zz0zku1l2co00l th.tinytable_css_curnzac2y2zmnoc9z84p {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 16%; }
-    #tinytable_qu97o5zz0zku1l2co00l td.tinytable_css_octvssjvvtfcyxklmr5i, #tinytable_qu97o5zz0zku1l2co00l th.tinytable_css_octvssjvvtfcyxklmr5i {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 11%; }
-    #tinytable_qu97o5zz0zku1l2co00l td.tinytable_css_7o2zzni83ln7czuh8zae, #tinytable_qu97o5zz0zku1l2co00l th.tinytable_css_7o2zzni83ln7czuh8zae { width: 11%; }
-    #tinytable_qu97o5zz0zku1l2co00l td.tinytable_css_81bsj7k8i04vwausv82k, #tinytable_qu97o5zz0zku1l2co00l th.tinytable_css_81bsj7k8i04vwausv82k {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 11%; }
+    #tinytable_pmoqi5mt3d6ilf6hdwbh td.tinytable_css_1hzjun1x88m2nhu0d9re, #tinytable_pmoqi5mt3d6ilf6hdwbh th.tinytable_css_1hzjun1x88m2nhu0d9re {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 23%; }
+    #tinytable_pmoqi5mt3d6ilf6hdwbh td.tinytable_css_o500ma6x0lhopx8azc98, #tinytable_pmoqi5mt3d6ilf6hdwbh th.tinytable_css_o500ma6x0lhopx8azc98 { width: 23%; }
+    #tinytable_pmoqi5mt3d6ilf6hdwbh td.tinytable_css_9hxllap2vxjsgnpk77tf, #tinytable_pmoqi5mt3d6ilf6hdwbh th.tinytable_css_9hxllap2vxjsgnpk77tf {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 23%; }
+    #tinytable_pmoqi5mt3d6ilf6hdwbh td.tinytable_css_7z86euyfhvtvxzgyav2m, #tinytable_pmoqi5mt3d6ilf6hdwbh th.tinytable_css_7z86euyfhvtvxzgyav2m {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 16%; }
+    #tinytable_pmoqi5mt3d6ilf6hdwbh td.tinytable_css_x1xxk19tmnebjr54qwj9, #tinytable_pmoqi5mt3d6ilf6hdwbh th.tinytable_css_x1xxk19tmnebjr54qwj9 { width: 16%; }
+    #tinytable_pmoqi5mt3d6ilf6hdwbh td.tinytable_css_jhw4sku9nqzhmcx7tcde, #tinytable_pmoqi5mt3d6ilf6hdwbh th.tinytable_css_jhw4sku9nqzhmcx7tcde {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 16%; }
+    #tinytable_pmoqi5mt3d6ilf6hdwbh td.tinytable_css_mwrzeinx59comekw9chr, #tinytable_pmoqi5mt3d6ilf6hdwbh th.tinytable_css_mwrzeinx59comekw9chr {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 11%; }
+    #tinytable_pmoqi5mt3d6ilf6hdwbh td.tinytable_css_hsruwts08p2j0dy0k9ei, #tinytable_pmoqi5mt3d6ilf6hdwbh th.tinytable_css_hsruwts08p2j0dy0k9ei { width: 11%; }
+    #tinytable_pmoqi5mt3d6ilf6hdwbh td.tinytable_css_sf7lmxgrkqlfgrlseri9, #tinytable_pmoqi5mt3d6ilf6hdwbh th.tinytable_css_sf7lmxgrkqlfgrlseri9 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; width: 11%; }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_qu97o5zz0zku1l2co00l" style="table-layout: fixed; width: 100%; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_pmoqi5mt3d6ilf6hdwbh" style="table-layout: fixed; width: 100%; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <caption>Posterior sample summaries of the mean and 95% credible interval of costs in millions of pounds, life-years spent on AR, change in costs, change in benefits, and the ICER between UC and LW</caption>
         <thead>
               <tr>
@@ -809,14 +811,38 @@ Slide 12 in the original deck: line plot of proportion of individuals in Welfare
 <!-- this adds an empty slide with the "Thank you" gif selected in the yml of the talk -->
 </div>
 </section></section>
+<section>
 <section id="section" class="title-slide slide level1 thank-you center" data-background-image="images/reese.gif" data-background="#002248" data-footer="false">
 <h1></h1>
 <!--
 ::: {.footer style="background-color: transparent!important; background: transparent!important"}
 :::
 -->
-
 </section>
+<section id="discounting" class="slide level2">
+<h2>Discounting</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="index_files/figure-revealjs/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><p>When discounted at 3%, something that has a value of 100 today (time <span class="math inline">\(t=0\)</span>) has a value of 97.1 at time <span class="math inline">\(t=1\)</span>, 94.3 at time <span class="math inline">\(t=2\)</span>, etc</p></li>
+<li><p>In general: <span class="myblue"><span class="math display">\[
+\txt{Present value} = \sum_{t=0}^T \frac{\txt{Value}}{(1+\txt{Discount rate})^t}
+\]</span></span></p></li>
+</ul>
+</div></div>
+<p><i class="fa-solid fa-arrow-left" aria-label="arrow-left"></i> <a href="#/economic-evaluation">Back to slides</a></p>
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
